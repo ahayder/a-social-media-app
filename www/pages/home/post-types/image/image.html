@@ -1,28 +1,12 @@
-<!--<ion-item class="item-avatar item-icon-right" id="home-list-item15">
-    <h2>Item</h2>
-    <p style="white-space:normal;">this is line two this is line two this is line two this is line two this is line two</p>
-    <i class="icon ion-gear-b"></i>
-</ion-item>
-<div style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
-    <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
-</div>
-<div id="home-button-bar2" class="button-bar">
-    <button id="home-button19" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-thumbsup">Like</button>
-    <button id="home-button22" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-chatbox">Comments</button>
-    <button id="home-button23" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-android-share-alt">Share</button>
-</div>
--->
-
-
 <div class="card">
     <ion-item class="item-avatar item-icon-right" id="home-list-item15">
-        <img ng-src="{{vm.apiurl}}{{vm.ipost.owner_info.avatar}}">
-        <h2>{{vm.ipost.owner_info.full_name}}</h2>
-        <p style="white-space:normal;">{{vm.ipost.created_at.diffForHumans}}</p>
+        <img ng-src="{{vm.apiurl}}{{vm.post.owner_info.avatar}}">
+        <h2>{{vm.post.owner_info.full_name}}</h2>
+        <p style="white-space:normal;">{{vm.post.created_at.diffForHumans}}</p>
         <i class="icon ion-ios-arrow-down"></i>
     </ion-item>
-    <div class="item item-image" ng-repeat="image in vm.ipost.files">
-        <img ng-src="{{vm.apiurl}}{{image.file_path}}">
+    <div class="item item-image" ng-repeat="image in vm.post.files">
+        <img ng-src="{{vm.apiurl}}uploads/images/{{image.file_path}}">
     </div>
     <div id="home-button-bar2" class="button-bar">
         <button id="home-button19" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-thumbsup">Like</button>

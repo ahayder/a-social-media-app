@@ -5,8 +5,11 @@
         <p style="white-space:normal;">{{vm.post.created_at.diffForHumans}}</p>
         <i class="icon ion-ios-arrow-down"></i>
     </ion-item>
-    <div class="item item-text-wrap">
-        <p style="white-space:normal;">{{vm.post.text_body}}</p>
+    <div class="item item-icon-left" ng-repeat="file in vm.post.files">
+        <i class="icon ion-headphone"></i>
+        <audio controls>
+            <source ng-src="{{vm.trustSrc(vm.apiurl+'uploads/media/'+file.file_path)}}">
+        </audio>
     </div>
     <div id="home-button-bar2" class="button-bar">
         <button id="home-button19" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-thumbsup">Like</button>

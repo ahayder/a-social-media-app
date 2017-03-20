@@ -7,7 +7,7 @@ function imagePost() {
         restrict: 'E',
         templateUrl: 'pages/home/post-types/image/image.html',
         scope: {
-            ipost: '='
+            post: '='
         },
         link: linkFunc,
         controller: iController,

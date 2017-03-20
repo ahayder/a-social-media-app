@@ -7,7 +7,7 @@ function textPost() {
         restrict: 'E',
         templateUrl: 'pages/home/post-types/text/text.html',
         scope: {
-            tpost: '='
+            post: '='
         },
         link: linkFunc,
         controller: tController,

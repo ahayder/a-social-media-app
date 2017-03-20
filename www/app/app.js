@@ -17,6 +17,7 @@ angular.module('freemig', [
   'freemig.homeFactory',
   'freemig.textDirective',
   'freemig.imageDirective',
+  'freemig.audioDirective',
   'ngCordova',
   'ionic-toast',
   'ngStorage',

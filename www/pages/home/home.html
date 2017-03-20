@@ -23,9 +23,9 @@
     </div>
     <div class="list">
        <div ng-repeat="p in vm.feeds" ng-switch on="p.post.post_type">
-        <text-post ng-switch-when="text" tpost="p.post"></text-post>
-        <image-post ng-switch-when="images" ipost="p.post"></image-post>
-        
+        <text-post ng-switch-when="text" post="p.post"></text-post>
+        <image-post ng-switch-when="images" post="p.post"></image-post>
+        <audio-post ng-switch-when="audio" post="p.post"></audio-post>
       </div>
     </div>
    

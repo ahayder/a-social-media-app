@@ -26,13 +26,13 @@ function signinCtrl($http, SiginFactory, ionicToast, $cordovaGeolocation, $state
                     if($localStorage.user){$localStorage.user = "";}
                     $localStorage.user = response.data;
                     console.log($localStorage.user)
-                    ionicToast.show("You are logged in now", "top", true, 3000);
+                    ionicToast.show("You are logged in now", "top", false, 2000);
                     $state.go("tabs.home");
                 } else if(response.status === "5000"){
-                    ionicToast.show("Error! Please try again.", "top", true, 3000);
+                    ionicToast.show("Error! Please try again.", "top", false, 3000);
                     //error
                 } else if(response.status === "8000"){
-                    ionicToast.show("Error! Please try again.", "top", true, 3000);
+                    ionicToast.show("Error! Please try again.", "top", false, 3000);
                     //error
                 } else{
 
@@ -57,19 +57,19 @@ function signinCtrl($http, SiginFactory, ionicToast, $cordovaGeolocation, $state
                     switch(error.code){
                         case error.PERMISSION_DENIED:
                             //console.log("User denied the request for Geolocation.")
-                            ionicToast.show("Permission denied for position", "top", true, 3000);
+                            ionicToast.show("Pleasae share your position for better experience with Freemig", "top", false, 3000);
                             break;
                         case error.POSITION_UNAVAILABLE:
                             //console.log("Location information is unavailable.")
-                            ionicToast.show("Position unavailable", "top", true, 3000);
+                            ionicToast.show("Position unavailable", "top", false, 3000);
                             break;
                         case error.TIMEOUT:
                             //console.log("The request to get user location timed out.")
-                            ionicToast.show("Request Timeout", "top", true, 3000);
+                            ionicToast.show("Request Timeout", "top", false, 3000);
                             break;
                         case error.UNKNOWN_ERROR:
                             //console.log("An unknown error occurred.")
-                            ionicToast.show("Unknown error occured", "top", true, 3000);
+                            ionicToast.show("Unknown error occured", "top", false, 3000);
                             break;
                     }
                 });
