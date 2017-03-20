@@ -1,0 +1,16 @@
+<div class="card">
+    <ion-item class="item-avatar item-icon-right" id="home-list-item15">
+        <img ng-src="{{vm.apiurl}}{{vm.tpost.owner_info.avatar}}">
+        <h2>{{vm.tpost.owner_info.full_name}}</h2>
+        <p style="white-space:normal;">{{vm.tpost.created_at.diffForHumans}}</p>
+        <i class="icon ion-ios-arrow-down"></i>
+    </ion-item>
+    <div class="item item-text-wrap">
+        <p style="white-space:normal;">{{vm.tpost.text_body}}</p>
+    </div>
+    <div id="home-button-bar2" class="button-bar">
+        <button id="home-button19" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-thumbsup">Like</button>
+        <button id="home-button22" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-chatbox">Comments</button>
+        <button id="home-button23" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-android-share-alt">Share</button>
+    </div>
+</div>

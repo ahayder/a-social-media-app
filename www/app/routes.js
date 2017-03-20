@@ -3,61 +3,78 @@ angular.module('freemig.routes', [])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'pages/menu.html',
-    controller: 'AppCtrl'
-  })
+  // .state('app', {
+  //   url: '/app',
+  //   abstract: true,
+  //   templateUrl: 'pages/menu.html',
+  //   controller: 'AppCtrl'
+  // })
 
-  .state('app.signin', {
+  .state('signin', {
     url: '/signin',
-    views: {
-      'menuContent': {
-        templateUrl: 'pages/signin/login.html',
-        controller: "loginCtrl"
-      }
-    }
+    templateUrl: 'pages/signin/signin.html',
+    controller: "signinCtrl as vm"
   })
 
- .state('app.signup', {
+ .state('signup', {
     url: '/signup',
-    views: {
-      'menuContent': {
-        templateUrl: 'pages/signup/registration.html',
-        controller: "registrationCtrl"
-      }
-    }
+    templateUrl: 'pages/signup/registration.html',
+    controller: "registrationCtrl as vm"
+
   })
 
-  .state('app.forgot-pass', {
+  .state('forgot-pass', {
     url: '/forgot-pass',
+    templateUrl: 'pages/forgot-pass/forgot-pass.html',
+    controller: "forgotCtrl"
+  })
+
+  .state('tabs', {
+    url: '/tabs',
+    templateUrl: 'pages/tabs.html',
+    abstract:true
+  })
+
+  .state('tabs.home', {
+    url: '/home',
     views: {
-      'menuContent': {
-        templateUrl: 'pages/forgot-pass/forgot-pass.html',
-        controller: "forgotCtrl"
+      'tab1': {
+        templateUrl: 'pages/home/home.html',
+        controller: 'homeCtrl as vm'
       }
     }
   })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'pages/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  .state('tabs.notifications', {
+    url: '/notifications',
     views: {
-      'menuContent': {
-        templateUrl: 'pages/playlist.html',
-        controller: 'PlaylistCtrl'
+      'tab2': {
+        templateUrl: 'pages/templates/notifications.html',
+        controller: 'notificationsCtrl'
+      }
+    }
+  })
+
+  .state('tabs.friends', {
+    url: '/friends',
+    views: {
+      'tab3': {
+        templateUrl: 'pages/templates/friends.html',
+        controller: 'friendsCtrl'
+      }
+    }
+  })
+
+  .state('tabs.messages', {
+    url: '/messages',
+    views: {
+      'tab4': {
+        templateUrl: 'pages/templates/messages.html',
+        controller: 'messagesCtrl'
       }
     }
   });
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/signin');
+  $urlRouterProvider.otherwise('/signin');
 });

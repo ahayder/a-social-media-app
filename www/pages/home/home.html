@@ -1,0 +1,35 @@
+<ion-view title="Home" ng-cloak>
+  
+  <ion-content padding="true" class="has-header">
+    <div class="list card" id="home-card23">
+      <ion-item class="item-avatar item-icon-right" id="home-list-item11">
+        <h2>Item</h2>
+        <p style="white-space:normal;">this should the the input line</p>
+        <i class="icon ion-gear-b"></i>
+      </ion-item>
+      <form id="home-form1" class="list">
+        <label class="item item-input" id="home-textarea1">
+          <span class="input-label">Text</span><textarea placeholder=""></textarea></label>
+      </form>
+      <div id="home-button-bar1" class="button-bar">
+        <button id="home-button4" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-camera"></button>
+        <button id="home-button10" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-happy"></button>
+        <button id="home-button11" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-location"></button>
+        <button id="home-button12" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-music-note"></button>
+        <button id="home-button13" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-videocamera"></button>
+        <button id="home-button14" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-android-attach"></button>
+        <button id="home-button24" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-android-send"></button>
+      </div>
+    </div>
+    <div class="list">
+       <div ng-repeat="p in vm.feeds" ng-switch on="p.post.post_type">
+        <text-post ng-switch-when="text" tpost="p.post"></text-post>
+        <image-post ng-switch-when="images" ipost="p.post"></image-post>
+        
+      </div>
+    </div>
+   
+    
+   
+  </ion-content>
+</ion-view>

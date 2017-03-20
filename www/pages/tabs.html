@@ -1,0 +1,25 @@
+<ion-view>
+  <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+  <ion-tabs class="tabs-light tabs-icon-only">
+    <ion-tab title="Home" icon="ion-home" href="#/tabs/home">
+      <ion-nav-view name="tab1"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Notifications" icon="ion-ios-bell" href="#/tabs/notifications">
+      <ion-nav-view name="tab2"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Friends" icon="ion-ios-people" href="#/tabs/friends">
+      <ion-nav-view name="tab3"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Messages" icon="ion-email" href="#/tabs/messages">
+      <ion-nav-view name="tab4"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
+</ion-view>

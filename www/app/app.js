@@ -8,9 +8,19 @@ angular.module('freemig', [
   'ionic',
   'freemig.controllers',
   'freemig.routes',
-  'freemig.loginController',
+  'freemig.signinController',
+  'freemig.signinFactory',
   'freemig.registrationController',
-  'freemig.forgotPassController'
+  'freemig.registrationFactory',
+  'freemig.forgotPassController',
+  'freemig.homeController',
+  'freemig.homeFactory',
+  'freemig.textDirective',
+  'freemig.imageDirective',
+  'ngCordova',
+  'ionic-toast',
+  'ngStorage',
+  'ngSanitize'
   ])
 
 .run(function($ionicPlatform) {
@@ -27,5 +37,9 @@ angular.module('freemig', [
       StatusBar.styleDefault();
     }
   });
+})
+
+.constant("Constants", {
+    "apiurl": "http://198.38.89.216/"
 });
 

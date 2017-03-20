@@ -1,109 +1,128 @@
 <ion-view title="signup" hide-nav-bar="true" hide-back-button="true" id="page7" style="background-color:#029D9A;">
   <ion-content padding="true" class="manual-ios-statusbar-padding" scroll="false">
 
-    <ion-slides disable-side-menu-drag="" options="{'loop': true}" slider="slider3" delegate-handle="slider3" id="signup-slider3" style="width:100%;height:100%;">
+    <ion-slides disable-side-menu-drag="" options="{'loop': true}" slider="slider3" delegate-handle="slider3" id="signup-slider3"
+      style="width:100%;height:100%;">
+
+
+
       <ion-slide-page id="signup-slide213">
-        <div class="spacer" style="width: 300px; height: 36px;"></div>
+
+
+        <div class="spacer" style="width: 300px; height: 25px;"></div>
         <div>
-          <img src="img/freemig-logo.png" style="display: block; width: 30%; height: auto; margin-left: auto; margin-right: auto;">
+          <img src="img/freemig-logo.png" style="display: block; width: 20%; height: auto; margin-left: auto; margin-right: auto;">
         </div>
-        <div class="spacer" style="width: 300px; height: 36px;"></div>
-        <form id="signup-form9" class="list">
-          <label class="item item-input" id="signup-input11" name="email">
-            <input type="email" placeholder="Email">
-          </label>
-          <label class="item item-input" id="signup-input12" name="email">
-            <input type="text" placeholder="Username">
-          </label>
-          <label class="item item-input" id="signup-input13" name="password">
-            <input type="password" placeholder="Password">
-          </label>
-          <label class="item item-input" id="signup-input14" name="password">
-            <input type="password" placeholder="Confirm Password">
-          </label>
-          <button id="signup-button15" class="button button-positive  button-block">Next</button>
-        </form>
+        <div class="spacer" style="width: 300px; height: 25px;"></div>
+
+
+        <div id="signup-div9" class="list">
+          <form name="page1Form" novalidate>
+            <label class="item item-input" id="signup-input11">
+              <input type="email" name="email" placeholder="Email" ng-minlength="5" required ng-model="vm.signupData.email">
+            </label>
+            <label class="item item-input" ng-class="{ 'has-error' : page1Form.username.$invalid && !page1Form.username.$pristine }">
+              <input type="text" name="username" placeholder="Username" ng-maxlength="32" required ng-model="vm.signupData.username">
+              <p ng-show="page1Form.username.$invalid && !page1Form.username.$pristine" class="help-block">Username is required.</p>
+            </label>
+            <label class="item item-input" id="signup-input13">
+              <input type="password" name="password" placeholder="Password" ng-minlength="8" ng-maxlength="32" required ng-model="vm.signupData.password">
+            </label>
+            <label class="item item-input" id="signup-input14">
+              <input type="password" name="cpassword" placeholder="Confirm Password" ng-minlength="8" ng-maxlength="32" required ng-model="vm.signupData.password_confirmation">
+            </label>
+            <!--<div class="padding" ng-messages="page1FormForm.email.$error">
+              <p ng-message="required">* Email is required</p>
+              <p ng-message="invalid">* Email is not valid</p>
+              <p ng-message="minlength">* Username must be longer than 5 characters</p>
+            </div>
+            <div class="padding" ng-messages="page1Form.username.$error">
+              <p ng-message="required">* Username is required</p>
+              <p ng-message="maxlength">* Username must be nolonger than 32 characters</p>
+            </div>
+            <div class="padding" ng-messages="page1Form.password.$error">
+              <p ng-message="required">* Password is required</p>
+              <p ng-message="minlength">* Password must be 8 characters long</p>
+            </div>-->
+            <button ng-disabled="page1Form.$invalid" id="signup-button15" class="button button-positive  button-block" ng-click="vm.nextSlide()">Next</button>
+          </form>
+          
+
+        </div>
+
         <div id="signup-button-bar4" class="button-bar">
-          <button ui-sref="app.signin" id="signup-button16" class="button button-light button-small button-block button-clear">Sign In</button>
-          <button ui-sref="app.forgot-pass" id="signup-button17" class="button button-light button-small button-block button-clear">Forgot Password?</button>
+
+          <button ui-sref="signin" id="signup-button16" class="button button-light button-small button-block button-clear">Sign In</button>
+          <button ui-sref="forgot-pass" id="signup-button17" class="button button-light button-small button-block button-clear">Forgot Password?</button>
+
         </div>
+
+
       </ion-slide-page>
+
+
+
+
+
+
+
       <ion-slide-page id="signup-slide214">
-        <div class="spacer" style="height: 36px;"></div>
+        <div class="spacer" style="height: 25px;"></div>
         <div>
-          <img src="img/freemig-logo.png" style="display: block; width: 30%; height: auto; margin-left: auto; margin-right: auto;">
+          <img src="img/freemig-logo.png" style="display: block; width: 20%; height: auto; margin-left: auto; margin-right: auto;">
         </div>
-        <div class="spacer" style="height: 36px;"></div>
-        <form id="signup-form10" class="list">
-          <ion-checkbox id="signup-checkbox1">Regular</ion-checkbox>
-          <ion-checkbox id="signup-checkbox2">Professional</ion-checkbox>
-        </form>
+        <div class="spacer" style="height: 25px;"></div>
+        <div id="signup-div10" class="list">
+          <form name="page2" novalidate>
+            <ion-radio ng-value="1" ng-model="vm.signupData.user_type">Regular</ion-radio>
+            <ion-radio ng-value="2" ng-model="vm.signupData.user_type">Professional</ion-radio>
+          </form>
+        </div>
         <div id="signup-button-bar8" class="button-bar">
-          <button id="signup-button30" class="button button-stable button-small button-block">Back</button>
-          <button id="signup-button31" class="button button-balanced button-small button-block">Next</button>
+          <button id="signup-button30" class="button button-stable button-small button-block" ng-click="vm.prevSlide()">Back</button>
+          <button id="signup-button31" class="button button-balanced button-small button-block" ng-click="vm.nextSlide()">Next</button>
         </div>
       </ion-slide-page>
       <ion-slide-page id="signup-slide215">
-        <div class="spacer" style="height: 36px;"></div>
-        <form id="signup-form11" class="list">
-          <label class="item item-input" id="signup-input27" name="firstname">
-            <input type="text" placeholder="First Name">
-          </label>
-          <label class="item item-input" id="signup-input29" name="lastname">
-            <input type="text" placeholder="Last Name">
-          </label>
-          <label class="item item-input" id="signup-input30" name="birthdate">
-            <input type="date" placeholder="Birth Date">
-          </label>
-          <label class="item item-select" id="signup-select1" name="country">
-            <span class="input-label">Country</span>
-            <select></select>
-          </label>
-          <label class="item item-input" id="signup-input31" name="phone">
-            <input type="tel" placeholder="Phone Number">
-          </label>
-        </form>
-        <div class="row row-no-padding">
-          <div class="col">
-            <input type="radio" name="gender" value="male"> Male
-          </div>
-          <div class="col">
-            <input type="radio" name="gender" value="female"> Female
-          </div>
-          <div class="col">
-            <input type="radio" name="gender" value="other"> Other
-          </div>
+        <div class="spacer" style="width: 300px; height: 25px;"></div>
+        <div>
+          <img src="img/freemig-logo.png" style="display: block; width: 20%; height: auto; margin-left: auto; margin-right: auto;">
+        </div>
+        <div class="spacer" style="width: 300px; height: 25px;"></div>
+        <div id="signup-div11" class="list">
+          <form name="page3" novalidate>
+            <label class="item item-input" id="signup-input27" name="firstname">
+              <input type="text" placeholder="First Name" ng-model="vm.signupData.first_name">
+            </label>
+            <label class="item item-input" id="signup-input29" name="lastname">
+              <input type="text" placeholder="Last Name" ng-model="vm.signupData.last_name">
+            </label>
+            <label class="item item-input" id="signup-input30" name="birthdate">
+              <input type="date" placeholder="Birth Date" ng-model="vm.signupData.dob">
+            </label>
+            <label class="item item-select" id="signup-select1" name="country">
+              <span class="input-label">Country</span>
+              <select ng-options="country as country.country_name for country in vm.countries track by country.id" ng-model="vm.signupData.country"></select>
+            </label>
+            <label class="item item-input" id="signup-input31" name="phone">
+              <input type="tel" placeholder="Phone Number" ng-model="vm.signupData.phone">
+            </label>
+            <div class="row row-no-padding">
+              <div class="col">
+                <input type="radio" name="gender" ng-model="vm.signupData.gender" value="1"> Male
+              </div>
+              <div class="col">
+                <input type="radio" name="gender" ng-model="vm.signupData.gender" value="2"> Female
+              </div>
+              <div class="col">
+                <input type="radio" name="gender" ng-model="vm.signupData.gender" value="3"> Other
+              </div>
+            </div>
+          </form>
         </div>
         <div id="signup-button-bar9" class="button-bar">
-          <button id="signup-button36" class="button button-stable button-small button-block">Back</button>
-          <button id="signup-button37" class="button button-balanced button-small button-block">Complete</button>
-        </div>
-      </ion-slide-page>
-      <ion-slide-page id="signup-slide218">
-        <div class="spacer" style="height: 36px;"></div>
-        <form id="signup-form12" class="list">
-          <label class="item item-input" id="signup-input32" name="firstname">
-            <input type="text" placeholder="Name of your organization">
-          </label>
-          <label class="item item-select" id="signup-select2" name="expertise">
-            <span class="input-label">Your Expertise</span>
-            <select></select>
-          </label>
-          <label class="item item-select" id="signup-select3" name="area">
-            <span class="input-label">Select Area</span>
-            <select></select>
-          </label>
-          <label class="item item-select" id="signup-select4" name="region">
-            <span class="input-label">Working Region</span>
-            <select></select>
-          </label>
-          <label class="item item-input" id="signup-input37" name="zip">
-            <input type="number" placeholder="Zip Code">
-          </label>
-        </form>
-        <div id="signup-button-bar10" class="button-bar">
-          <button id="signup-button39" class="button button-stable button-small button-block">Back</button>
-          <button id="signup-button40" class="button button-balanced button-small button-block">Next</button>
+          <button id="signup-button36" class="button button-stable button-small button-block" ng-click="vm.prevSlide()">Back</button>
+          <button ng-click="vm.signup()" id="signup-button37" class="button button-balanced button-small button-block">Complete</button>
         </div>
       </ion-slide-page>
     </ion-slides>
