@@ -18,6 +18,8 @@ angular.module('freemig', [
   'freemig.textDirective',
   'freemig.imageDirective',
   'freemig.audioDirective',
+  'freemig.attachmentDirective',
+  'freemig.videoDirective',
   'ngCordova',
   'ionic-toast',
   'ngStorage',

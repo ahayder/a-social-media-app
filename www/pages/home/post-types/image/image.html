@@ -5,6 +5,9 @@
         <p style="white-space:normal;">{{vm.post.created_at.diffForHumans}}</p>
         <i class="icon ion-ios-arrow-down"></i>
     </ion-item>
+    <div class="item item-text-wrap" ng-if="vm.post.text_body !== ''">
+        {{vm.post.text_body}}
+    </div>
     <div class="item item-image" ng-repeat="image in vm.post.files">
         <img ng-src="{{vm.apiurl}}uploads/images/{{image.file_path}}">
     </div>
