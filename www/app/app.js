@@ -14,6 +14,9 @@ angular.module('freemig', [
   'freemig.registrationFactory',
   'freemig.forgotPassController',
   'freemig.homeController',
+  'freemig.notificationsController',
+  'freemig.friendsController',
+  'freemig.messagesController',
   'freemig.homeFactory',
   'freemig.textDirective',
   'freemig.imageDirective',
@@ -26,7 +29,7 @@ angular.module('freemig', [
   'ngSanitize'
   ])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $localStorage, $state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -39,6 +42,14 @@ angular.module('freemig', [
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    // Checking logged in condition
+    if($localStorage.user === undefined || typeof $localStorage.user === "undefined"){
+      // do nothing
+    }else if($localStorage.user){
+      $state.go("app.tabs.home");
+    } // Checking logged in condition
+
   });
 })
 

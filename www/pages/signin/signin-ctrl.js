@@ -2,9 +2,9 @@ angular.module('freemig.signinController', [])
 
 .controller('signinCtrl', signinCtrl)
 
-signinCtrl.$inject = ['$http', 'SiginFactory', 'ionicToast', '$cordovaGeolocation', '$state', '$localStorage']
+signinCtrl.$inject = ['SiginFactory', 'ionicToast', '$cordovaGeolocation', '$state', '$localStorage']
 
-function signinCtrl($http, SiginFactory, ionicToast, $cordovaGeolocation, $state, $localStorage) {
+function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $localStorage) {
 
     var vm = this;
 
@@ -23,11 +23,11 @@ function signinCtrl($http, SiginFactory, ionicToast, $cordovaGeolocation, $state
                 console.log(response);
                 response = response.data;
                 if (response.status === "2000"){
-                    if($localStorage.user){$localStorage.user = "";}
+                    if($localStorage.user){$localStorage.user = false;}
                     $localStorage.user = response.data;
                     console.log($localStorage.user)
                     ionicToast.show("You are logged in now", "top", false, 2000);
-                    $state.go("tabs.home");
+                    $state.go("app.tabs.home");
                 } else if(response.status === "5000"){
                     ionicToast.show("Error! Please try again.", "top", false, 3000);
                     //error

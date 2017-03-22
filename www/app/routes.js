@@ -3,12 +3,12 @@ angular.module('freemig.routes', [])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-  // .state('app', {
-  //   url: '/app',
-  //   abstract: true,
-  //   templateUrl: 'pages/menu.html',
-  //   controller: 'AppCtrl'
-  // })
+  .state('app', {
+    url: '/app',
+    abstract: true,
+    templateUrl: 'pages/menu.html',
+    controller: 'AppCtrl'
+  })
 
   .state('signin', {
     url: '/signin',
@@ -29,13 +29,17 @@ angular.module('freemig.routes', [])
     controller: "forgotCtrl"
   })
 
-  .state('tabs', {
+  .state('app.tabs', {
     url: '/tabs',
-    templateUrl: 'pages/tabs.html',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/tabs.html',
+      }
+    },
     abstract:true
   })
 
-  .state('tabs.home', {
+  .state('app.tabs.home', {
     url: '/home',
     views: {
       'tab1': {
@@ -45,32 +49,32 @@ angular.module('freemig.routes', [])
     }
   })
 
-  .state('tabs.notifications', {
+  .state('app.tabs.notifications', {
     url: '/notifications',
     views: {
       'tab2': {
-        templateUrl: 'pages/templates/notifications.html',
-        controller: 'notificationsCtrl'
+        templateUrl: 'pages/notifications/notifications.html',
+        controller: 'notificationsCtrl as vm'
       }
     }
   })
 
-  .state('tabs.friends', {
+  .state('app.tabs.friends', {
     url: '/friends',
     views: {
       'tab3': {
-        templateUrl: 'pages/templates/friends.html',
-        controller: 'friendsCtrl'
+        templateUrl: 'pages/friends/friends.html',
+        controller: 'friendsCtrl as vm'
       }
     }
   })
 
-  .state('tabs.messages', {
+  .state('app.tabs.messages', {
     url: '/messages',
     views: {
       'tab4': {
-        templateUrl: 'pages/templates/messages.html',
-        controller: 'messagesCtrl'
+        templateUrl: 'pages/messages/messages.html',
+        controller: 'messagesCtrl as vm'
       }
     }
   });
