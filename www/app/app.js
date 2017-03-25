@@ -54,6 +54,6 @@ angular.module('freemig', [
 })
 
 .constant("Constants", {
-    "apiurl": "http://198.38.89.216/"
+    "apiurl": "http://198.38.89.216"
 });
 

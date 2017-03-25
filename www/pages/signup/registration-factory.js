@@ -9,10 +9,10 @@ function RegistrationFactory($http, Constants) {
 
     return({
         doSignup: function(signupData){
-            return $http.post(Constants.apiurl + 'en/api/v0.1/app/profile/register', signupData);
+            return $http.post(Constants.apiurl + '/en/api/v0.1/app/profile/register', signupData);
         },
         getCountriesList: function(){
-            return $http.get(Constants.apiurl + 'en/api/v0.1/app/country-list');
+            return $http.get(Constants.apiurl + '/en/api/v0.1/app/country-list');
         }
     });
     
