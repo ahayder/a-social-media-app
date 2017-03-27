@@ -26,10 +26,10 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
                     if($localStorage.user){$localStorage.user = false;}
                     $localStorage.user = response.data;
                     console.log($localStorage.user)
-                    ionicToast.show("You are logged in now", "top", false, 2000);
+                    ionicToast.show("Login successful!", "top", false, 2000);
                     $state.go("app.tabs.home");
                 } else if(response.status === "5000"){
-                    ionicToast.show("Error! Please try again.", "top", false, 3000);
+                    ionicToast.show("Please provide valid username or password.", "top", false, 3000);
                     //error
                 } else if(response.status === "8000"){
                     ionicToast.show("Error! Please try again.", "top", false, 3000);

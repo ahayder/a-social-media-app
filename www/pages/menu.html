@@ -13,11 +13,13 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
-    </ion-header-bar>
     <ion-content>
       <ion-list>
+        <div ng-show="isLoggedin" class="item item-avatar">
+          <img ng-src="{{vm.apiurl}}{{vm.user.token.profileAvatar}}">
+          <h2>{{vm.user.token.full_name}}</h2>
+          <p>{{vm.user.token.location.city}}</p>
+        </div>
         <ion-item menu-close ui-sref="app.tabs.home">
           Home
         </ion-item>
@@ -52,15 +54,9 @@
           My Gifts
         </ion-item>
         <ion-item menu-close ui-sref="app.tabs.home">
-          Games/Apps
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Generate CV
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
           Settings
         </ion-item>
-        <ion-item menu-close ng-click="logout()">
+        <ion-item menu-close ng-click="vm.logout()">
           Logout
         </ion-item>
        

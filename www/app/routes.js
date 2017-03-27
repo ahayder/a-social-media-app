@@ -7,7 +7,7 @@ angular.module('freemig.routes', [])
     url: '/app',
     abstract: true,
     templateUrl: 'pages/menu.html',
-    controller: 'AppCtrl'
+    controller: 'AppCtrl as vm'
   })
 
   .state('signin', {

@@ -10,7 +10,7 @@
     </div>
     <div ng-repeat="file in vm.post.files">
         <video controls width="100%">
-            <source ng-src="{{vm.trustSrc(vm.apiurl+'uploads/videos/'+file.file_path+'.'+file.attributes.ext)}}">
+            <source ng-src="{{vm.trustSrc(vm.apiurl+'/uploads/videos/'+file.file_path+'.'+file.attributes.ext)}}">
         </video>
     </div>
     <div id="home-button-bar2" class="button-bar">

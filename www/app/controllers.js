@@ -1,13 +1,29 @@
 angular.module('freemig.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $localStorage, $rootScope, Constants, $state, ionicToast, $http) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+  var vm = this;
+
+  vm.apiurl = Constants.apiurl;
+
+  if($rootScope.isLoggedin){
+    vm.user = $localStorage.user;
+  }
+
+  vm.logout = function(){
+    console.log("logout");
+    $http.get(vm.apiurl + "/en/api/v0.1/app/auth/logout/?token="+vm.user.token.key).then(
+      function(success){
+        $localStorage.user = undefined;
+        $rootScope.isLoggedin = false;
+        ionicToast.show("Logout successful!", "top", false, 2000);
+        $state.go("signin");
+      },function(error){
+        ionicToast.show("Error! Please try agin.", "top", false, 2000);
+      }
+    );
+    
+  }
 
 
 })
