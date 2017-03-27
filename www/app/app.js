@@ -29,7 +29,7 @@ angular.module('freemig', [
   'ngSanitize'
   ])
 
-.run(function($ionicPlatform, $localStorage, $state) {
+.run(function($ionicPlatform, $localStorage, $state, $rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -45,10 +45,13 @@ angular.module('freemig', [
 
     // Checking logged in condition
     if($localStorage.user === undefined || typeof $localStorage.user === "undefined"){
-      // do nothing
+      $rootScope.isLoggedin = false;
     }else if($localStorage.user){
+      $rootScope.isLoggedin = true;
       $state.go("app.tabs.home");
     } // Checking logged in condition
+
+
 
   });
 })
