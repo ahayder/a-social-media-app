@@ -29,7 +29,7 @@ function tController($scope, Constants, $sce) {
 
     vm.yvideo = false;
     vm.vvideo = false;
-    vm.image = false;
+    vm.notVideo = false;
 
     vm.apiurl = Constants.apiurl;
 
@@ -58,10 +58,11 @@ function tController($scope, Constants, $sce) {
                         }
                     }
                     if(vm.post.video == 0){
-                        // post is image
+                        // post is anything else
                         vm.yvideo = false;
                         vm.vvideo = false;
-                        vm.image = true;
+                        vm.notVideo = true;
+                        
                     }
                 }else{
                     // no preview

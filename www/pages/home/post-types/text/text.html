@@ -26,6 +26,17 @@
         </div>
     </div>
     <!--vimeo video section-->
+    <!--not video section-->
+    <div ng-if="vm.notVideo">
+        <div class="item item-image">
+            <img ng-src="{{vm.trustSrc(vm.post.urlData.og_image)}}">
+        </div>
+        <div class="item item-text-wrap">
+            <h2>{{vm.post.urlData.title}}</h2>
+            <p>{{vm.post.urlData.description}}</p> 
+        </div>
+    </div>
+    <!--not video section-->
     <div id="home-button-bar2" class="button-bar">
         <button id="home-button19" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-thumbsup">Like</button>
         <button id="home-button22" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-chatbox">Comments</button>
