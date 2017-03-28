@@ -2,9 +2,9 @@ angular.module('freemig.homeController', [])
 
 .controller('homeCtrl', homeCtrl)
 
-homeCtrl.$inject = ['$http', 'HomeFactory', 'ionicToast', '$cordovaGeolocation', '$state', '$localStorage', '$ionicLoading', '$sce', 'Constants']
+homeCtrl.$inject = ['$scope', '$http', 'HomeFactory', 'ionicToast', '$cordovaGeolocation', '$state', '$localStorage', '$ionicLoading', '$sce', 'Constants']
 
-function homeCtrl($http, HomeFactory, ionicToast, $cordovaGeolocation, $state, $localStorage, $ionicLoading, $sce, Constants) {
+function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $state, $localStorage, $ionicLoading, $sce, Constants) {
 
     var vm = this;
 
