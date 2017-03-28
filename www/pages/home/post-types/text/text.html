@@ -1,13 +1,14 @@
 <div class="card">
     <ion-item class="item-avatar item-icon-right" id="home-list-item15">
         <img ng-src="{{vm.apiurl}}{{vm.post.owner_info.avatar}}">
-        <h2>{{vm.post.owner_info.full_name}}</h2>
+        <h2>{{vm.post.owner_info.full_name}}<span style="font-size: 14px;" ng-if="vm.post.has_url"> shared a link</span></h2>
         <p style="white-space:normal;">{{vm.post.created_at.diffForHumans}}</p>
         <i class="icon ion-ios-arrow-down"></i>
     </ion-item>
-    <div class="item item-text-wrap">
-        <p style="white-space:normal;">{{vm.post.text_body}}</p>
+    <div class="item item-text-wrap" ng-if="vm.post.text_body !== ''">
+        {{vm.post.text_body}}
     </div>
+<<<<<<< HEAD
     <div id="home-button-bar2" class="button-bar" >
 
 
@@ -16,5 +17,40 @@
         <a id="home-button23" class="button button-small icon-left ion-android-share-alt">Share</a>
         <!-- <a><button id="home-button22" style="font-weight:lighter;" class="button icon-left ion-chatbox">Comments</button></a>
         <a><button id="home-button23" style="font-weight:lighter;" class="button icon-left ion-android-share-alt">Share</button></a> -->
+=======
+    <!--youtube video section-->
+    <div ng-if="vm.yvideo">
+        <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.iframe)}}"></iframe>
+        <div class="item item-text-wrap">
+            <h2>{{vm.post.urlData.title}}</h2>
+            <p>{{vm.post.urlData.description}}</p> 
+        </div>
+    </div>
+    <!--youtube video section-->
+    <!--vimeo video section-->
+    <div ng-if="vm.vvideo">
+        <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.iframe)}}"></iframe>
+        <div class="item item-text-wrap">
+            <h2>{{vm.post.urlData.title}}</h2>
+            <p>{{vm.post.urlData.description}}</p> 
+        </div>
+    </div>
+    <!--vimeo video section-->
+    <!--not video section-->
+    <div ng-if="vm.notVideo">
+        <div class="item item-image">
+            <img ng-src="{{vm.trustSrc(vm.post.urlData.og_image)}}">
+        </div>
+        <div class="item item-text-wrap">
+            <h2>{{vm.post.urlData.title}}</h2>
+            <p>{{vm.post.urlData.description}}</p> 
+        </div>
+    </div>
+    <!--not video section-->
+    <div id="home-button-bar2" class="button-bar">
+        <button id="home-button19" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-thumbsup">Like</button>
+        <button id="home-button22" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-chatbox">Comments</button>
+        <button id="home-button23" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-android-share-alt">Share</button>
+>>>>>>> 11e90ab4599ddcaab0b8f49648396ac015252a4b
     </div>
 </div>

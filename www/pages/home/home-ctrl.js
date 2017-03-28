@@ -23,6 +23,7 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
 
 
     function initNewsFeed(pageNo){
+        console.log(pageNo)
         var newsFeedHomePostData = {};
         newsFeedHomePostData.feedChoose = $localStorage.user.token.userType;
         newsFeedHomePostData.feedLoad = "home";
@@ -32,15 +33,22 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
         HomeFactory.getNewsFeedHome($localStorage.user.token.key, newsFeedHomePostData, pageNo).then(
             function(response){
                 response = response.data.data.data_info;
-                for(var i = 0; i < response.length; i++){
-                    posts.push(response[i]);
+                if(response.length == 0){
+                    vm.morePostsCanBeLoaded = false;
+                    ionicToast.show("No more posts to show.", "bottom", false, 2000);
                 }
-                vm.feeds = posts;
-                $scope.$broadcast('scroll.infiniteScrollComplete');
-                // console.log(response.data.data.data_info);
-                console.log(vm.feeds);
-                $ionicLoading.hide();
-                pageNum = pageNo;
+                else{
+                    for(var i = 0; i < response.length; i++){
+                        posts.push(response[i]);
+                    }
+                    vm.feeds = posts;
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
+                    // console.log(response.data.data.data_info);
+                    console.log(vm.feeds);
+                    $ionicLoading.hide();
+                    pageNum++;
+                }
+                
 
 
             },function(error){
@@ -48,15 +56,21 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
             }
         );
     }
-    initNewsFeed(pageNum);
 
-    vm.morePostsCanBeLoaded = function(){
-        // return true;
-    }
+    vm.morePostsCanBeLoaded = false;
 
     vm.loadMorePosts = function(){
-        console.log("inside loadmoreposts");
-        initNewsFeed(pageNum++);
+        if ( posts.length == 99 ) {
+            vm.morePostsCanBeLoaded = true;
+        }
+        initNewsFeed(pageNum);
+    }
+
+    vm.doRefresh = function(){
+        posts = [];
+        vm.feeds = posts;
+        initNewsFeed(1);
+        $scope.$broadcast('scroll.refreshComplete');
     }
 
 };
