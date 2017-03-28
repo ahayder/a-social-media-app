@@ -18,6 +18,9 @@ function homeCtrl($http, HomeFactory, ionicToast, $cordovaGeolocation, $state, $
         return $sce.trustAsResourceUrl(src);
     }
 
+    var posts = [];
+    var pageNum = 1;
+
 
     function initNewsFeed(pageNo){
         var newsFeedHomePostData = {};
@@ -26,7 +29,6 @@ function homeCtrl($http, HomeFactory, ionicToast, $cordovaGeolocation, $state, $
         newsFeedHomePostData.owner_type = "1";
         newsFeedHomePostData.tz = $localStorage.user.token.userTZ;
 
-        var posts = [];
         HomeFactory.getNewsFeedHome($localStorage.user.token.key, newsFeedHomePostData, pageNo).then(
             function(response){
                 response = response.data.data.data_info;
@@ -34,9 +36,11 @@ function homeCtrl($http, HomeFactory, ionicToast, $cordovaGeolocation, $state, $
                     posts.push(response[i]);
                 }
                 vm.feeds = posts;
+                $scope.$broadcast('scroll.infiniteScrollComplete');
                 // console.log(response.data.data.data_info);
                 console.log(vm.feeds);
                 $ionicLoading.hide();
+                pageNum = pageNo;
 
 
             },function(error){
@@ -44,6 +48,15 @@ function homeCtrl($http, HomeFactory, ionicToast, $cordovaGeolocation, $state, $
             }
         );
     }
-    initNewsFeed(1);
+    initNewsFeed(pageNum);
+
+    vm.morePostsCanBeLoaded = function(){
+        // return true;
+    }
+
+    vm.loadMorePosts = function(){
+        console.log("inside loadmoreposts");
+        initNewsFeed(pageNum++);
+    }
 
 };
