@@ -1,6 +1,12 @@
 <ion-view title="Home" ng-cloak >
   
   <ion-content padding="true" class="has-header" scroll="true">
+
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="vm.doRefresh()">
+    </ion-refresher>
+
     <div class="list card" id="home-card23">
       <ion-item class="item-avatar item-icon-right" id="home-list-item11">
         <h2>Item</h2>
@@ -32,9 +38,9 @@
     </ion-list>
    
    <ion-infinite-scroll
-    ng-if="vm.morePostsCanBeLoaded()"
+    ng-if="!vm.morePostsCanBeLoaded"
     icon="ion-loading-c" 
-    distance="5%" 
+    distance="10%" 
     on-infinite="vm.loadMorePosts()">
   </ion-infinite-scroll>
     
