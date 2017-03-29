@@ -1,6 +1,12 @@
-<ion-view title="Home" ng-cloak>
+<ion-view title="Home" ng-cloak >
   
-  <ion-content padding="true" class="has-header">
+  <ion-content padding="true" class="has-header" scroll="true">
+
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="vm.doRefresh()">
+    </ion-refresher>
+
     <div class="list card" id="home-card23">
       <ion-item class="item-avatar item-icon-right" id="home-list-item11">
         <h2>Item</h2>
@@ -21,7 +27,7 @@
         <button id="home-button24" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-android-send"></button>
       </div>
     </div>
-    <div class="list">
+    <ion-list>
       <div ng-repeat="p in vm.feeds" ng-switch on="p.post.post_type">
         <text-post ng-switch-when="text" post="p.post"></text-post>
         <image-post ng-switch-when="images" post="p.post"></image-post>
@@ -29,9 +35,14 @@
         <attachment-post ng-switch-when="attachment" post="p.post"></attachment-post>
         <video-post ng-switch-when="video" post="p.post"></video-post>
       </div>
-    </div>
+    </ion-list>
    
+   <ion-infinite-scroll
+    ng-if="!vm.morePostsCanBeLoaded"
+    icon="ion-loading-c" 
+    distance="10%" 
+    on-infinite="vm.loadMorePosts()">
+  </ion-infinite-scroll>
     
-   
   </ion-content>
 </ion-view>

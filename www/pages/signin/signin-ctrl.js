@@ -2,9 +2,9 @@ angular.module('freemig.signinController', [])
 
 .controller('signinCtrl', signinCtrl)
 
-signinCtrl.$inject = ['SiginFactory', 'ionicToast', '$cordovaGeolocation', '$state', '$localStorage']
+signinCtrl.$inject = ['SiginFactory', 'ionicToast', '$cordovaGeolocation', '$state', '$localStorage', '$ionicLoading']
 
-function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $localStorage) {
+function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $localStorage, $ionicLoading) {
 
     var vm = this;
 
@@ -23,21 +23,26 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
                 console.log(response);
                 response = response.data;
                 if (response.status === "2000"){
+                    $ionicLoading.hide();
                     if($localStorage.user){$localStorage.user = false;}
                     $localStorage.user = response.data;
                     console.log($localStorage.user)
                     ionicToast.show("Login successful!", "top", false, 2000);
                     $state.go("app.tabs.home");
                 } else if(response.status === "5000"){
+                    $ionicLoading.hide();
                     ionicToast.show("Please provide valid username or password.", "top", false, 3000);
                     //error
                 } else if(response.status === "8000"){
+                    $ionicLoading.hide();
                     ionicToast.show("Error! Please try again.", "top", false, 3000);
                     //error
                 } else{
+                    $ionicLoading.hide();
 
                 }
             },function(error){
+                $ionicLoading.hide();
                 console.log(error);
             });
     }// final login
@@ -91,6 +96,9 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
 
     // sign in
     vm.signin = function(){
+        $ionicLoading.show({
+            template: 'Loading...'
+        })
         // MARK:- Time zone
         var offset = new Date().getTimezoneOffset();
         vm.signinData.tz = -offset/60;
