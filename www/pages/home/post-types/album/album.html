@@ -1,0 +1,29 @@
+<div class="card">
+    <ion-item class="item-avatar item-icon-right" id="home-list-item15">
+        <img ng-src="{{vm.apiurl}}{{vm.post.owner_info.avatar}}">
+        <h2>{{vm.post.owner_info.full_name}}</h2>
+        <p style="white-space:normal;">{{vm.post.created_at.diffForHumans}}</p>
+        <i class="icon ion-ios-arrow-down"></i>
+    </ion-item>
+    <div class="item item-text-wrap" ng-if="vm.post.text_body !== ''">
+        {{vm.post.text_body}}
+    </div>
+    <div class="item item-image" ng-repeat="image in vm.post.files | limitTo:4" ng-switch on="$index % 2">
+        <div class="row row-no-padding">
+            <div class="col" ng-switch-when="0">
+                <img ng-src="{{vm.apiurl}}/uploads/images/{{image.file_path}}">
+            </div>
+            <div class="col" ng-switch-when="0">
+                <img ng-show="vm.post.files[$index+1]" ng-src="{{vm.apiurl}}/uploads/images/{{vm.post.files[$index+1].file_path}}">
+            </div>
+        </div>
+        
+    </div>
+    <div id="home-button-bar2" class="button-bar" >
+
+        <a id="home-button19" class="button button-block button-small icon-left ion-thumbsup" >Like</a>
+        <a id="home-button22" class="button button-block button-small icon-left ion-chatbox">Comments</a>
+        <a id="home-button23" class="button button-block button-small icon-left ion-android-share-alt">Share</a>
+
+   </div>
+</div>
