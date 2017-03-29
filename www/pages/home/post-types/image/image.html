@@ -11,9 +11,11 @@
     <div class="item item-image" ng-repeat="image in vm.post.files">
         <img ng-src="{{vm.apiurl}}/uploads/images/{{image.file_path}}">
     </div>
-    <div id="home-button-bar2" class="button-bar">
-        <button id="home-button19" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-thumbsup">Like</button>
-        <button id="home-button22" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-chatbox">Comments</button>
-        <button id="home-button23" style="font-weight:lighter;" class="button button-stable button-small button-block icon ion-android-share-alt">Share</button>
-    </div>
+    <div id="home-button-bar2" class="button-bar" >
+
+        <a id="home-button19" class="button button-block button-small icon-left ion-thumbsup" >Like</a>
+        <a id="home-button22" class="button button-block button-small icon-left ion-chatbox">Comments</a>
+        <a id="home-button23" class="button button-block button-small icon-left ion-android-share-alt">Share</a>
+
+   </div>
 </div>
