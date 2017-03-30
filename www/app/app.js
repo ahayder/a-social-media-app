@@ -27,7 +27,8 @@ angular.module('freemig', [
   'ngCordova',
   'ionic-toast',
   'ngStorage',
-  'ngSanitize'
+  'ngSanitize',
+  'plug.ionic-segment'
   ])
 
 .run(function($ionicPlatform, $localStorage, $state, $rootScope) {
