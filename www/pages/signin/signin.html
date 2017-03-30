@@ -7,16 +7,28 @@
     <div class="spacer" style="width: 300px; height: 25px;"></div>
 
 
-    <form name="signinForm" novalidate id="signin-form1" class="list">
+    <form name="signinForm" novalidate id="signin-form1" class="list ">
 
-      <label class="item item-input" id="signin-input1">
+      <label class="item item-input item-floating-label" id="signin-input1">
+          <span class="input-label" style="color:#DDDDDD;">User Name</span>
+          <input type="text" placeholder="User Name" ng-model="vm.signinData.username">
+      </label>
 
-        <input name="username" type="text" placeholder="Username/Email" ng-model="vm.signinData.username">
+
+      <label class="item item-input item-floating-label" id="signin-input2">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="Password" ng-model="vm.signinData.password">
+      </label>
+
+
+
+      <!-- <label class="item item-input float" id="signin-input1">
+          <input name="username" type="text" placeholder="Username/Email" ng-model="vm.signinData.username">
       </label>
 
       <label class="item item-input" id="signin-input2">
         <input name="password" type="password" placeholder="Password" ng-model="vm.signinData.password">
-      </label>
+      </label> -->
 
       <button ng-click="vm.signin()" id="signin-button2" class="button button-light  button-block">Sign In</button>
 
