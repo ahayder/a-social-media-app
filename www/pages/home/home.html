@@ -1,11 +1,23 @@
 <ion-view title="Home" ng-cloak >
+
+  <div class="bar bar-subheader bar-stable">
+      <ion-segment ng-model="feedType" full="true" positive>
+        <ion-segment-button value="'1''" ng-click="vm.changeFeedType(1)">
+          Regular
+        </ion-segment-button>
+        <ion-segment-button value="'2''" ng-click="vm.changeFeedType(2)">
+          Professional
+        </ion-segment-button>
+    </ion-segment>
+  </div>
   
-  <ion-content padding="true" class="has-header" scroll="true">
+  <ion-content padding="true" class="has-subheader">
 
     <ion-refresher
       pulling-text="Pull to refresh..."
       on-refresh="vm.doRefresh()">
     </ion-refresher>
+    
 
     <div class="list card" id="home-card23">
       <ion-item class="item-avatar item-icon-right" id="home-list-item11">
@@ -34,6 +46,7 @@
         <audio-post ng-switch-when="audio" post="p.post"></audio-post>
         <attachment-post ng-switch-when="attachment" post="p.post"></attachment-post>
         <video-post ng-switch-when="video" post="p.post"></video-post>
+        <album-post ng-switch-when="album" post="p.post"></album-post>
       </div>
     </ion-list>
    

@@ -13,6 +13,7 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
     })
 
     vm.apiurl = Constants.apiurl;
+    vm.feedType = 1;
 
     vm.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -22,10 +23,10 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
     var pageNum = 1;
 
 
-    function initNewsFeed(pageNo){
+    function initNewsFeed(pageNo, ft){
         console.log(pageNo)
         var newsFeedHomePostData = {};
-        newsFeedHomePostData.feedChoose = $localStorage.user.token.userType;
+        newsFeedHomePostData.feedChoose = ft;
         newsFeedHomePostData.feedLoad = "home";
         newsFeedHomePostData.owner_type = "1";
         newsFeedHomePostData.tz = $localStorage.user.token.userTZ;
@@ -63,14 +64,24 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
         if ( posts.length == 99 ) {
             vm.morePostsCanBeLoaded = true;
         }
-        initNewsFeed(pageNum);
+        initNewsFeed(pageNum, vm.feedType);
     }
 
     vm.doRefresh = function(){
         posts = [];
         vm.feeds = posts;
-        initNewsFeed(1);
+        initNewsFeed(1, vm.feedType);
         $scope.$broadcast('scroll.refreshComplete');
+    }
+
+    vm.changeFeedType = function(ft){
+        $ionicLoading.show({
+            template: 'Loading...'
+        })
+        vm.feedType = ft;
+        posts = [];
+        vm.feeds = posts;
+        initNewsFeed(1, vm.feedType);
     }
 
 };

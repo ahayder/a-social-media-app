@@ -23,10 +23,12 @@ angular.module('freemig', [
   'freemig.audioDirective',
   'freemig.attachmentDirective',
   'freemig.videoDirective',
+  'freemig.albumDirective',
   'ngCordova',
   'ionic-toast',
   'ngStorage',
-  'ngSanitize'
+  'ngSanitize',
+  'plug.ionic-segment'
   ])
 
 .run(function($ionicPlatform, $localStorage, $state, $rootScope) {
