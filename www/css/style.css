@@ -13,6 +13,8 @@
     height: 100%;
 }
 
+
+
 .background{
     background: url('../img/sign_in_img.jpg') no-repeat;
     background-size: cover;
@@ -21,4 +23,11 @@
 
 .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs{
     top: 36px;
+}
+
+
+#signin-input1{
+  margin-bottom: 10px;
+  font-size: 10px;
+
 }
