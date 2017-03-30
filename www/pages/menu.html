@@ -13,53 +13,42 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-content > 
+    <ion-content >
       <ion-list>
         <div class="item item-avatar">
           <img ng-src="{{vm.apiurl}}{{vm.user.token.profileAvatar}}">
           <h2>{{vm.user.token.full_name}}</h2>
           <p>{{vm.user.token.location.city}}</p>
         </div>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Home
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          All Connections
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Messages
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Pages
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Groups
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Classrooms
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Tasks
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Blog
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Polls
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Events
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          My Gifts
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Settings
-        </ion-item>
-        <ion-item menu-close ng-click="vm.logout()">
-          Logout
-        </ion-item>
-       
+
+        <a class="item item-icon-left" href="#"><i class="icon ion-email"></i>Check mail</a>
+
+        <ion-item menu-close ui-sref="app.tabs.home">Home</ion-item>
+
+        <ion-item menu-close ui-sref="app.tabs.home">All Connections</ion-item>
+
+        <ion-item menu-close ui-sref="app.tabs.home">Messages</ion-item>
+
+        <ion-item menu-close ui-sref="app.tabs.home">Pages</ion-item>
+
+        <ion-item menu-close ui-sref="app.tabs.home">Groups</ion-item>
+
+        <ion-item menu-close ui-sref="app.tabs.home">Classrooms</ion-item>
+
+        <ion-item menu-close ui-sref="app.tabs.home">Tasks</ion-item>
+
+        <ion-item menu-close ui-sref="app.tabs.home">Blog</ion-item>
+
+        <ion-item menu-close ui-sref="app.tabs.home">Polls</ion-item>
+
+        <ion-item menu-close ui-sref="app.tabs.home">Events</ion-item>
+
+        <ion-item menu-close ui-sref="app.tabs.home">My Gifts</ion-item>
+
+        <ion-item menu-close ui-sref="app.tabs.home">Settings</ion-item>
+
+        <ion-item menu-close ng-click="vm.logout()">Logout</ion-item>
+
       </ion-list>
     </ion-content>
   </ion-side-menu>
