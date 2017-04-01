@@ -2,22 +2,22 @@
   <ion-content padding="true" class="manual-ios-statusbar-padding background" scroll="false">
     <div class="spacer" style="width: 300px; height: 25px;"></div>
     <div>
-      <img src="img/freemig_icon.png" style="display: block; width: 25%; height: auto; margin-left: auto; margin-right: auto; margin-bottom:30px; margin-top:30px">
+      <img src="img/freemig_icon.png" style="display: block; width: 25%; height: auto; margin-left: auto; margin-right: auto; margin-bottom:40px; margin-top:30px">
     </div>
     <div class="spacer" style="width: 300px; height: 25px;"></div>
 
 
     <form name="signinForm" novalidate id="signin-form1" class="list ">
 
-      <label class="item item-input item-floating-label" id="signin-input1">
-          <span class="input-label" style="color:#DDDDDD;">User Name</span>
-          <input type="text" placeholder="User Name" ng-model="vm.signinData.username">
+      <label class="item item-input item-floating-label " id="signin-input1">
+          <span class="input-label" style="color:#DDDDDD; font-size:10px">User Name</span>
+          <input type="text" placeholder="User Name" style="color:white;padding-bottom:20px;font-size:17px;" ng-model="vm.signinData.username">
       </label>
 
 
-      <label class="item item-input item-floating-label" id="signin-input2">
-          <span class="input-label">Password</span>
-          <input type="password" placeholder="Password" ng-model="vm.signinData.password">
+      <label class="item item-input item-floating-label" id="signin-input1">
+          <span class="input-label" style="color:#DDDDDD; font-size:10px">Password</span>
+          <input type="password" placeholder="Password" style="color:white;padding-bottom:20px;font-size:17px" ng-model="vm.signinData.password">
       </label>
 
 
@@ -30,13 +30,13 @@
         <input name="password" type="password" placeholder="Password" ng-model="vm.signinData.password">
       </label> -->
 
-      <button ng-click="vm.signin()" id="signin-button2" class="button button-light  button-block">Sign In</button>
+      <button ng-click="vm.signin()" class="button button-light  button-block" style="border-radius: 25px;">Sign In</button>
 
     </form>
 
     <div id="signin-button-bar1" class="button-bar">
-      <button ui-sref="signup" id="signin-button6" class="button button-light button-small button-block button-clear">Create Account</button>
-      <button ui-sref="forgot-pass" id="signin-button7" class="button button-light button-small button-block button-clear">Forgot Password?</button>
+      <button ui-sref="signup"  class="button button-light button-small button-block button-clear">Create Account</button>
+      <button ui-sref="forgot-pass" class="button button-light button-small button-block button-clear">Forgot Password?</button>
     </div>
   </ion-content>
 </ion-view>
