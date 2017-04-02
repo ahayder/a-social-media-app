@@ -13,6 +13,8 @@ angular.module('freemig', [
   'freemig.registrationController',
   'freemig.registrationFactory',
   'freemig.forgotPassController',
+  'freemig.profileController',
+  'freemig.profileFactory',
   'freemig.homeController',
   'freemig.notificationsController',
   'freemig.friendsController',
