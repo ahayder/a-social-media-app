@@ -1,5 +1,20 @@
 <ion-view title="Home" ng-cloak >
 
+  <ion-nav-bar class="bar-positive">
+
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-person" ui-sref="app.tabs.profile">
+        </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
   <div class="bar bar-subheader bar-stable">
       <ion-segment ng-model="feedType" full="true" positive>
         <ion-segment-button value="'1''" ng-click="vm.changeFeedType(1)">
