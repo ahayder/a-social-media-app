@@ -21,13 +21,14 @@
 
     <div class="list card" id="home-card23">
       <ion-item class="item-avatar item-icon-right" id="home-list-item11">
-        <h2>Item</h2>
-        <p style="white-space:normal;">this should the the input line</p>
+        <img ng-src="{{vm.apiurl}}{{vm.user.profileAvatar}}">
+        <h2>{{vm.user.full_name}}</h2>
+        <p>Good morning!</p>
         <i class="icon ion-gear-b"></i>
       </ion-item>
-      <form id="home-form1" class="list">
-        <label class="item item-input" id="home-textarea1">
-          <span class="input-label">Text</span><textarea placeholder=""></textarea></label>
+      <form class="list">
+        <label class="item item-input">
+          <textarea ng-model="vm.status.text" placeholder="What's on your mind?"></textarea></label>
       </form>
       <div id="home-button-bar1" class="button-bar">
         <button id="home-button4" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-camera"></button>
@@ -36,9 +37,11 @@
         <button id="home-button12" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-music-note"></button>
         <button id="home-button13" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-videocamera"></button>
         <button id="home-button14" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-android-attach"></button>
-        <button id="home-button24" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-android-send"></button>
+        <button ng-click="vm.createPost(vm.status)" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-android-send"></button>
       </div>
     </div>
+
+
     <ion-list>
       <div ng-repeat="p in vm.feeds" ng-switch on="p.post.post_type">
         <text-post ng-switch-when="text" post="p.post"></text-post>

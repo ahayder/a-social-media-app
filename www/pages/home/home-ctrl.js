@@ -8,11 +8,13 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
 
     var vm = this;
 
-     $ionicLoading.show({
+    $ionicLoading.show({
       template: 'Loading...'
     })
 
+    vm.user = $localStorage.user.token;
     vm.apiurl = Constants.apiurl;
+    vm.status = {};
     vm.feedType = 1;
 
     vm.trustSrc = function(src) {
@@ -29,9 +31,9 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
         newsFeedHomePostData.feedChoose = ft;
         newsFeedHomePostData.feedLoad = "home";
         newsFeedHomePostData.owner_type = "1";
-        newsFeedHomePostData.tz = $localStorage.user.token.userTZ;
+        newsFeedHomePostData.tz = vm.user.userTZ;
 
-        HomeFactory.getNewsFeedHome($localStorage.user.token.key, newsFeedHomePostData, pageNo).then(
+        HomeFactory.getNewsFeedHome(vm.user.key, newsFeedHomePostData, pageNo).then(
             function(response){
                 response = response.data.data.data_info;
                 if(response.length == 0){
@@ -82,6 +84,42 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
         posts = [];
         vm.feeds = posts;
         initNewsFeed(1, vm.feedType);
+    }
+
+    vm.createPost = function(status){
+        console.log(status.text);
+        $ionicLoading.show({
+            template: 'Working...'
+        })
+    
+        var data = {
+            "tz": vm.user.userTZ,
+            "owner_type": "1",
+            "text_body": status.text,
+            "text_title": "text",
+            "by_owner": "1",
+            "privacy": "1",
+            "taggedUsers": "",
+            "activity": "",
+            "activityDesc": "",
+            "userLocation": "",
+            "mediaType": "",
+            "ref_code": vm.user.userId + Date.now() + vm.user.userId,
+            "post_type": "text",
+            "feedLoad": "1",
+            "previewLink": "",
+            "activityPreview": "0",
+            "via": ""}
+
+        HomeFactory.createPost(vm.user.key, data).then(
+            function(response){
+                $ionicLoading.hide();
+                ionicToast.show("Posted!", "top", false, 2000);
+            },function(error){
+                $ionicLoading.hide();
+                ionicToast.show("Error!", "bottom", top, 3000);
+            }
+        );
     }
 
 };
