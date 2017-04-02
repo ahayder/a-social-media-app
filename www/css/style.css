@@ -39,6 +39,22 @@ display: block;
   height: 3.5em;
 }
 
+.icon{
+  font-size: 50px;
+}
+
+
+.album-image{
+    height: 110px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.album-first-image{
+    height: 170px;
+}
+
 /*#remember_me{
   display: block;
   text-align: center;

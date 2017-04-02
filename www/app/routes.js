@@ -39,22 +39,22 @@ angular.module('freemig.routes', [])
     abstract:true
   })
 
-  .state('app.profile', {
-    url: '/profile',
-    views: {
-      'menuContent': {
-        templateUrl: 'pages/profile/profile.html',
-        controller: "profileCtrl as vm"
-      }
-    }
-  })
-
   .state('app.tabs.home', {
     url: '/home',
     views: {
       'tab1': {
         templateUrl: 'pages/home/home.html',
         controller: 'homeCtrl as vm'
+      }
+    }
+  })
+
+  .state('app.tabs.profile', {
+    url: '/profile',
+    views: {
+      'tab1': {
+        templateUrl: 'pages/profile/profile.html',
+        controller: "profileCtrl as vm"
       }
     }
   })
