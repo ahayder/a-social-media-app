@@ -45,9 +45,12 @@
         <label class="item item-input">
           <textarea ng-model="vm.status.text" placeholder="What's on your mind?"></textarea></label>
       </form>
-      <div id="home-button-bar1" class="button-bar">
-        <button class="button button-light button-block button-icon no-padding icon ion-camera"></button>
-        <button class="button button-light button-block button-icon no-padding icon ion-happy"></button>
+
+      
+
+      <div class="button-bar ion-tabs" >
+        <button class="button button-light button-block button-small button-icon no-padding icon ion-camera" style="font-size:15px"></button>
+        <button class="button button-light button-block button-small button-icon no-padding icon ion-happy" style="font-size:15px"></button>
         <button class="button button-light button-block button-icon no-padding icon ion-location"></button>
         <button class="button button-light button-small button-block button-icon no-padding icon ion-music-note"></button>
         <button class="button button-light button-small button-block button-icon no-padding icon ion-videocamera"></button>
@@ -55,6 +58,7 @@
         <button ng-click="vm.createPost(vm.status)" class="button button-light button-block button-icon icon ion-android-send"></button>
       </div>
     </div>
+
 
 
     <ion-list>

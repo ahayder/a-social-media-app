@@ -3478,7 +3478,7 @@ ion-infinite-scroll {
   align-items: center; }
   ion-infinite-scroll .icon {
     color: #666666;
-    font-size: 30px;
+    font-size: 20px;
     color: #666666; }
   ion-infinite-scroll:not(.active) .spinner,
   ion-infinite-scroll:not(.active) .icon:before {
