@@ -3,21 +3,20 @@
         <img ng-src="{{vm.apiurl}}{{vm.post.owner_info.avatar}}">
         <h2>{{vm.post.owner_info.full_name}}</h2>
         <p style="white-space:normal;">{{vm.post.created_at.diffForHumans}}</p>
-        
+
     </ion-item>
     <div class="item item-text-wrap" ng-if="vm.post.text_body !== ''">
         {{vm.post.text_body}}
     </div>
     <div class="item item-icon-left" ng-repeat="file in vm.post.files">
-        <img width="40" ng-src="{{vm.trustSrc(vm.apiurl+'/defaultMedia/document/'+file.attributes.ext+'.svg')}}">
-        {{file.file_path}}
+        <img width="40" ng-src="{{vm.trustSrc(vm.apiurl+'/defaultMedia/document/'+file.attributes.ext+'.svg')}}"> {{file.file_path}}
     </div>
 
     <div class="item tabs tabs-secondary icon-small" id="like_comment_icon">
-      <a class="tab-item item-icon-left" href=""><i class="icon ion-heart" style="font-size:25px"></i></a>
-      <a class="tab-item item-icon-left" href=""><i class="icon ion-ios-chatbubble" style="margin-left:80px;font-size:25px"></i></a>
-      <a class="tab-item item-icon-right"  href=""><i class="icon ion-more" style="font-size:25px"></i></a>
-
+        <a class="tab-item item-icon-left" href=""><i class="icon ion-heart" style="font-size:25px"></i></a>
+        <a class="tab-item item-icon-left" href=""><i class="icon ion-ios-chatbubble" style="margin-left:55px;font-size:25px"></i></a>
+        <a class="tab-item item-icon-left" href=""><i class="icon ion-share" style="margin-left:110px;font-size:25px"></i></a>
+        <a class="tab-item item-icon-right" href=""><i class="icon ion-more" style="font-size:25px"></i></a>
     </div>
 
 </div>
