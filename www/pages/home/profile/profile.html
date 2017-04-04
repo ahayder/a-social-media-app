@@ -26,9 +26,9 @@
           <span id="profile-description" ng-if="!vm.userOverview.workTitle == ''">{{vm.userOverview.workTitle}} <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a></span>
 
           <div class="row" id="profile-btn">
-            <div class="col col-33">Connections<br>{{vm.userOverview.connections}}</div>
-            <div class="col col-33">Followers<br>{{vm.userOverview.follower}}</div>
-            <div class="col col-33">Following<br>{{vm.userOverview.following}}</div>
+            <div ng-click="vm.openModal('connections')" class="col col-33">Connections<br>{{vm.userOverview.connections}}</div>
+            <div ng-click="vm.openModal('followers')" class="col col-33">Followers<br>{{vm.userOverview.follower}}</div>
+            <div ng-click="vm.openModal('following')" class="col col-33">Following<br>{{vm.userOverview.following}}</div>
           </div>
 
         </div>

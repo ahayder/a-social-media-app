@@ -51,6 +51,10 @@ display: block;
     height: 170px;
 }
 
+.narrow-padding{
+  padding: 3px !important;
+}
+
 /*#remember_me{
   display: block;
   text-align: center;

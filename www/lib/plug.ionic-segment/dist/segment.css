@@ -27,20 +27,21 @@ ul#ion-segment {
     background-color: transparent;
     margin-right: 0;
     margin-left: 0;
-    padding: 0 13px 0 13px;
+    padding: 0 5px 0 5px;
+    min-width: 100px;
     color: #fff;
     border: 1px solid;
     transition: all 100ms linear;
     -webkit-transition: all 50ms linear;
-    line-height: 34px;
-    max-height: 34px;
-    min-height: 34px;
+    line-height: 31px;
+    max-height: 31px;
+    min-height: 31px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     background: none;
     text-align: center;
-    cursor: pointer; }
+    cursor: pointer;}
     ul#ion-segment li:first-of-type {
       margin-right: 0;
       border-radius: 4px 0 0 4px; }
