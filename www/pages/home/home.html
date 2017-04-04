@@ -15,8 +15,10 @@
     </ion-nav-buttons>
   </ion-nav-bar>
 
-  <div class="bar bar-subheader bar-stable">
-      <ion-segment ng-model="feedType" full="true" positive>
+
+<!-- regular and professional -->
+  <div class="bar bar-subheader bar-light">
+      <ion-segment ng-model="feedType" full="false" balanced>
         <ion-segment-button value="'1''" ng-click="vm.changeFeedType(1)">
           Regular
         </ion-segment-button>
@@ -34,30 +36,37 @@
     </ion-refresher>
 
 
-    <div class="list card" id="home-card23">
-      <ion-item class="item-avatar item-icon-right" id="home-list-item11">
-        <img ng-src="{{vm.apiurl}}{{vm.user.profileAvatar}}">
-        <h2>{{vm.user.full_name}}</h2>
-        <p>Good morning!</p>
-        <i class="icon ion-gear-b"></i>
-      </ion-item>
-      <form class="list">
-        <label class="item item-input">
-          <textarea ng-model="vm.status.text" placeholder="What's on your mind?"></textarea></label>
-      </form>
 
-      
 
-      <div class="button-bar ion-tabs" >
-        <button class="button button-light button-block button-small button-icon no-padding icon ion-camera" style="font-size:15px"></button>
-        <button class="button button-light button-block button-small button-icon no-padding icon ion-happy" style="font-size:15px"></button>
-        <button class="button button-light button-block button-icon no-padding icon ion-location"></button>
-        <button class="button button-light button-small button-block button-icon no-padding icon ion-music-note"></button>
-        <button class="button button-light button-small button-block button-icon no-padding icon ion-videocamera"></button>
-        <button class="button button-light button-small button-block button-icon no-padding icon ion-android-attach"></button>
-        <button ng-click="vm.createPost(vm.status)" class="button button-light button-block button-icon icon ion-android-send"></button>
+<!-- avater and status -->
+    <div class="list card">
+
+      <div class="item row">
+           <div class="col col-20">
+                <ion-item class="item-avatar">
+                    <img ng-src="{{vm.apiurl}}{{vm.user.profileAvatar}}">
+                </ion-item>
+          </div>
+
+          <div class="col col-80">
+               <form>
+                   <label class="item item-input">
+                       <textarea ng-model="vm.status.text" placeholder="Share your activity pulse"></textarea>
+                   </label>
+              </form>
+          </div>
+
       </div>
-    </div>
+
+
+      <div  class="button-bar" style="padding-bottom:-5px">
+        <button class="button button-positive  button-outline icon ion-camera"> Photos</button>
+        <button class="button button-balanced button-outline icon ion-location"> Check in</button>
+      </div>
+
+
+  </div>
+
 
 
 
