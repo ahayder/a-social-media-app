@@ -18,8 +18,9 @@
   <ion-content has-header="true">
     <div ng-if="vm.renderhtmlNow">
       <div id="profile-bg" ng-style="{'background-image': 'url({{vm.coverImage}})'}"></div>
-      <div id="content">
 
+
+      <div id="content">
         <div id="profile-info">
           <img ng-src="{{vm.proPic}}" id="profile-image">
           <h3 id="profile-name">{{vm.user.full_name}}</h3>
@@ -41,22 +42,30 @@
             <div class="col col-33">
                 <button ng-click="vm.openModal('following')" class="button button-small button-light">Following<br>{{vm.userOverview.following}}
             </div>
-
         </div>
+      </div>
+    </div>
 
 
 
-          <!-- <div class="row" id="profile-btn">
-            <div ng-click="vm.openModal('connections')" class="col col-33">Connections<br>{{vm.userOverview.connections}}</div>
-            <div ng-click="vm.openModal('followers')" class="col col-33">Followers<br>{{vm.userOverview.follower}}</div>
-            <div ng-click="vm.openModal('following')" class="col col-33">Following<br>{{vm.userOverview.following}}</div>
-          </div> -->
 
-        </div>
+<!-- basic info -->
+
+      <div class="card list">
+             <div class="item item-divider">Basic Information</div>
+                 <a class="item item-icon-left" href=""> <i class="icon ion-ios-navigate"></i><span style="font-size:15px">Lives in Dhaka, Bangladesh</span></a>
+                 <a class="item item-icon-left" href=""> <i class="icon ion-ios-telephone-outline"></i><span style="font-size:15px">+880 1710 234 567</span></a>
+                 <a class="item item-icon-left" href=""> <i class="icon ion-android-calendar"></i><span style="font-size:15px">January 1, 1990</span></a>
       </div>
 
 
-    </div>
-  </ion-content>
+    
+
+
+  </div>
+
+
+
+ </ion-content>
 
 </ion-view>
