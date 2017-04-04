@@ -36,6 +36,15 @@ function profileCtrl($scope, $localStorage, Constants, ProfileFactory, $ionicLoa
 
     // Modal
     vm.openModal = function(modalName) {
+        
+        if(modalName == "connections"){
+            allConnections();
+        }else if(modalName == "followers"){
+            allFollowers();
+        }else if(modalName == "following"){
+            allFollowing();
+        }
+
         $ionicModal.fromTemplateUrl('pages/modals/'+modalName+'-modal.html', {
             scope: $scope,
             animation: 'slide-in-up'
@@ -43,6 +52,7 @@ function profileCtrl($scope, $localStorage, Constants, ProfileFactory, $ionicLoa
             $scope.modal = modal;
             $scope.modal.show();
         });
+
     };
 
     vm.closeModal = function() {
@@ -52,6 +62,50 @@ function profileCtrl($scope, $localStorage, Constants, ProfileFactory, $ionicLoa
     $scope.$on('$destroy', function() {
         $scope.modal.remove();
     });
+
+    function allConnections(){
+        $ionicLoading.show({
+            template: 'Loading...'
+        })
+        ProfileFactory.getAllConnections(vm.user.key, vm.user.userTZ).then(
+            function(response){
+                $ionicLoading.hide();
+                console.log(response);
+                vm.connections = response.data.data.data_info;
+            },function(error){
+                $ionicLoading.hide();
+            }
+        );
+    }
+
+    function allFollowing(){
+        $ionicLoading.show({
+            template: 'Loading...'
+        })
+        ProfileFactory.getAllFollowing(vm.user.key).then(
+            function(response){
+                $ionicLoading.hide();
+                vm.following = response.data.data.data_info;
+            },function(error){
+                $ionicLoading.hide();
+            }
+        );
+    }
+
+    function allFollowers(){
+        $ionicLoading.show({
+            template: 'Loading...'
+        })
+        ProfileFactory.getAllFollowers(vm.user.key).then(
+            function(response){
+                $ionicLoading.hide();
+                console.log(response);
+                vm.followers = response.data.data.data_info;
+            },function(error){
+                $ionicLoading.hide();
+            }
+        );
+    }
 
     
 };
