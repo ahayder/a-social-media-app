@@ -22,15 +22,29 @@ function attachmentPost() {
     }
 }
 
-attController.$inject = ['$scope', 'Constants', '$sce'];
+attController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover'];
 
-function attController($scope, Constants, $sce) {
+function attController($scope, Constants, $sce, $ionicPopover) {
     var vm = this;
     vm.apiurl = Constants.apiurl;
 
     vm.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
     }
+
+    // popover
+    $ionicPopover.fromTemplateUrl('pages/popovers/home-feed-post-edit.html', {
+        scope: $scope
+    }).then(function (popover) {
+        $scope.popover = popover;
+    });
+
+    vm.showPopover = function ($event) {
+        $scope.popover.show($event);
+    }
+    vm.closePopover = function () {
+        $scope.popover.hide();
+    };
 
     console.log("from attachment");
 

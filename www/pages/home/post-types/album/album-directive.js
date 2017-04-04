@@ -22,11 +22,25 @@ function albumPost() {
     }
 }
 
-alController.$inject = ['$scope', 'Constants'];
+alController.$inject = ['$scope', 'Constants', '$ionicPopover'];
 
-function alController($scope, Constants) {
+function alController($scope, Constants, $ionicPopover) {
     var vm = this;
     vm.apiurl = Constants.apiurl;
+
+    // popover
+    $ionicPopover.fromTemplateUrl('pages/popovers/home-feed-post-edit.html', {
+        scope: $scope
+    }).then(function (popover) {
+        $scope.popover = popover;
+    });
+
+    vm.showPopover = function ($event) {
+        $scope.popover.show($event);
+    }
+    vm.closePopover = function () {
+        $scope.popover.hide();
+    };
 
     console.log("inside album");
 

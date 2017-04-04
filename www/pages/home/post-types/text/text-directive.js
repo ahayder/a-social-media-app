@@ -22,9 +22,9 @@ function textPost() {
     }
 }
 
-tController.$inject = ['$scope', 'Constants', '$sce'];
+tController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover'];
 
-function tController($scope, Constants, $sce) {
+function tController($scope, Constants, $sce, $ionicPopover) {
     var vm = this;
 
     vm.yvideo = false;
@@ -70,5 +70,19 @@ function tController($scope, Constants, $sce) {
             }
         }
     }checkForMedia();
+
+    // popover
+    $ionicPopover.fromTemplateUrl('pages/popovers/home-feed-post-edit.html', {
+        scope: $scope
+    }).then(function (popover) {
+        $scope.popover = popover;
+    });
+
+    vm.showPopover = function ($event) {
+        $scope.popover.show($event);
+    }
+    vm.closePopover = function () {
+        $scope.popover.hide();
+    };
 
 }

@@ -1,0 +1,41 @@
+<ion-view title="Comments" ng-cloak>
+
+  <!--<ion-nav-bar class="bar-positive">
+
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+
+  </ion-nav-bar>-->
+
+
+
+
+  <ion-content has-header="true">
+    <div ng-if="vm.renderhtmlNow">
+      <div id="profile-bg" ng-style="{'background-image': 'url({{vm.coverImage}})'}"></div>
+      <div id="content">
+
+        <div id="profile-info">
+          <img ng-src="{{vm.proPic}}" id="profile-image">
+          <h3 id="profile-name">{{vm.user.full_name}}</h3>
+          <span id="profile-description" ng-if="!vm.userOverview.workTitle == ''">{{vm.userOverview.workTitle}} <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a></span>
+
+          <div class="row" id="profile-btn">
+            <div class="col col-33">Connections<br>{{vm.userOverview.connections}}</div>
+            <div class="col col-33">Followers<br>{{vm.userOverview.follower}}</div>
+            <div class="col col-33">Following<br>{{vm.userOverview.following}}</div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </ion-content>
+
+</ion-view>

@@ -22,9 +22,9 @@ function videoPost() {
     }
 }
 
-vController.$inject = ['$scope', 'Constants', '$sce'];
+vController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover'];
 
-function vController($scope, Constants, $sce) {
+function vController($scope, Constants, $sce, $ionicPopover) {
     var vm = this;
     vm.apiurl = Constants.apiurl;
 
@@ -58,6 +58,22 @@ function vController($scope, Constants, $sce) {
             }
 
         }
+    }// start the video
+
+
+    // popover
+    $ionicPopover.fromTemplateUrl('pages/popovers/home-feed-post-edit.html', {
+        scope: $scope
+    }).then(function (popover) {
+        $scope.popover = popover;
+    });
+
+    vm.showPopover = function ($event) {
+        $scope.popover.show($event);
     }
+    vm.closePopover = function () {
+        $scope.popover.hide();
+    };
+
 
 }

@@ -53,8 +53,18 @@ angular.module('freemig.routes', [])
     url: '/profile',
     views: {
       'tab1': {
-        templateUrl: 'pages/profile/profile.html',
+        templateUrl: 'pages/home/profile/profile.html',
         controller: "profileCtrl as vm"
+      }
+    }
+  })
+
+  .state('app.tabs.comments', {
+    url: '/comments',
+    views: {
+      'tab1': {
+        templateUrl: 'pages/home/comments/comments.html',
+        controller: "commentsCtrl as vm"
       }
     }
   })

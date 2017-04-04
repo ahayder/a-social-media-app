@@ -1,15 +1,34 @@
 angular.module('freemig.homeController', [])
 
-.controller('homeCtrl', homeCtrl)
+    .controller('homeCtrl', homeCtrl)
 
-homeCtrl.$inject = ['$scope', '$http', 'HomeFactory', 'ionicToast', '$cordovaGeolocation', '$state', '$localStorage', '$ionicLoading', '$sce', 'Constants']
+homeCtrl.$inject = ['$scope',
+    '$http',
+    'HomeFactory',
+    'ionicToast',
+    '$cordovaGeolocation',
+    '$state',
+    '$localStorage',
+    '$ionicLoading',
+    '$sce',
+    'Constants']
 
-function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $state, $localStorage, $ionicLoading, $sce, Constants) {
+function homeCtrl($scope,
+    $http,
+    HomeFactory,
+    ionicToast,
+    $cordovaGeolocation,
+    $state,
+    $localStorage,
+    $ionicLoading,
+    $sce,
+    Constants) 
+    {
 
     var vm = this;
 
     $ionicLoading.show({
-      template: 'Loading...'
+        template: 'Loading...'
     })
 
     vm.user = $localStorage.user.token;
@@ -17,7 +36,7 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
     vm.status = {};
     vm.feedType = 1;
 
-    vm.trustSrc = function(src) {
+    vm.trustSrc = function (src) {
         return $sce.trustAsResourceUrl(src);
     }
 
@@ -25,7 +44,7 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
     var pageNum = 1;
 
 
-    function initNewsFeed(pageNo, ft){
+    function initNewsFeed(pageNo, ft) {
         console.log(pageNo)
         var newsFeedHomePostData = {};
         newsFeedHomePostData.feedChoose = ft;
@@ -34,14 +53,14 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
         newsFeedHomePostData.tz = vm.user.userTZ;
 
         HomeFactory.getNewsFeedHome(vm.user.key, newsFeedHomePostData, pageNo).then(
-            function(response){
+            function (response) {
                 response = response.data.data.data_info;
-                if(response.length == 0){
+                if (response.length == 0) {
                     vm.morePostsCanBeLoaded = false;
                     ionicToast.show("No more posts to show.", "bottom", false, 2000);
                 }
-                else{
-                    for(var i = 0; i < response.length; i++){
+                else {
+                    for (var i = 0; i < response.length; i++) {
                         posts.push(response[i]);
                     }
                     vm.feeds = posts;
@@ -51,10 +70,10 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
                     $ionicLoading.hide();
                     pageNum++;
                 }
-                
 
 
-            },function(error){
+
+            }, function (error) {
 
             }
         );
@@ -62,21 +81,21 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
 
     vm.morePostsCanBeLoaded = false;
 
-    vm.loadMorePosts = function(){
-        if ( posts.length == 99 ) {
+    vm.loadMorePosts = function () {
+        if (posts.length == 99) {
             vm.morePostsCanBeLoaded = true;
         }
         initNewsFeed(pageNum, vm.feedType);
     }
 
-    vm.doRefresh = function(){
+    vm.doRefresh = function () {
         posts = [];
         vm.feeds = posts;
         initNewsFeed(1, vm.feedType);
         $scope.$broadcast('scroll.refreshComplete');
     }
 
-    vm.changeFeedType = function(ft){
+    vm.changeFeedType = function (ft) {
         $ionicLoading.show({
             template: 'Loading...'
         })
@@ -86,12 +105,12 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
         initNewsFeed(1, vm.feedType);
     }
 
-    vm.createPost = function(status){
+    vm.createPost = function (status) {
         console.log(status.text);
         $ionicLoading.show({
             template: 'Working...'
         })
-    
+
         var data = {
             "tz": vm.user.userTZ,
             "owner_type": "1",
@@ -109,17 +128,19 @@ function homeCtrl($scope, $http, HomeFactory, ionicToast, $cordovaGeolocation, $
             "feedLoad": "1",
             "previewLink": "",
             "activityPreview": "0",
-            "via": ""}
+            "via": ""
+        }
 
         HomeFactory.createPost(vm.user.key, data).then(
-            function(response){
+            function (response) {
                 $ionicLoading.hide();
                 ionicToast.show("Posted!", "top", false, 2000);
-            },function(error){
+            }, function (error) {
                 $ionicLoading.hide();
                 ionicToast.show("Error!", "bottom", top, 3000);
             }
         );
-    }
+    }//create post
+
 
 };

@@ -12,11 +12,21 @@
         <img width="40" ng-src="{{vm.trustSrc(vm.apiurl+'/defaultMedia/document/'+file.attributes.ext+'.svg')}}"> {{file.file_path}}
     </div>
 
-    <div class="item tabs tabs-secondary icon-small" id="like_comment_icon">
-        <a class="tab-item item-icon-left" href=""><i class="icon ion-heart" style="font-size:25px"></i></a>
-        <a class="tab-item item-icon-left" href=""><i class="icon ion-ios-chatbubble" style="margin-left:55px;font-size:25px"></i></a>
-        <a class="tab-item item-icon-left" href=""><i class="icon ion-share" style="margin-left:110px;font-size:25px"></i></a>
-        <a class="tab-item item-icon-right" href=""><i class="icon ion-more" style="font-size:25px"></i></a>
+
+
+
+    <div class="item row">
+        <div class="col col-20">
+            <a href=""><i class="icon ion-heart" style="font-size:20px; vertical-align:middle;"></i></a>
+            <span style="font-size:12px"> {{vm.post.likes}}</span></div>
+        <div ui-sref="app.tabs.comments" class="col col-20">
+            <a><i class="icon ion-ios-chatbubble" style="font-size:20px; vertical-align:middle;"></i></a>
+            <span style="font-size:12px"> {{vm.post.comments}}</span></div>
+        <div class="col col-20">
+            <a href=""><i class="icon ion-share" style="font-size:20px; vertical-align:middle;"></i></a>
+            <span style="font-size:12px"> {{vm.post.shares}}</span></div>
+        <div class="col col-offset-20 col-20">
+            <a class="item-icon-right" href=""><i class="icon ion-more" style="font-size:20px; vertical-align:middle;"></i></a></div>
     </div>
 
 </div>
