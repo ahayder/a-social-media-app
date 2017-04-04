@@ -17,7 +17,7 @@ function profileCtrl($scope, $localStorage, Constants, ProfileFactory, $ionicLoa
 
 
     var data = {"id":vm.user.userId,"tz":vm.user.userTZ}
-    ProfileFactory.getCoverPhotoAndOthersInfo(vm.user.key, data).then(
+    ProfileFactory.getCoverPhotoAndOtherInfo(vm.user.key, data).then(
         function(response){
             $ionicLoading.hide();
             console.log(response.data.data.data_info);
