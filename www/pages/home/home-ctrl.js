@@ -22,7 +22,7 @@ function homeCtrl($scope,
     $localStorage,
     $ionicLoading,
     $sce,
-    Constants) 
+    Constants)
     {
 
     var vm = this;
