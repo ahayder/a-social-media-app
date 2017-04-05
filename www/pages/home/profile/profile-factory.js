@@ -21,7 +21,7 @@ function ProfileFactory($http, Constants) {
             return $http.get(Constants.apiurl+'/en/api/v0.1/app/social/getAllFollower?token='+key+'&tz='+tz);
         },
         getWidgetInfo: function(key, data){
-            return $http.get(Constants.apiurl+'/en/api/v0.1/app/social/get-widget-general-info?token='+key, data);
+            return $http.post(Constants.apiurl+'/en/api/v0.1/app/social/get-widget-general-info?token='+key, data);
         }
     });
     

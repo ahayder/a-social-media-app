@@ -50,15 +50,59 @@
 
 
 <!-- basic info -->
-
-      <div class="card list">
-        <a class="item item-icon-left" href=""> <i class="icon ion-ios-navigate"></i><span style="font-size:15px">Lives in Dhaka, Bangladesh</span></a>
-        <a class="item item-icon-left" href=""> <i class="icon ion-ios-telephone-outline"></i><span style="font-size:15px">+880 1710 234 567</span></a>
-        <a class="item item-icon-left" href=""> <i class="icon ion-android-calendar"></i><span style="font-size:15px">January 1, 1990</span></a>
+    <div class="list">
+        <a class="item" href="">
+            <span style="font-size:12px">{{vm.widgetInfo.genrelInfo.about.name}}</span>
+        </a>
       </div>
 
 
-    
+
+      <div class="list">
+        <a ng-repeat="w in vm.widgetInfo.work" class="item" href="">
+            <span style="font-size:12px">{{w.title}} @ {{w.org_name}}</span>
+            <span style="font-size:12px" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
+        </a>
+
+        <a class="item" href="" ng-if="vm.widgetInfo.genrelInfo.home_town.name!==''">
+            <span style="font-size:12px" >From {{vm.widgetInfo.genrelInfo.home_town.name}}</span>
+        </a>
+        <a class="item" href="" ng-if="vm.widgetInfo.genrelInfo.dob.name!==''">
+            <span style="font-size:12px" >Birthdate: {{vm.widgetInfo.genrelInfo.dob.name}}</span>
+        </a>
+        <a class="item" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+            <span style="font-size:12px" >Interested In: {{vm.widgetInfo.genrelInfo.interest.name}}</span>
+        </a>
+        <a class="item" href="" ng-if="vm.widgetInfo.genrelInfo.lang.name!==''">
+            <span style="font-size:12px" >Knows: {{vm.widgetInfo.genrelInfo.lang.name}}</span>
+        </a>
+        <a class="item" href="" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
+            <span style="font-size:12px" >Phone: {{vm.widgetInfo.genrelInfo.phone.name}}</span>
+        </a>
+        <a class="item" href="" ng-if="vm.widgetInfo.genrelInfo.relation.name!==''">
+            <span style="font-size:12px" >Relationship Status: {{vm.widgetInfo.genrelInfo.relation.name}}</span>
+        </a>
+        <a class="item" href="" ng-if="vm.widgetInfo.genrelInfo.religion.name!==''">
+            <span style="font-size:12px" >Religious View: {{vm.widgetInfo.genrelInfo.religion.name}}</span>
+        </a>
+        <a class="item" href="" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
+            <span style="font-size:12px" >Website: {{vm.widgetInfo.genrelInfo.website.name}}</span>
+        </a>
+        <a class="item" href="" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
+            <span style="font-size:12px" >Favourite Quote: {{vm.widgetInfo.genrelInfo.quote.name}}</span>
+        </a>
+      </div>
+
+
+
+
+<!-- connections list -->
+
+
+
+
+
+
 
 
   </div>

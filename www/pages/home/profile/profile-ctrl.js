@@ -126,11 +126,11 @@ ionicToast) {
     }
 
     function widgetInfo(){
-        var data = {"userId":vm.user.userId,"tz":vm.userTZ};
+        var data = {"userId":vm.user.userId,"tz":vm.user.userTZ};
         ProfileFactory.getWidgetInfo(vm.user.key, data).then(
             function(response){
-                console.log(response);
-                vm.followers = response.data.data.data_info;
+                console.log(response.data.data.data_info);
+                vm.widgetInfo = response.data.data.data_info;
             },function(error){
                 ionicToast.show("Please check your internet connection.", "bottom", false, 2000);
             }
