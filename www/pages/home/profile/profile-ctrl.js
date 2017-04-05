@@ -2,9 +2,21 @@ angular.module('freemig.profileController', [])
 
 .controller('profileCtrl', profileCtrl)
 
-profileCtrl.$inject = ['$scope', '$localStorage', 'Constants', 'ProfileFactory', '$ionicLoading', '$ionicModal']
+profileCtrl.$inject = ['$scope', 
+'$localStorage', 
+'Constants', 
+'ProfileFactory', 
+'$ionicLoading', 
+'$ionicModal',
+'ionicToast']
 
-function profileCtrl($scope, $localStorage, Constants, ProfileFactory, $ionicLoading, $ionicModal) {
+function profileCtrl($scope, 
+$localStorage, 
+Constants, 
+ProfileFactory, 
+$ionicLoading, 
+$ionicModal,
+ionicToast) {
 
     $ionicLoading.show({
       template: 'Loading...'
@@ -16,9 +28,10 @@ function profileCtrl($scope, $localStorage, Constants, ProfileFactory, $ionicLoa
     vm.apiurl = Constants.apiurl;
 
 
-    var data = {"id":vm.user.userId,"tz":vm.user.userTZ}
+    
 
     function init(){
+        var data = {"id":vm.user.userId,"tz":vm.user.userTZ}
         ProfileFactory.getCoverPhotoAndOtherInfo(vm.user.key, data).then(
             function(response){
                 $ionicLoading.hide();
@@ -29,8 +42,10 @@ function profileCtrl($scope, $localStorage, Constants, ProfileFactory, $ionicLoa
                 vm.renderhtmlNow = true;
             },function(error){
                 $ionicLoading.hide();
+                ionicToast.show("Please check your internet connection.", "bottom", false, 2000);
             }
         )
+        widgetInfo();
     }init();
 
 
@@ -74,6 +89,7 @@ function profileCtrl($scope, $localStorage, Constants, ProfileFactory, $ionicLoa
                 vm.connections = response.data.data.data_info;
             },function(error){
                 $ionicLoading.hide();
+                ionicToast.show("Please check your internet connection.", "bottom", false, 2000);
             }
         );
     }
@@ -88,6 +104,7 @@ function profileCtrl($scope, $localStorage, Constants, ProfileFactory, $ionicLoa
                 vm.following = response.data.data.data_info;
             },function(error){
                 $ionicLoading.hide();
+                ionicToast.show("Please check your internet connection.", "bottom", false, 2000);
             }
         );
     }
@@ -103,6 +120,19 @@ function profileCtrl($scope, $localStorage, Constants, ProfileFactory, $ionicLoa
                 vm.followers = response.data.data.data_info;
             },function(error){
                 $ionicLoading.hide();
+                ionicToast.show("Please check your internet connection.", "bottom", false, 2000);
+            }
+        );
+    }
+
+    function widgetInfo(){
+        var data = {"userId":vm.user.userId,"tz":vm.userTZ};
+        ProfileFactory.getWidgetInfo(vm.user.key, data).then(
+            function(response){
+                console.log(response);
+                vm.followers = response.data.data.data_info;
+            },function(error){
+                ionicToast.show("Please check your internet connection.", "bottom", false, 2000);
             }
         );
     }
