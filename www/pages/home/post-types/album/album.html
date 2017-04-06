@@ -12,22 +12,22 @@
 
     <div class="item item-image">
 
-        <div class="row row-no-padding">
+        <div class="row row-no-padding" style="margin-bottom:10px">
             <div class="col col-100 album-image album-first-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[0].file_path}})'}">
             </div>
         </div>
 
-        <div class="row row-no-padding" ng-show="vm.post.files[2]">
-            <div class="col col-50 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[1].file_path}})'}">
+        <div class="row row-no-padding" style="margin-bottom:10px" ng-show="vm.post.files[2]">
+            <div class="col col-50 album-image" style="margin-right:5px" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[1].file_path}})'}">
             </div>
             <div class="col col-50 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[2].file_path}})'}">
             </div>
         </div>
 
         <div class="row row-no-padding" ng-show="vm.post.files[5]">
-            <div class="col col-33 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[3].file_path}})'}">
+            <div class="col col-33 album-image"  style="margin-right:5px" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[3].file_path}})'}">
             </div>
-            <div class="col col-33 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[4].file_path}})'}">
+            <div class="col col-33 album-image"  style="margin-right:5px" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[4].file_path}})'}">
             </div>
             <div class="col col-33 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[5].file_path}})'}">
             </div>
