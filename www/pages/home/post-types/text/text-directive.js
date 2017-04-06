@@ -22,9 +22,9 @@ function textPost() {
     }
 }
 
-tController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover'];
+tController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', 'HomeFactory', '$localStorage'];
 
-function tController($scope, Constants, $sce, $ionicPopover) {
+function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $localStorage) {
     var vm = this;
 
     vm.yvideo = false;
@@ -32,7 +32,7 @@ function tController($scope, Constants, $sce, $ionicPopover) {
     vm.notVideo = false;
 
     vm.apiurl = Constants.apiurl;
-
+    vm.user = $localStorage.user.token;
 
     vm.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -84,5 +84,22 @@ function tController($scope, Constants, $sce, $ionicPopover) {
     vm.closePopover = function () {
         $scope.popover.hide();
     };
+
+
+    vm.likePost = function(){
+        var data = {"type":1,"content_id":vm.post.id,"like_type":1,"post_id":vm.post.id,"tz":vm.user.userTZ};
+
+        HomeFactory.doLike(vm.user.key, data).then(
+            function(response){
+                console.log(response);
+                if(response.data.data.data_info.fAction == "1"){
+                    vm.post.likes += 1;
+                }
+            },function(error){
+                console.log(error);
+            }
+        );
+    }
+
 
 }

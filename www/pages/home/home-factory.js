@@ -13,6 +13,9 @@ function HomeFactory($http, Constants) {
         },
         createPost: function(key, data){
             return $http.post(Constants.apiurl + "/en/api/v0.1/app/social/post?token="+key, data);
+        },
+        doLike: function(key, data){
+            return $http.post(Constants.apiurl + '/en/api/v0.1/app/social/like?token=' + key, data);
         }
     });
     
