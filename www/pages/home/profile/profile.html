@@ -50,15 +50,16 @@
 
 
 <!-- basic info -->
-    <div class="list">
-         <a class="item" href="">
-            <span style="font-size:12px">{{vm.widgetInfo.genrelInfo.about.name}}</span>
-        </a>
-    </div>
 
 
 
       <div class="list">
+
+        <a class="item" href="">
+           <span style="font-size:12px">{{vm.widgetInfo.genrelInfo.about.name}}</span>
+       </a>
+
+
         <a ng-repeat="w in vm.widgetInfo.work" class="item" href="">
             <span style="font-size:12px">{{w.title}} @ {{w.org_name}}</span>
             <span style="font-size:12px" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
