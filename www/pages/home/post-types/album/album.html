@@ -12,22 +12,22 @@
 
     <div class="item item-image">
 
-        <div class="row row-no-padding">
+        <div class="row row-no-padding" style="margin-bottom:10px">
             <div class="col col-100 album-image album-first-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[0].file_path}})'}">
             </div>
         </div>
 
-        <div class="row row-no-padding" ng-show="vm.post.files[2]">
-            <div class="col col-50 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[1].file_path}})'}">
+        <div class="row row-no-padding" style="margin-bottom:10px" ng-show="vm.post.files[2]">
+            <div class="col col-50 album-image" style="margin-right:5px" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[1].file_path}})'}">
             </div>
             <div class="col col-50 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[2].file_path}})'}">
             </div>
         </div>
 
         <div class="row row-no-padding" ng-show="vm.post.files[5]">
-            <div class="col col-33 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[3].file_path}})'}">
+            <div class="col col-33 album-image"  style="margin-right:5px" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[3].file_path}})'}">
             </div>
-            <div class="col col-33 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[4].file_path}})'}">
+            <div class="col col-33 album-image"  style="margin-right:5px" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[4].file_path}})'}">
             </div>
             <div class="col col-33 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.files[5].file_path}})'}">
             </div>
@@ -48,7 +48,7 @@
             <a><i class="icon ion-ios-chatbubble" style="font-size:20px; vertical-align:middle;"></i></a>
             <span style="font-size:12px"> {{vm.post.comments}}</span></div>
         <div class="col col-20">
-            <a href=""><i class="icon ion-share" style="font-size:20px; vertical-align:middle;"></i></a>
+            <a href=""><i class="icon fa fa-share-alt" style="font-size:18px; vertical-align:middle;"></i></a>
             <span style="font-size:12px"> {{vm.post.shares}}</span></div>
         <div class="col col-offset-20 col-20">
             <a class="item-icon-right" href=""><i class="icon ion-more" style="font-size:20px; vertical-align:middle;"></i></a></div>
