@@ -17,12 +17,16 @@
 
     <ion-content has-header="true">
         <div ng-if="vm.renderhtmlNow">
-            <div id="profile-bg" ng-style="{'background-image': 'url({{vm.coverImage}})'}"></div>
+            <div id="profile-bg" ng-style="{'background-image': 'url({{vm.coverImage}})'}">
+                <button class="button button-light button-clear icon icon-right ion-edit" style="padding-right:15px; text-shadow: 1px 3px 6px #000000;"></button>
+            </div>
+
 
 
             <div id="content">
                 <div id="profile-info">
                     <img ng-src="{{vm.proPic}}" id="profile-image">
+                    <button id="pro-pic-edit" class="button button-light button-clear icon ion-camera"></button>
                     <h3 id="profile-name">{{vm.user.full_name}}</h3>
                     <span id="profile-description" ng-if="!vm.userOverview.workTitle == ''">{{vm.userOverview.workTitle}} <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a></span>
 
