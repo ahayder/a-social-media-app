@@ -22,9 +22,9 @@ function albumPost() {
     }
 }
 
-alController.$inject = ['$scope', 'Constants', '$ionicPopover', '$localStorage', 'HomeFactory'];
+alController.$inject = ['$scope', 'Constants', '$ionicPopover', '$localStorage', 'HomeFactory', '$state'];
 
-function alController($scope, Constants, $ionicPopover, $localStorage, HomeFactory) {
+function alController($scope, Constants, $ionicPopover, $localStorage, HomeFactory, $state) {
     var vm = this;
     vm.apiurl = Constants.apiurl;
     vm.user = $localStorage.user.token;
@@ -56,6 +56,12 @@ function alController($scope, Constants, $ionicPopover, $localStorage, HomeFacto
                 console.log(error);
             }
         );
+    }
+
+
+    vm.goToCommentPage = function(postType){
+        $localStorage.post = vm.post;
+        $state.go('app.tabs.comments', {type: postType});
     }
 
 }

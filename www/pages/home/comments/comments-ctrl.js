@@ -2,9 +2,9 @@ angular.module('freemig.commentsController', [])
 
 .controller('commentsCtrl', commentsCtrl)
 
-commentsCtrl.$inject = ['$scope', '$localStorage', 'Constants', 'HomeFactory', '$ionicLoading']
+commentsCtrl.$inject = ['$scope', '$localStorage', 'Constants', 'HomeFactory', '$ionicLoading', '$stateParams']
 
-function commentsCtrl($scope, $localStorage, Constants, HomeFactory, $ionicLoading) {
+function commentsCtrl($scope, $localStorage, Constants, HomeFactory, $ionicLoading, $stateParams) {
 
     $ionicLoading.show({
       template: 'Loading...'
@@ -14,8 +14,24 @@ function commentsCtrl($scope, $localStorage, Constants, HomeFactory, $ionicLoadi
     vm.renderhtmlNow = false;
     vm.user = $localStorage.user.token;
     vm.apiurl = Constants.apiurl;
+    vm.post = $localStorage.post;
+    vm.type = $stateParams.type;
 
 
-    var data = {"id":vm.user.userId,"tz":vm.user.userTZ}
+    
+
+    function loadComments(){
+      var data = {"content_id":vm.post.id,"type":"1","tz":vm.user.userTZ};
+
+      HomeFactory.getComments(vm.user.key, data, 1).then(
+        function(response){
+           $ionicLoading.hide();
+          console.log(response);
+        },function(error){
+           $ionicLoading.hide();
+          console.log(error);
+        }
+      );
+    }loadComments();
     
 };

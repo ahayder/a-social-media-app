@@ -60,7 +60,7 @@ angular.module('freemig.routes', [])
   })
 
   .state('app.tabs.comments', {
-    url: '/comments',
+    url: '/comments/:type',
     views: {
       'tab1': {
         templateUrl: 'pages/home/comments/comments.html',

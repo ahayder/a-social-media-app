@@ -17,12 +17,18 @@
 
     <ion-content has-header="true">
         <div ng-if="vm.renderhtmlNow">
-            <div id="profile-bg" ng-style="{'background-image': 'url({{vm.coverImage}})'}"></div>
+            <div id="profile-bg" ng-style="{'background-image': 'url({{vm.coverImage}})'}">
+                <!--cover pic edit icon -->
+                <button class="button button-light button-clear icon icon-right ion-edit" style="padding-right:10px; text-shadow: 1px 3px 6px #000000;"></button>
+            </div>
+
 
 
             <div id="content">
                 <div id="profile-info">
                     <img ng-src="{{vm.proPic}}" id="profile-image">
+                      <!--pro pic edit icon -->
+                    <button id="pro-pic-edit" class="button button-light button-clear icon ion-camera"></button>
                     <h3 id="profile-name">{{vm.user.full_name}}</h3>
                     <span id="profile-description" ng-if="!vm.userOverview.workTitle == ''">{{vm.userOverview.workTitle}} <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a></span>
 
@@ -31,79 +37,76 @@
                     <!-- connections, follower, following items -->
 
                     <div class="row" id="profile-btn">
-                        <div class="col col-33">
-                            <button ng-click="vm.openModal('connections')" class="button button-small button-light">Connections<br>{{vm.userOverview.connections}}</button>
+                        <div class="col" style="padding:0">
+                            <button ng-click="vm.openModal('connections')" class="button button-block button-outline button-small button-positive">{{vm.userOverview.connections}}<br>Connections</button>
                         </div>
 
-                        <div class="col col-33">
-                            <button ng-click="vm.openModal('followers')" class="button button-small button-light">Followers<br>{{vm.userOverview.follower}}
-            </div>
+                        <div class="col" style="padding:0">
+                            <button ng-click="vm.openModal('followers')" class="button button-block button-outline button-small button-positive">{{vm.userOverview.follower}}<br>Followers</button>
+                        </div>
 
-            <div class="col col-33">
-                <button ng-click="vm.openModal('following')" class="button button-small button-light">Following<br>{{vm.userOverview.following}}
-            </div>
-        </div>
-      </div>
-    </div>
+                        <div class="col" style="padding:0">
+                            <button ng-click="vm.openModal('following')" class="button button-block button-outline button-small button-positive">{{vm.userOverview.following}}<br>Following</button>
+                        </div>
+                    </div>
+               </div>
+          </div>
 
 
 
 
 <!-- basic info -->
+        <div class="list list-borderless" style="margin-top:30px">
+
+              <a class="item row-no-padding" href="">
+                  <span class="profile_basic_info">{{vm.widgetInfo.genrelInfo.about.name}}</span>
+              </a>
 
 
+              <a ng-repeat="w in vm.widgetInfo.work" class="item row-no-padding" href="">
+                   <span class="profile_basic_info">{{w.title}} @ {{w.org_name}}</span>
+                   <span class="profile_basic_info" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
+              </a>
 
-     <div class="list list-borderless">
+              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.home_town.name!==''">
+                  <span class="profile_basic_info">From {{vm.widgetInfo.genrelInfo.home_town.name}}</span>
+              </a>
 
-          <a class="item row-no-padding" href="">
-              <span class="profile_basic_info">{{vm.widgetInfo.genrelInfo.about.name}}</span>
-          </a>
+              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.dob.name!==''">
+                  <span class="profile_basic_info">Birthdate: {{vm.widgetInfo.genrelInfo.dob.name}}</span>
+              </a>
 
+              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+                  <span class="profile_basic_info" >Interested In: {{vm.widgetInfo.genrelInfo.interest.name}}</span>
+              </a>
 
-          <a ng-repeat="w in vm.widgetInfo.work" class="item row-no-padding" href="">
-               <span class="profile_basic_info">{{w.title}} @ {{w.org_name}}</span>
-               <span class="profile_basic_info" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
-          </a>
+              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
 
-        <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.home_town.name!==''">
-            <span class="profile_basic_info">From {{vm.widgetInfo.genrelInfo.home_town.name}}</span>
-        </a>
+                <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+                  <span class="profile_basic_info" >Knows: {{vm.widgetInfo.genrelInfo.lang.name}}</span>
+              </a>
 
-        <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.dob.name!==''">
-            <span class="profile_basic_info">Birthdate: {{vm.widgetInfo.genrelInfo.dob.name}}</span>
-        </a>
+              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
+                  <span class="profile_basic_info" >Phone: {{vm.widgetInfo.genrelInfo.phone.name}}</span>
+              </a>
 
-        <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
-            <span class="profile_basic_info" >Interested In: {{vm.widgetInfo.genrelInfo.interest.name}}</span>
-        </a>
+              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.relation.name!==''">
+                  <span class="profile_basic_info" >Relationship Status: {{vm.widgetInfo.genrelInfo.relation.name}}</span>
+              </a>
 
-        <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.religion.name!==''">
+                  <span class="profile_basic_info" >Religious View: {{vm.widgetInfo.genrelInfo.religion.name}}</span>
+              </a>
 
-          <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
-            <span class="profile_basic_info" >Knows: {{vm.widgetInfo.genrelInfo.lang.name}}</span>
-        </a>
+              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
+                  <span class="profile_basic_info" >Website: {{vm.widgetInfo.genrelInfo.website.name}}</span>
+              </a>
 
-        <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
-            <span class="profile_basic_info" >Phone: {{vm.widgetInfo.genrelInfo.phone.name}}</span>
-        </a>
+              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
+                  <span class="profile_basic_info" >Favourite Quote: {{vm.widgetInfo.genrelInfo.quote.name}}</span>
+              </a>
 
-        <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.relation.name!==''">
-            <span class="profile_basic_info" >Relationship Status: {{vm.widgetInfo.genrelInfo.relation.name}}</span>
-        </a>
-
-        <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.religion.name!==''">
-            <span class="profile_basic_info" >Religious View: {{vm.widgetInfo.genrelInfo.religion.name}}</span>
-        </a>
-
-        <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
-            <span class="profile_basic_info" >Website: {{vm.widgetInfo.genrelInfo.website.name}}</span>
-        </a>
-
-        <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
-            <span class="profile_basic_info" >Favourite Quote: {{vm.widgetInfo.genrelInfo.quote.name}}</span>
-        </a>
-
-      </div>
+        </div>
 
 
 
@@ -113,21 +116,22 @@
 
 <div>
     <div class="row item item-borderless">
-        <div class="col col-25">
-            <a href=""><div class="item item-avatar item-content item-borderless"><img src="../img/jonny_depp.jpg"></div></a>
+        <div class="col" style="padding:0">
+            <a href=""><div class="item item-avatar item-content item-borderless" style="padding:0"><img src="../img/jonny_depp.jpg"></div></a>
         </div>
 
-        <div class="col col-25">
-            <a href=""><div class="item item-avatar item-borderless"><img src="../img/jonny_depp.jpg"></div></a>
+        <div class="col" style="padding:0">
+            <button class="button button-positive icon ion-gear-a" style="border-radius:50%; border-style:solid"></button>
         </div>
 
-        <div class="col col-25">
-            <a href=""><div class="item item-avatar item-borderless"><img src="../img/jonny_depp.jpg"></div></a>
+        <div class="col" style="padding:0">
+            <a href=""><div class="item item-avatar item-borderless" style="padding:0"><img src="../img/jonny_depp.jpg"></div></a>
         </div>
 
-        <div class="col col-25">
-            <a href=""><div class="item item-avatar item-borderless"><img src="../img/jonny_depp.jpg"></div></a>
+        <div class="col" style="padding:0">
+            <a href=""><div class="item item-avatar item-borderless" style="padding:0"><img src="../img/jonny_depp.jpg"></div></a>
         </div>
+
    </div>
 
 

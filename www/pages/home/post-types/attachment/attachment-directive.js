@@ -22,9 +22,9 @@ function attachmentPost() {
     }
 }
 
-attController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', '$localStorage', 'HomeFactory'];
+attController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', '$localStorage', 'HomeFactory', '$state'];
 
-function attController($scope, Constants, $sce, $ionicPopover, $localStorage, HomeFactory) {
+function attController($scope, Constants, $sce, $ionicPopover, $localStorage, HomeFactory, $state) {
     var vm = this;
     vm.apiurl = Constants.apiurl;
     vm.user = $localStorage.user.token;
@@ -60,6 +60,12 @@ function attController($scope, Constants, $sce, $ionicPopover, $localStorage, Ho
                 console.log(error);
             }
         );
+    }
+
+
+     vm.goToCommentPage = function(postType){
+        $localStorage.post = vm.post;
+        $state.go('app.tabs.comments', {type: postType});
     }
 
 }

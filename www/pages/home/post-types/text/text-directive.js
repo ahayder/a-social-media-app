@@ -22,9 +22,9 @@ function textPost() {
     }
 }
 
-tController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', 'HomeFactory', '$localStorage'];
+tController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', 'HomeFactory', '$localStorage', '$state'];
 
-function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $localStorage) {
+function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $localStorage, $state) {
     var vm = this;
 
     vm.yvideo = false;
@@ -99,6 +99,12 @@ function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $local
                 console.log(error);
             }
         );
+    }
+
+
+     vm.goToCommentPage = function(postType){
+        $localStorage.post = vm.post;
+        $state.go('app.tabs.comments', {type: postType});
     }
 
 

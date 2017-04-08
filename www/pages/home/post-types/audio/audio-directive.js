@@ -22,9 +22,9 @@ function audioPost() {
     }
 }
 
-aController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', '$localStorage', 'HomeFactory'];
+aController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', '$localStorage', 'HomeFactory', '$state'];
 
-function aController($scope, Constants, $sce, $ionicPopover, $localStorage, HomeFactory) {
+function aController($scope, Constants, $sce, $ionicPopover, $localStorage, HomeFactory, $state) {
     var vm = this;
     vm.apiurl = Constants.apiurl;
     vm.user = $localStorage.user.token;
@@ -60,6 +60,13 @@ function aController($scope, Constants, $sce, $ionicPopover, $localStorage, Home
                 console.log(error);
             }
         );
+    }
+
+
+
+     vm.goToCommentPage = function(postType){
+        $localStorage.post = vm.post;
+        $state.go('app.tabs.comments', {type: postType});
     }
 
 }

@@ -22,9 +22,9 @@ function videoPost() {
     }
 }
 
-vController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', '$localStorage', 'HomeFactory'];
+vController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', '$localStorage', 'HomeFactory', '$state'];
 
-function vController($scope, Constants, $sce, $ionicPopover, $localStorage, HomeFactory) {
+function vController($scope, Constants, $sce, $ionicPopover, $localStorage, HomeFactory, $state) {
     var vm = this;
     vm.apiurl = Constants.apiurl;
     vm.user = $localStorage.user.token;
@@ -89,6 +89,11 @@ function vController($scope, Constants, $sce, $ionicPopover, $localStorage, Home
                 console.log(error);
             }
         );
+    }
+
+    vm.goToCommentPage = function(postType){
+        $localStorage.post = vm.post;
+        $state.go('app.tabs.comments', {type: postType});
     }
 
 

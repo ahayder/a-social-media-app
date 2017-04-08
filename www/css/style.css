@@ -76,7 +76,7 @@ display: block;
         background-size: 100%;
         background-position: 50% 20%;
         background-repeat: no-repeat;
-        text-align: center;
+        text-align: right;
       }
 
       #content {
@@ -85,6 +85,7 @@ display: block;
         background-color: white;
         box-shadow: 0px -1px 10px rgba(0,0,0,0.4);
         padding-top: 240px;
+        padding-bottom: 30px;
       }
 
       #profile-info {
@@ -94,6 +95,14 @@ display: block;
         z-index: 2;
         text-align: center;
       }
+
+      #pro-pic-edit{
+          margin-top:-40px;
+          text-shadow: 1px 3px 6px #000000;
+      }
+
+      }
+
       #profile-name {
         color: #444;
         font-size: 26px;
@@ -104,6 +113,7 @@ display: block;
       }
       #profile-description a {
         color: #888;
+        padding:10px;
       }
 
       #profile-image {
@@ -118,10 +128,9 @@ display: block;
 
       #profile-btn{
         padding-top: 10px;
-        padding-right: 30px;
-        padding-left: 30px;
-        padding-bottom: 20px;
         font-size: 12px;
+        margin-bottom: auto;
+        padding-bottom: 30px;
         color: #888;
       }
 
