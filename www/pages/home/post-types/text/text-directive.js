@@ -27,6 +27,8 @@ tController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', 'HomeFact
 function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $localStorage, $state) {
     var vm = this;
 
+    console.log(vm);
+
     vm.yvideo = false;
     vm.vvideo = false;
     vm.notVideo = false;
@@ -41,23 +43,23 @@ function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $local
     console.log("inside text");
 
     function checkForMedia(){
-        if(vm.post.has_url){
-            if(vm.post.hasOwnProperty("urlData")){
-                if(vm.post.urlData.preview){
+        if(vm.post.post.has_url){
+            if(vm.post.post.hasOwnProperty("urlData")){
+                if(vm.post.post.urlData.preview){
                     // has preview
-                    if(vm.post.video == 1){
+                    if(vm.post.post.video == 1){
                         // post is video
                         
-                        if(vm.post.video_type == "youtube"){
+                        if(vm.post.post.video_type == "youtube"){
                             vm.yvideo = true;
                             vm.vvideo = false;
                         }
-                        if(vm.post.video_type == "vimeo"){
+                        if(vm.post.post.video_type == "vimeo"){
                             vm.yvideo = false;
                             vm.vvideo = true;
                         }
                     }
-                    if(vm.post.video == 0){
+                    if(vm.post.post.video == 0){
                         // post is anything else
                         vm.yvideo = false;
                         vm.vvideo = false;
@@ -87,13 +89,13 @@ function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $local
 
 
     vm.likePost = function(){
-        var data = {"type":1,"content_id":vm.post.id,"like_type":1,"post_id":vm.post.id,"tz":vm.user.userTZ};
+        var data = {"type":1,"content_id":vm.post.post.id,"like_type":1,"post_id":vm.post.post.id,"tz":vm.user.userTZ};
 
         HomeFactory.doLike(vm.user.key, data).then(
             function(response){
                 console.log(response);
                 if(response.data.data.data_info.fAction == "1"){
-                    vm.post.likes += 1;
+                    vm.post.post.likes += 1;
                 }
             },function(error){
                 console.log(error);

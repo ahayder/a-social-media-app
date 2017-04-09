@@ -21,12 +21,13 @@ function commentsCtrl($scope, $localStorage, Constants, HomeFactory, $ionicLoadi
     
 
     function loadComments(){
-      var data = {"content_id":vm.post.id,"type":"1","tz":vm.user.userTZ};
+      var data = {"content_id":vm.post.post.id,"type":"1","tz":vm.user.userTZ};
 
       HomeFactory.getComments(vm.user.key, data, 1).then(
         function(response){
-           $ionicLoading.hide();
-          console.log(response);
+            $ionicLoading.hide();
+            console.log(response);
+            vm.comments = response.data.data.data_info;
         },function(error){
            $ionicLoading.hide();
           console.log(error);
