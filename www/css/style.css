@@ -110,6 +110,7 @@ display: block;
       #profile-description {
         font-size: 15px;
         color: #888;
+        padding:10px;
       }
       #profile-description a {
         color: #888;
