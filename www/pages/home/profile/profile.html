@@ -38,75 +38,75 @@
 
                     <div class="row" id="profile-btn">
                         <div class="col" style="padding:0">
-                            <button ng-click="vm.openModal('connections')" class="button button-block button-outline button-small button-positive">{{vm.userOverview.connections}}<br>Connections</button>
+                            <button ng-click="vm.openModal('connections')" class="button button-block button-clear button-small button-positive" style="font-size:15px">{{vm.userOverview.connections}}<br>Connections</button>
                         </div>
 
                         <div class="col" style="padding:0">
-                            <button ng-click="vm.openModal('followers')" class="button button-block button-outline button-small button-positive">{{vm.userOverview.follower}}<br>Followers</button>
+                            <button ng-click="vm.openModal('followers')" class="button button-block button-clear button-small button-positive" style="font-size:15px">{{vm.userOverview.follower}}<br>Followers</button>
                         </div>
 
                         <div class="col" style="padding:0">
-                            <button ng-click="vm.openModal('following')" class="button button-block button-outline button-small button-positive">{{vm.userOverview.following}}<br>Following</button>
+                            <button ng-click="vm.openModal('following')" class="button button-block button-clear button-small button-positive" style="font-size:15px">{{vm.userOverview.following}}<br>Following</button>
                         </div>
                     </div>
-               </div>
-          </div>
+                </div>
+            </div>
 
 
 
 
 <!-- basic info -->
-        <div class="list list-borderless" style="margin-top:30px">
+              <div class="list list-borderless" style="margin-top:30px">
 
-              <a class="item row-no-padding" href="">
-                  <span class="profile_basic_info">{{vm.widgetInfo.genrelInfo.about.name}}</span>
-              </a>
+                    <a class="item row-no-padding" href="">
+                        <span class="profile_basic_info">{{vm.widgetInfo.genrelInfo.about.name}}</span>
+                    </a>
 
 
-              <a ng-repeat="w in vm.widgetInfo.work" class="item row-no-padding" href="">
-                   <span class="profile_basic_info">{{w.title}} @ {{w.org_name}}</span>
-                   <span class="profile_basic_info" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
-              </a>
+                    <a ng-repeat="w in vm.widgetInfo.work" class="item row-no-padding" href="">
+                         <span class="profile_basic_info">{{w.title}} @ {{w.org_name}}</span>
+                         <span class="profile_basic_info" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
+                    </a>
 
-              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.home_town.name!==''">
-                  <span class="profile_basic_info">From {{vm.widgetInfo.genrelInfo.home_town.name}}</span>
-              </a>
+                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.home_town.name!==''">
+                        <span class="profile_basic_info">From {{vm.widgetInfo.genrelInfo.home_town.name}}</span>
+                    </a>
 
-              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.dob.name!==''">
-                  <span class="profile_basic_info">Birthdate: {{vm.widgetInfo.genrelInfo.dob.name}}</span>
-              </a>
+                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.dob.name!==''">
+                        <span class="profile_basic_info">Birthdate: {{vm.widgetInfo.genrelInfo.dob.name}}</span>
+                    </a>
 
-              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
-                  <span class="profile_basic_info" >Interested In: {{vm.widgetInfo.genrelInfo.interest.name}}</span>
-              </a>
+                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+                        <span class="profile_basic_info" >Interested In: {{vm.widgetInfo.genrelInfo.interest.name}}</span>
+                    </a>
 
-              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
 
-                <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
-                  <span class="profile_basic_info" >Knows: {{vm.widgetInfo.genrelInfo.lang.name}}</span>
-              </a>
+                      <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+                        <span class="profile_basic_info" >Knows: {{vm.widgetInfo.genrelInfo.lang.name}}</span>
+                    </a>
 
-              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
-                  <span class="profile_basic_info" >Phone: {{vm.widgetInfo.genrelInfo.phone.name}}</span>
-              </a>
+                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
+                        <span class="profile_basic_info" >Phone: {{vm.widgetInfo.genrelInfo.phone.name}}</span>
+                    </a>
 
-              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.relation.name!==''">
-                  <span class="profile_basic_info" >Relationship Status: {{vm.widgetInfo.genrelInfo.relation.name}}</span>
-              </a>
+                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.relation.name!==''">
+                        <span class="profile_basic_info" >Relationship Status: {{vm.widgetInfo.genrelInfo.relation.name}}</span>
+                    </a>
 
-              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.religion.name!==''">
-                  <span class="profile_basic_info" >Religious View: {{vm.widgetInfo.genrelInfo.religion.name}}</span>
-              </a>
+                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.religion.name!==''">
+                        <span class="profile_basic_info" >Religious View: {{vm.widgetInfo.genrelInfo.religion.name}}</span>
+                    </a>
 
-              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
-                  <span class="profile_basic_info" >Website: {{vm.widgetInfo.genrelInfo.website.name}}</span>
-              </a>
+                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
+                        <span class="profile_basic_info" >Website: {{vm.widgetInfo.genrelInfo.website.name}}</span>
+                    </a>
 
-              <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
-                  <span class="profile_basic_info" >Favourite Quote: {{vm.widgetInfo.genrelInfo.quote.name}}</span>
-              </a>
+                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
+                        <span class="profile_basic_info" >Favourite Quote: {{vm.widgetInfo.genrelInfo.quote.name}}</span>
+                    </a>
 
-        </div>
+              </div>
 
 
 
@@ -114,67 +114,68 @@
 <!-- connections list -->
 
 
-<div>
-    <div class="row item">
+      <div>
+
+          <div class="row item item-borderless">
+              <div class="col col-33" style="padding-left:10%">
+                  <a href=""><button class="button button-balanced button-outline icon ion-android-person"></button></a>
+                  <p style="padding-top:5px;  padding-left:10px; color:#11a74a; font-size:12px">About</p>
+              </div>
+
+              <div class="col col-33" style="padding-left:7%">
+                  <a href=""><button class="button button-balanced button-outline icon ion-images"></button></a>
+                  <p style="padding-top:5px; padding-left:8px; color:#11a74a; font-size:12px">Photos</p>
+              </div>
+
+              <div class="col col-33" style="padding-left:5%">
+                  <a href="" style="text-decoration:none"><button class="button button-balanced button-outline  icon ion-android-people"></button></a>
+                  <p style="padding-top:5px; padding-left:8px; color:#11a74a; font-size:12px">Friends</p>
+              </div>
+         </div>
 
 
-        <div class="col col-33" style="padding-left:10%">
-            <a href="" style="text-decoration:none"><button class="button button-balanced button-outline fa fa-group"></button><br><span style="font-size:12px">Connections</span></a>
+         <div class="row item item-borderless">
+             <div class="col col-33" style="padding-left:10%">
+                 <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-ios-videocam"></button></a>
+                 <p style="padding-top:5px;padding-left:7px; color:#11a74a; font-size:12px">Groups</p>
+             </div>
+
+             <div class="col col-33" style="padding-left:7%">
+                 <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-android-microphone"></button></a>
+                 <p style="padding-top:5px; padding-left:8px; color:#11a74a; font-size:12px">Audios</p>
+             </div>
+
+             <div class="col col-33" style="padding-left:5%">
+                 <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-ios-people" ></button></a>
+                 <p style="padding-top:5px; padding-left: 1px; color:#11a74a; font-size:12px">Followers</p>
+             </div>
         </div>
 
-        <div class="col col-33" style="padding-left:7%">
-            <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-images"></button><br><span style="font-size:12px">Images</span></a>
-        </div>
 
-        <div class="col col-33" style="padding-left:5%">
-            <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-gear-a" ></button><br><span style="font-size:12px">settings</span></a>
-        </div>
+        <div class="row item item-borderless">
+            <div class="col col-33" style="padding-left:10%">
+                <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-ios-videocam"></button></a>
+                <p style="padding-top:5px;padding-left:12px; color:#11a74a; font-size:12px">Chats</p>
+            </div>
 
+            <div class="col col-33" style="padding-left:7%">
+                <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-ios-videocam"></button></a>
+                <p style="padding-top:5px; padding-left:10px; color:#11a74a; font-size:12px">Videos</p>
+            </div>
 
-
-   </div>
-
-
-
-   <!-- <div class="row item item-borderless">
-       <div class="col col-25">
-           <a href=""><div class="item item-avatar item-content item-borderless"><img src="../img/jonny_depp.jpg"></div></a>
+            <div class="col col-33" style="padding-left:5%">
+                <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-ios-people" ></button></a>
+                <p style="padding-top:5px; padding-left:0; color:#11a74a; font-size:12px">Following</p>
+            </div>
        </div>
 
-       <div class="col col-25">
-           <a href=""><div class="item item-avatar item-borderless"><img src="../img/jonny_depp.jpg"></div></a>
-       </div>
-
-       <div class="col col-25">
-           <a href=""><div class="item item-avatar item-borderless"><img src="../img/jonny_depp.jpg"></div></a>
-       </div>
-
-       <div class="col col-25">
-           <a href=""><div class="item item-avatar item-borderless"><img src="../img/jonny_depp.jpg"></div></a>
-       </div>
-  </div> -->
 
 
 
-  <!-- <div class="row item item-borderless" style="padding-left:30%">
 
-      <div class="col col-33">
-          <a href="" style="text-decoration:none"><div class="item item-avatar item-borderless"><img src="../img/jonny_depp.jpg"></div><span style="font-size:15px; padding-left:10%">tonny</span></a>
-      </div>
+          <button class="button button-block button-light"><span style="color:#11a74a">See All Connections</span></button>
 
-      <div class="col col-33">
-          <a href="" style="text-decoration:none"><div class="item item-avatar item-borderless"><img src="../img/jonny_depp.jpg"></div><span style="font-size:15px; padding-left:10%">tonny</span></a>
-      </div>
-
-      <div class="col col-33">
-          <a href="" style="text-decoration:none"><div class="item item-avatar item-borderless"><img src="../img/jonny_depp.jpg"></div><span style="font-size:15px; padding-left:10%">tonny</span></a>
-      </div>
- </div> -->
-
-
- <button class="button button-block button-light"><span style="color:#11a74a">See All Connections</span></button>
-
-</div>
+    </div>
 
 
 
