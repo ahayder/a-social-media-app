@@ -72,12 +72,12 @@
 
     <ion-list>
       <div ng-repeat="p in vm.feeds" ng-switch on="p.post.post_type">
-        <text-post ng-switch-when="text" post="p.post"></text-post>
-        <image-post ng-switch-when="images" post="p.post"></image-post>
-        <audio-post ng-switch-when="audio" post="p.post"></audio-post>
-        <attachment-post ng-switch-when="attachment" post="p.post"></attachment-post>
-        <video-post ng-switch-when="video" post="p.post"></video-post>
-        <album-post ng-switch-when="album" post="p.post"></album-post>
+        <text-post ng-switch-when="text" post="p"></text-post>
+        <image-post ng-switch-when="images" post="p"></image-post>
+        <audio-post ng-switch-when="audio" post="p"></audio-post>
+        <attachment-post ng-switch-when="attachment" post="p"></attachment-post>
+        <video-post ng-switch-when="video" post="p"></video-post>
+        <album-post ng-switch-when="album" post="p"></album-post>
       </div>
     </ion-list>
 

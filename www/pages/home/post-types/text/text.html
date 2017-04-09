@@ -1,13 +1,15 @@
 <div class="card">
     <ion-item class="item-avatar item-icon-right">
-        <img ng-src="{{vm.apiurl}}{{vm.post.owner_info.avatar}}">
-        <h2>{{vm.post.owner_info.full_name}}<span style="font-size: 14px;" ng-if="vm.post.has_url"> shared a link</span></h2>
-        <p style="white-space:normal;">{{vm.post.created_at.diffForHumans}}</p>
+        <img ng-src="{{vm.apiurl}}{{vm.post.post.owner_info.avatar}}">
+        <h2>{{vm.post.post.owner_info.full_name}}
+            <span style="font-size: 14px;" ng-if="vm.post.post.has_url"> shared a link</span>
+            <span style="font-size: 14px;" ng-if="vm.post.post.isShared"> shared a post</span></h2>
+        <p style="white-space:normal;">{{vm.post.post.created_at.diffForHumans}}</p>
 
     </ion-item>
 
-    <div class="item item-text-wrap" ng-if="vm.post.text_body !== ''">
-        {{vm.post.text_body}}
+    <div class="item item-text-wrap" ng-if="vm.post.post.text_body !== ''">
+        {{vm.post.post.text_body}}
     </div>
 
 
@@ -15,33 +17,45 @@
     <!--youtube video section-->
 
     <div ng-if="vm.yvideo">
-        <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.iframe)}}"></iframe>
+        <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
         <div class="item item-text-wrap">
-            <h2>{{vm.post.urlData.title}}</h2>
-            <p>{{vm.post.urlData.description}}</p>
+            <h2>{{vm.post.post.urlData.title}}</h2>
+            <p>{{vm.post.post.urlData.description}}</p>
         </div>
     </div>
     <!--youtube video section-->
     <!--vimeo video section-->
     <div ng-if="vm.vvideo">
-        <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.iframe)}}"></iframe>
+        <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
         <div class="item item-text-wrap">
-            <h2>{{vm.post.urlData.title}}</h2>
-            <p>{{vm.post.urlData.description}}</p>
+            <h2>{{vm.post.post.urlData.title}}</h2>
+            <p>{{vm.post.post.urlData.description}}</p>
         </div>
     </div>
     <!--vimeo video section-->
     <!--not video section-->
     <div ng-if="vm.notVideo">
         <div class="item item-image">
-            <img ng-src="{{vm.trustSrc(vm.post.urlData.og_image)}}">
+            <img ng-src="{{vm.trustSrc(vm.post.post.urlData.og_image)}}">
         </div>
         <div class="item item-text-wrap">
-            <h2>{{vm.post.urlData.title}}</h2>
-            <p>{{vm.post.urlData.description}}</p>
+            <h2>{{vm.post.post.urlData.title}}</h2>
+            <p>{{vm.post.post.urlData.description}}</p>
         </div>
     </div>
     <!--not video section-->
+
+    <!--if shared post-->
+    <div class="row row-no-padding" ng-if="vm.post.post.isShared">
+        <div class="col col-10"></div>
+        <div class="col col-90">
+            <div class="item item-avatar item-text-wrap">
+                <img ng-src="{{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}}"/>
+                <h2>{{vm.post.shared_post.originator_info.full_name}}</h2>
+                <p>{{vm.post.shared_post.edit_text_body}}</p>
+            </div>
+        </div>
+    </div><!--if shared post-->
 
 
 
@@ -49,16 +63,16 @@
     <div class="item row" >
         <div class="col col-20">
             <a ng-click="vm.likePost()"><i class="icon ion-heart" style="font-size:20px; vertical-align:middle;"></i></a>
-            <span style="font-size:12px"> {{vm.post.likes}}</span></div>
+            <span style="font-size:12px"> {{vm.post.post.likes}}</span></div>
         <div ui-sref="app.tabs.comments" class="col col-20">
             <a ng-click="vm.goToCommentPage('text')"><i class="icon ion-ios-chatbubble" style="font-size:22px; vertical-align:middle;"></i></a>
-            <span style="font-size:12px"> {{vm.post.comments}}</span></div>
+            <span style="font-size:12px"> {{vm.post.post.comments}}</span></div>
         <div class="col col-20">
             <a href=""><i class="icon ion-android-share-alt" style="font-size:20px; vertical-align:middle;"></i></a>
-            <span style="font-size:12px"> {{vm.post.shares}}</span></div>
+            <span style="font-size:12px"> {{vm.post.post.shares}}</span></div>
         <div class="col col-offset-20 col-20">
             <a class="item-icon-right" ng-click="vm.showPopover($event)"><i class="icon ion-more" style="font-size:20px; vertical-align:middle;"></i></a></div>
-    </div>
+    </div><!-- Like, comment, share and view more -->
 
 
 </div>
