@@ -56,55 +56,84 @@
 
 
 <!-- basic info -->
-              <div class="list list-borderless" style="margin-top:30px">
+              <div style="margin-top:30px">
 
-                    <a class="item row-no-padding" href="">
-                        <span class="profile_basic_info">{{vm.widgetInfo.genrelInfo.about.name}}</span>
-                    </a>
+                  <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <p class="col col-80"><span class="information">{{vm.widgetInfo.genrelInfo.about.name}}</span></p>
+                  </div>
 
 
-                    <a ng-repeat="w in vm.widgetInfo.work" class="item row-no-padding" href="">
-                         <span class="profile_basic_info">{{w.title}} @ {{w.org_name}}</span>
-                         <span class="profile_basic_info" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
-                    </a>
+                  <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <a ng-repeat="w in vm.widgetInfo.work" class="col col-80">
+                             <span class="information">{{w.title}} @ {{w.org_name}}</span>
+                             <span class="information" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
+                        </a>
+                  </div>
 
-                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.home_town.name!==''">
-                        <span class="profile_basic_info">From {{vm.widgetInfo.genrelInfo.home_town.name}}</span>
-                    </a>
+                  <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.home_town.name!==''">
+                            <span class="information">From {{vm.widgetInfo.genrelInfo.home_town.name}}</span>
+                        </a>
+                  </div>
 
-                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.dob.name!==''">
-                        <span class="profile_basic_info">Birthdate: {{vm.widgetInfo.genrelInfo.dob.name}}</span>
-                    </a>
+                  <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.dob.name!==''">
+                            <span class="information">Birthdate: {{vm.widgetInfo.genrelInfo.dob.name}}</span>
+                        </a>
+                  </div>
 
-                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
-                        <span class="profile_basic_info" >Interested In: {{vm.widgetInfo.genrelInfo.interest.name}}</span>
-                    </a>
+                  <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+                            <span class="information" >Interested In: {{vm.widgetInfo.genrelInfo.interest.name}}</span>
+                        </a>
+                  </div>
 
-                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+                  <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+                          <span class="information" >Knows: {{vm.widgetInfo.genrelInfo.lang.name}}</span>
+                        </a>
+                  </div>
 
-                      <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
-                        <span class="profile_basic_info" >Knows: {{vm.widgetInfo.genrelInfo.lang.name}}</span>
-                    </a>
+                  <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
+                            <span class="information" >Phone: {{vm.widgetInfo.genrelInfo.phone.name}}</span>
+                        </a>
+                  </div>
 
-                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
-                        <span class="profile_basic_info" >Phone: {{vm.widgetInfo.genrelInfo.phone.name}}</span>
-                    </a>
+                  <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <a class="icol col-80" ng-if="vm.widgetInfo.genrelInfo.relation.name!==''">
+                            <span class="information" >Relationship Status: {{vm.widgetInfo.genrelInfo.relation.name}}</span>
+                        </a>
+                  </div>
 
-                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.relation.name!==''">
-                        <span class="profile_basic_info" >Relationship Status: {{vm.widgetInfo.genrelInfo.relation.name}}</span>
-                    </a>
+                  <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.religion.name!==''">
+                            <span class="information" >Religious View: {{vm.widgetInfo.genrelInfo.religion.name}}</span>
+                        </a>
+                  </div>
 
-                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.religion.name!==''">
-                        <span class="profile_basic_info" >Religious View: {{vm.widgetInfo.genrelInfo.religion.name}}</span>
-                    </a>
+                  <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
+                            <span class="information" >Website: {{vm.widgetInfo.genrelInfo.website.name}}</span>
+                        </a>
+                  </div>
 
-                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
-                        <span class="profile_basic_info" >Website: {{vm.widgetInfo.genrelInfo.website.name}}</span>
-                    </a>
-
-                    <a class="item row-no-padding" href="" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
-                        <span class="profile_basic_info" >Favourite Quote: {{vm.widgetInfo.genrelInfo.quote.name}}</span>
-                    </a>
+                  <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
+                            <span class="information" >Favourite Quote:<br> {{vm.widgetInfo.genrelInfo.quote.name}}</span>
+                        </a>
+                </div>
 
               </div>
 
