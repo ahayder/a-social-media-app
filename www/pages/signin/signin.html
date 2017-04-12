@@ -1,40 +1,45 @@
 <ion-view title="signin" hide-nav-bar="true" hide-back-button="true" id="page4" >
   <ion-content padding="true" class="manual-ios-statusbar-padding background" scroll="false">
     <div class="spacer" style="width: 300px; height: 25px;"></div>
+
+<!--freemig icon-->
     <div>
-      <img src="img/freemig_icon.png" style="display: block; width: 25%; height: auto; margin-left: auto; margin-right: auto; margin-bottom:40px; margin-top:30px">
+      <img src="img/freemig_icon.png" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto; margin-bottom:40px; margin-top:40px">
     </div>
     <div class="spacer" style="width: 300px; height: 25px;"></div>
 
 
-    <form name="signinForm" novalidate id="signin-form1" class="list ">
+    <form name="signinForm" novalidate class="list" style="margin:5%">
 
-      <label class="item item-input item-floating-label " id="signin-input1">
+<!-- Username-->
+        <div class="list">
+                <label class="item item-input"  style="border-radius:25px; border-width: 2px; border-style: solid; border-color:#ffffff; background-color: transparent;" >
+                        <i class="icon ion-ios-person placeholder-icon" style="color:#ffffff; font-size:20px"></i>
+                        <input type="text" placeholder="User Name" style="color:white; padding-bottom:2px; font-size:14px;" ng-model="vm.signinData.username">
+                </label>
+        </div>
+
+      <!-- <label class="item item-input item-floating-label " id="signin-input1">
           <span class="input-label" style="color:#DDDDDD; font-size:10px">User Name</span>
           <input type="text" placeholder="User Name" style="color:white;padding-bottom:20px;font-size:17px;" ng-model="vm.signinData.username">
-      </label>
-
-
-      <label class="item item-input item-floating-label" id="signin-input1">
-          <span class="input-label" style="color:#DDDDDD; font-size:10px">Password</span>
-          <input type="password" placeholder="Password" style="color:white;padding-bottom:20px;font-size:17px" ng-model="vm.signinData.password">
-      </label>
-
-
-
-      <!-- <label class="item item-input float" id="signin-input1">
-          <input name="username" type="text" placeholder="Username/Email" ng-model="vm.signinData.username">
-      </label>
-
-      <label class="item item-input" id="signin-input2">
-        <input name="password" type="password" placeholder="Password" ng-model="vm.signinData.password">
       </label> -->
 
-      <button ng-click="vm.signin()" class="button button-light  button-block" style="border-radius: 25px;">Sign In</button>
+<!-- password-->
+                <label class="item item-input" style="border-radius:25px; border-width: 2px; border-style: solid; border-color:#ffffff; background-color: transparent;">
+                        <i class="icon icon-left ion-ios-locked placeholder-icon" style="color:#ffffff; font-size:20px"></i>
+                        <input type="password" placeholder="Password" style="color:white; padding-bottom:2px; font-size:14px" ng-model="vm.signinData.password">
+                        <i class="icon icon-right ion-eye placeholder-icon" style="color:#9A9A9A; padding-right:15px"></i>
+                </label>
 
-     <!-- <div id="remember_me">
-         <label><input type="checkbox" ng-model="checkboxModel.value1">  Remember me</label>
-     </div> -->
+
+      <!-- <label class="item item-input item-floating-label" id="signin-input1">
+          <span class="input-label" style="color:#DDDDDD; font-size:10px">Password</span>
+          <input type="password" placeholder="Password" style="color:white;padding-bottom:20px;font-size:17px" ng-model="vm.signinData.password">
+      </label> -->
+
+
+      <button ng-click="vm.signin()" class="button button-light button-outline  button-block" style="border-radius: 25px;">Sign In</button>
+
 
     </form>
 
