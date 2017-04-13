@@ -42,6 +42,13 @@ color: white !important;
     top: 36px;
 }
 
+#sign-in-field{
+  border-radius:25px;
+  border-width: 2px;
+  border-style: solid;
+  border-color:#ffffff;
+  background-color: transparent;"
+}
 
 
 .album-image{

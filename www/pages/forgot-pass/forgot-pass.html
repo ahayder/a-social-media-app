@@ -1,30 +1,38 @@
 <ion-view title="forgot-pass" hide-nav-bar="true" hide-back-button="true" id="page6" >
   <ion-content padding="true" class="manual-ios-statusbar-padding background" scroll="false">
     <div class="spacer" style="width: 300px; height: 25px;"></div>
-    <div>
-      <img src="img/freemig_icon.png" style="display: block; width: 25%; height: auto; margin-left: auto; margin-right: auto; margin-top:30px; margin-bottom:30px;">
-    </div>
-    <div class="spacer" style="width: 300px; height: 25px;"></div>
 
-    <form id="forgotPass-form4" class="list">
+      <div>
+          <img src="img/freemig_icon.png" style="display: block; width: 25%; height: auto; margin-left: auto; margin-right: auto; margin-top:30px; margin-bottom:30px;">
+      </div>
 
-      <label class="item item-input item-floating-label " id="signin-input1">
-          <span class="input-label" style="color:#DDDDDD;font-size:10px">Email</span>
-          <input type="text" placeholder="Email" style="color:white;padding-bottom:20px;font-size:17px">
+      <div class="spacer" style="width: 300px; height: 25px;"></div>
+
+      <form id="forgotPass-form4" class="list">
+
+      <label class="item item-input"  style="border-radius:25px; border-width: 2px; border-style: solid; border-color:#ffffff; background-color: transparent;" >
+              <i class="icon ion-ios-person placeholder-icon" style="color:#ffffff; font-size:20px"></i>
+              <input type="text" placeholder="Email Address" style="color:white; padding-bottom:2px; font-size:14px;" ng-model="">
       </label>
+
+
+    <!-- <label class="item item-input item-floating-label " id="signin-input1">
+            <span class="input-label" style="color:#DDDDDD;font-size:10px">Email</span>
+            <input type="text" placeholder="Email" style="color:white;padding-bottom:20px;font-size:17px">
+    </label> -->
 
       <!-- <label class="item item-input" name="username">
         <input type="text" placeholder="Username/Email">
       </label> -->
 
-    </form>
+      </form>
 
-    <button  class="button button-light  button-block" style="border-radius: 25px;">Submit</button>
+      <button  class="button button-light  button-block" style="border-radius: 25px;">Submit</button>
 
-    <div id="forgotPass-button-bar3" class="button-bar">
-      <button ui-sref="signup" id="forgotPass-button13" class="button button-light button-small button-block button-clear">Create Account</button>
-      <button ui-sref="signin" id="forgotPass-button14" class="button button-light button-small button-block button-clear">Sign In</button>
-    </div>
+      <div id="forgotPass-button-bar3" class="button-bar">
+           <button ui-sref="signup" id="forgotPass-button13" class="button button-light button-small button-block button-clear">Create Account</button>
+           <button ui-sref="signin" id="forgotPass-button14" class="button button-light button-small button-block button-clear">Sign In</button>
+      </div>
 
   </ion-content>
 

@@ -25,10 +25,10 @@
       </label> -->
 
 <!-- password-->
-                <label class="item item-input" style="border-radius:25px; border-width: 2px; border-style: solid; border-color:#ffffff; background-color: transparent;">
+                <label class="item item-input" style="margin-top:-5px; border-radius:25px; border-width: 2px; border-style: solid; border-color:#ffffff; background-color: transparent;">
                         <i class="icon icon-left ion-ios-locked placeholder-icon" style="color:#ffffff; font-size:20px"></i>
                         <input type="password" placeholder="Password" style="color:white; padding-bottom:2px; font-size:14px" ng-model="vm.signinData.password">
-                        <i class="icon icon-right ion-eye placeholder-icon" style="color:#9A9A9A; padding-right:15px"></i>
+                        <i class="icon icon-right ion-eye placeholder-icon" style="color:#bababa; padding-right:15px"></i>
                 </label>
 
 
@@ -38,14 +38,14 @@
       </label> -->
 
 
-      <button ng-click="vm.signin()" class="button button-light button-outline  button-block" style="border-radius: 25px;">Sign In</button>
+      <button ng-click="vm.signin()" class="button button-light button-block" style="border-radius: 25px;"><span style="color:#22c064">Sign In</span></button>
 
 
     </form>
 
-    <div id="signin-button-bar1" class="button-bar">
-      <button ui-sref="signup"  class="button button-light button-small button-block button-clear">Create Account</button>
-      <button ui-sref="forgot-pass" class="button button-light button-small button-block button-clear">Forgot Password?</button>
+    <div class="button-bar" style="margin-left:-10%">
+      <button ui-sref="signup"  class="button button-light button-small button-block button-clear"><b>Create Account<b></button>
+      <button ui-sref="forgot-pass" class="button button-light button-small button-block button-clear"><b>Forgot Password?<b></button>
     </div>
   </ion-content>
 </ion-view>
