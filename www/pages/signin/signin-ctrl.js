@@ -11,6 +11,10 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
     vm.signinData = {};
 
 
+    // Set the default value of inputType
+   vm.inputType = 'password';
+
+
     // final login
     function finallyDoLogin(){
         console.log(vm.signinData);
@@ -105,5 +109,13 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
         // MARK:- Geolocation
         getUserLocation();
     }
+    
+    // Hide & show password function
+    vm.hideShowPassword = function(){
+        if (vm.inputType == 'password')
+       vm.inputType = 'text';
+        else
+       vm.inputType = 'password';
+    };
     
 };
