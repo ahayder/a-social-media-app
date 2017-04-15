@@ -25,11 +25,12 @@
       </label> -->
 
 <!-- password-->
-                <label class="item item-input" style="margin-top:-5px; border-radius:10px; border-width: 1.5px; border-style: solid; border-color:#ffffff; background-color: #ffffff;">
+                <div class="item item-input" style="margin-top:-5px; border-radius:10px; border-width: 1.5px; border-style: solid; border-color:#ffffff; background-color: #ffffff;">
                         <i class="icon icon-left ion-ios-locked placeholder-icon" style="color:#37c673; font-size:20px"></i>
-                        <input type="password" placeholder="Password" style="color:#0b883f; padding-bottom:2px; font-size:14px" ng-model="vm.signinData.password">
-                        <i class="icon icon-right ion-eye-disabled placeholder-icon" style="color:#728078; padding-right:15px"></i>
-                </label>
+                        <input type="{{vm.inputType}}" placeholder="Password" style="color:#0b883f; padding-bottom:2px; font-size:14px" ng-model="vm.signinData.password">
+                        <i ng-if="vm.inputType == 'password'" ng-click="vm.hideShowPassword()" class="icon icon-right ion-eye placeholder-icon" style="color:#728078; padding-right:15px"></i>
+                        <i ng-click="vm.hideShowPassword()" ng-if="vm.inputType == 'text'" class="icon icon-right ion-eye-disabled placeholder-icon" style="color:#728078; padding-right:15px"></i>
+                </div>
 
 
       <!-- <label class="item item-input item-floating-label" id="signin-input1">
