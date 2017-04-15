@@ -1,4 +1,22 @@
 /* Empty. Add your own CSS if you like */
+
+input::-webkit-input-placeholder {
+color: #22c064 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+color: #22c064 !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #22c064 !important;
+}
+
+input:-ms-input-placeholder {
+color: #22c064 !important;
+}
+
+
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -14,7 +32,6 @@
 }
 
 
-
 .background{
     background: url('../img/sign_in_splash.jpg') no-repeat;
     background-size: cover;
@@ -25,18 +42,12 @@
     top: 36px;
 }
 
-/*.item-floating-label{
-display: block;
-}*/
-
-#signin-input1{
-  margin-bottom: 20px;
-  /*font-size: 12px;*/
-  border-radius: 25px;
-  border-style: solid;
+#sign-in-field{
+  border-radius:25px;
   border-width: 2px;
-  padding-bottom: 20px;
-  height: 3.5em;
+  border-style: solid;
+  border-color:#ffffff;
+  background-color: transparent;"
 }
 
 
@@ -135,7 +146,13 @@ display: block;
       }
 
 
+      .vertical-line{
+         border-left: thin solid  #11a74a;
+         margin-top: 10px;
+         margin-bottom: 10px;
+         margin-left: 5%;
 
+      }
 
       .center {
       margin-left: auto;

@@ -37,16 +37,20 @@
                     <!-- connections, follower, following items -->
 
                     <div class="row" id="profile-btn">
-                        <div class="col" style="padding:0">
-                            <button ng-click="vm.openModal('connections')" class="button button-block button-clear button-small button-positive" style="font-size:15px">{{vm.userOverview.connections}}<br>Connections</button>
+                        <div class="col" style="padding-left:3%; padding-right:-10px">
+                            <button ng-click="vm.openModal('connections')" class="button button-block button-clear button-small button-positive" style="font-size:12px"><strong>{{vm.userOverview.connections}}</strong><br>Connections</button>
                         </div>
 
-                        <div class="col" style="padding:0">
-                            <button ng-click="vm.openModal('followers')" class="button button-block button-clear button-small button-positive" style="font-size:15px">{{vm.userOverview.follower}}<br>Followers</button>
+                        <div class="col vertical-line"></div>
+
+                        <div class="col" style="">
+                            <button ng-click="vm.openModal('followers')" class="button button-block button-clear button-small button-positive" style="font-size:12px"><strong>{{vm.userOverview.follower}}</strong><br>Followers</button>
                         </div>
 
-                        <div class="col" style="padding:0">
-                            <button ng-click="vm.openModal('following')" class="button button-block button-clear button-small button-positive" style="font-size:15px">{{vm.userOverview.following}}<br>Following</button>
+                        <div class="col vertical-line"></div>
+
+                        <div class="col" style="padding-right:5%">
+                            <button ng-click="vm.openModal('following')" class="button button-block button-clear button-small button-positive" style="font-size:12px"><strong>{{vm.userOverview.following}}</strong><br>Following</button>
                         </div>
                     </div>
                 </div>
@@ -143,7 +147,7 @@
 <!-- connections list -->
 
 
-      <div>
+      <div style="padding-top:20px">
 
           <div class="row item item-borderless">
               <div class="col col-33" style="padding-left:10%">
