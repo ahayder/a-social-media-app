@@ -185,3 +185,14 @@ color: #22c064 !important;
           padding: 30px;
           color: #888;
        }
+
+
+   .circle {
+     	width: 60px;
+     	height: 60px;
+     	background: #888;
+     	-moz-border-radius: 50px;
+     	-webkit-border-radius: 50px;
+     	border-radius: 50px;
+      text-shadow: 1px 3px 5px #000000;
+  }
