@@ -445,12 +445,14 @@
 
 
         <div class="list card">
-            <textarea class="item" placeholder="Make a comment" rows="3" cols="35"></textarea>
+            <textarea ng-model="vm.thisComment" class="item" placeholder="Make a comment" rows="3" cols="35"></textarea>
+            <button class="button button-small" ng-click="vm.makeNewComment()">Save</button>
             <div class="item item-avatar" ng-repeat="c in vm.comments">
                 <img ng-src="{{vm.apiurl}}{{c.owner_info.avatar}}">
-                <h2>{{c.owner_info.full_name}}</h2>
+                <h2>{{c.owner_info.full_name}}<span style="font-size: 14px; color: darkgray"> {{c.created_at.diffForHumans}}</span></h2>
                 <p>{{c.comment}}</p>
             </div>
+            <div ng-if="vm.ifMoreCommentsCanBeLoaded == '1'" class="button button-small button-block button-dark" ng-click="vm.loadMoreComments()">Load more comments</div>
         </div>
 
 

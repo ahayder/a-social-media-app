@@ -27,8 +27,6 @@ tController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', 'HomeFact
 function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $localStorage, $state) {
     var vm = this;
 
-    console.log(vm);
-
     vm.yvideo = false;
     vm.vvideo = false;
     vm.notVideo = false;
