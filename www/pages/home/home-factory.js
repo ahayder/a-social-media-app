@@ -19,6 +19,12 @@ function HomeFactory($http, Constants) {
         },
         getComments: function(key, data, pageno){
             return $http.post(Constants.apiurl + '/en/api/v0.1/app/social/getComment/'+pageno+'?token=' + key, data);
+        },
+        createComment: function(key, data){
+            return $http.post(Constants.apiurl + '/en/api/v0.1/app/social/comment?token=' + key, data);
+        },
+        savePost: function(key, data){
+            return $http.post(Constants.apiurl + '/en/api/v0.1/app/social/fav-save?token=' + key, data);
         }
     });
     

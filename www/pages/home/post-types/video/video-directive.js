@@ -96,5 +96,18 @@ function vController($scope, Constants, $sce, $ionicPopover, $localStorage, Home
         $state.go('app.tabs.comments', {type: postType});
     }
 
+    vm.saveThisPost = function(){
+        
+        var data = {"type":"2","post_type":"video","contentType":"1","contentId":vm.post.post.id,"tz":vm.user.userTZ};
+
+        HomeFactory.savePost(vm.user.key, data).then(
+            function(response){
+
+            },function(error){
+
+            }
+        );
+    }
+
 
 }
