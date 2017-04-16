@@ -29,11 +29,26 @@
 
             <div id="content">
                 <div id="profile-info">
-                    <img ng-src="{{vm.proPic}}" id="profile-image">
-                      <!--pro pic edit icon -->
+
+                  <div class="row">
+                        <img ng-src="{{vm.proPic}}" id="profile-image">
+                        <!-- <button id="pro-pic-edit" class="button button-light button-clear icon ion-camera"></button>  -->
+
+                        <h4 id="profile-name">{{vm.user.full_name}}</h4>
+                  </div>
+
+                  <div class="row">
+                        <span id="profile-description" ng-if="!vm.userOverview.workTitle == ''">{{vm.userOverview.workTitle}}
+                        <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a></span>
+                  </div>
+
+
+
+                    <!-- <img ng-src="{{vm.proPic}}" id="profile-image">
+
                     <button id="pro-pic-edit" class="button button-light button-clear icon ion-camera"></button>
                     <h3 id="profile-name">{{vm.user.full_name}}</h3>
-                    <span id="profile-description" ng-if="!vm.userOverview.workTitle == ''">{{vm.userOverview.workTitle}} <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a></span>
+                    <span id="profile-description" ng-if="!vm.userOverview.workTitle == ''">{{vm.userOverview.workTitle}} <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a></span> -->
 
 
 
@@ -41,19 +56,22 @@
 
                     <div class="row" id="profile-btn">
                         <div class="col" style="padding-left:3%; padding-right:-10px">
-                            <button ng-click="vm.openModal('connections')" class="button button-block button-clear button-small button-positive" style="font-size:12px"><strong>{{vm.userOverview.connections}}</strong><br>Connections</button>
+                            <button ng-click="vm.openModal('connections')" class="button button-block button-clear button-small button-positive" style="font-size:10px">
+                            <strong>{{vm.userOverview.connections}}</strong> Connections</button>
                         </div>
 
-                        <div class="col vertical-line"></div>
+                        <!-- <div class="col vertical-line"></div> -->
 
                         <div class="col" style="">
-                            <button ng-click="vm.openModal('followers')" class="button button-block button-clear button-small button-positive" style="font-size:12px"><strong>{{vm.userOverview.follower}}</strong><br>Followers</button>
+                            <button ng-click="vm.openModal('followers')" class="button button-block button-clear button-small button-positive" style="font-size:10px">
+                            <strong>{{vm.userOverview.follower}}</strong> Followers</button>
                         </div>
 
-                        <div class="col vertical-line"></div>
+                        <!-- <div class="col vertical-line"></div> -->
 
                         <div class="col" style="padding-right:5%">
-                            <button ng-click="vm.openModal('following')" class="button button-block button-clear button-small button-positive" style="font-size:12px"><strong>{{vm.userOverview.following}}</strong><br>Following</button>
+                            <button ng-click="vm.openModal('following')" class="button button-block button-clear button-small button-positive" style="font-size:10px">
+                            <strong>{{vm.userOverview.following}}</strong> Following</button>
                         </div>
                     </div>
                 </div>
@@ -63,94 +81,174 @@
 
 
 <!-- basic info -->
-              <div style="margin-top:30px">
+              <div class="card" style="margin-top:10px">
+                <div class="item item-text-wrap">
 
-                  <div class="row item item-borderless">
-                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
-                        <p class="col col-80"><span class="information">{{vm.widgetInfo.genrelInfo.about.name}}</span></p>
+                <!--basic info-->
+                      <div class="row item item-borderless">
+                        <div class="col">
+                          <div style="padding:10px 0 15px 0; text-align:center; color:#22c064">Basic Information</div>
+                        </div>
+                      </div>
+
+                <!--about-->
+                  <div class="row item">
+                        <!-- <a class="col col-10 col-offset-10"><i class="icon ion-android-person"></i></a> -->
+                        <div class="col">
+                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">about</p><br>
+                            <span class="information">{{vm.widgetInfo.genrelInfo.about.name}}</span>
+                        </div>
                   </div>
 
-
+                <!--profession-->
                   <div class="row item item-borderless">
-                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
-                        <a ng-repeat="w in vm.widgetInfo.work" class="col col-80">
+                        <a ng-repeat="w in vm.widgetInfo.work" class="col">
+                             <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Profession</p><br>
                              <span class="information">{{w.title}} @ {{w.org_name}}</span>
                              <span class="information" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
                         </a>
                   </div>
 
+                  <!-- <div class="row item item-borderless">
+                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                        <a ng-repeat="w in vm.widgetInfo.work" class="col col-80">
+                             <span class="information">{{w.title}} @ {{w.org_name}}</span>
+                             <span class="information" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
+                        </a>
+                  </div> -->
+
+                  <!--Home Town-->
                   <div class="row item item-borderless">
+                        <a class="col" ng-if="vm.widgetInfo.genrelInfo.home_town.name!==''">
+                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Home Town</p><br>
+                            <span class="information">{{vm.widgetInfo.genrelInfo.home_town.name}}</span>
+                        </a>
+                  </div>
+                  <!-- <div class="row item item-borderless">
                         <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
                         <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.home_town.name!==''">
                             <span class="information">From {{vm.widgetInfo.genrelInfo.home_town.name}}</span>
                         </a>
-                  </div>
+                  </div> -->
 
+                  <!--Date of Birth-->
                   <div class="row item item-borderless">
+                        <a class="col" ng-if="vm.widgetInfo.genrelInfo.dob.name!==''">
+                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Date of Birth</p><br>
+                            <span class="information">{{vm.widgetInfo.genrelInfo.dob.name}}</span>
+                        </a>
+                  </div>
+                  <!-- <div class="row item item-borderless">
                         <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
                         <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.dob.name!==''">
                             <span class="information">Birthdate: {{vm.widgetInfo.genrelInfo.dob.name}}</span>
                         </a>
-                  </div>
+                  </div> -->
 
+
+                  <!-- interest-->
                   <div class="row item item-borderless">
+                        <a class="col" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Interested In</p><br>
+                            <span class="information" >{{vm.widgetInfo.genrelInfo.interest.name}}</span>
+                        </a>
+                  </div>
+                  <!-- <div class="row item item-borderless">
                         <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
                         <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
                             <span class="information" >Interested In: {{vm.widgetInfo.genrelInfo.interest.name}}</span>
                         </a>
-                  </div>
+                  </div> -->
 
+                  <!--language-->
                   <div class="row item item-borderless">
+                        <a class="col" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
+                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Language</p><br>
+                          <span class="information" >{{vm.widgetInfo.genrelInfo.lang.name}}</span>
+                        </a>
+                  </div>
+                  <!-- <div class="row item item-borderless">
                         <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
                         <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
                           <span class="information" >Knows: {{vm.widgetInfo.genrelInfo.lang.name}}</span>
                         </a>
-                  </div>
+                  </div> -->
 
+
+                  <!--phone-->
                   <div class="row item item-borderless">
+                        <a class="col" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
+                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Phone</p><br>
+                            <span class="information" >{{vm.widgetInfo.genrelInfo.phone.name}}</span>
+                        </a>
+                  </div>
+                  <!-- <div class="row item item-borderless">
                         <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
                         <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
                             <span class="information" >Phone: {{vm.widgetInfo.genrelInfo.phone.name}}</span>
                         </a>
-                  </div>
+                  </div> -->
 
+
+                  <!--relationship status-->
                   <div class="row item item-borderless">
-                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
-                        <a class="icol col-80" ng-if="vm.widgetInfo.genrelInfo.relation.name!==''">
-                            <span class="information" >Relationship Status: {{vm.widgetInfo.genrelInfo.relation.name}}</span>
+                        <a class="col" ng-if="vm.widgetInfo.genrelInfo.relation.name!==''">
+                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Relationship Status</p><br>
+                            <span class="information" >{{vm.widgetInfo.genrelInfo.relation.name}}</span>
                         </a>
                   </div>
 
+
+                  <!--religious view-->
                   <div class="row item item-borderless">
-                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
-                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.religion.name!==''">
-                            <span class="information" >Religious View: {{vm.widgetInfo.genrelInfo.religion.name}}</span>
+                        <a class="col" ng-if="vm.widgetInfo.genrelInfo.religion.name!==''">
+                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Religious View</p><br>
+                            <span class="information" >{{vm.widgetInfo.genrelInfo.religion.name}}</span>
                         </a>
                   </div>
 
+                  <!--website-->
                   <div class="row item item-borderless">
+                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
+                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Website</p><br>
+                            <span class="information" >{{vm.widgetInfo.genrelInfo.website.name}}</span>
+                        </a>
+                  </div>
+                  <!-- <div class="row item item-borderless">
                         <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
                         <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
                             <span class="information" >Website: {{vm.widgetInfo.genrelInfo.website.name}}</span>
                         </a>
-                  </div>
+                  </div> -->
 
+                  <!--fav quote-->
                   <div class="row item item-borderless">
-                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
                         <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
-                            <span class="information" >Favourite Quote:<br> {{vm.widgetInfo.genrelInfo.quote.name}}</span>
+                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Favourite Quote</p><br>
+                            <span class="information" >{{vm.widgetInfo.genrelInfo.quote.name}}</span>
                         </a>
-                </div>
+                 </div>
+                 <!-- <div class="row item item-borderless item-text-wrap">
+                       <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
+                       <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
+                           <span class="information" >Favourite Quote:<br> {{vm.widgetInfo.genrelInfo.quote.name}}</span>
+                       </a>
+                </div> -->
 
+
+                 </div>
               </div>
 
 
 
 
-<!-- connections list -->
-
-
-      <div style="padding-top:20px">
+     <!--Activities-->
+             <div class="card">
+                  <div class="item item-text-wrap">
+                    This is a basic Card which contains an item that has wrapping text.
+                  </div>
+             </div>
+      <!-- <div style="padding-top:20px">
 
           <div class="row item item-borderless">
               <div class="col col-33" style="padding-left:10%">
@@ -211,20 +309,8 @@
 
           <button class="button button-block button-light"><span style="color:#11a74a">See All Connections</span></button>
 
-    </div>
-
-
-
-
-
-
-<!-- photo gallery -->
-
-
-
-
-
-
+    </div>-->
+    <!--activities-->
 
 
 
