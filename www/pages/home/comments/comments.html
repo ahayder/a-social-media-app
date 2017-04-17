@@ -452,8 +452,9 @@
                 <h2>{{c.owner_info.full_name}}<span style="font-size: 14px; color: darkgray"> {{c.created_at.diffForHumans}}</span></h2>
                 <p>{{c.comment}}</p>
             </div>
-            <div ng-if="vm.ifMoreCommentsCanBeLoaded == '1'" class="button button-small button-block button-dark" ng-click="vm.loadMoreComments()">Load more comments</div>
-        </div>
+       </div>
+            <div ng-if="vm.ifMoreCommentsCanBeLoaded == '1'" class="button button-full button-clear button-small button-positive" ng-click="vm.loadMoreComments()">Load more comments</div>
+
 
 
 
