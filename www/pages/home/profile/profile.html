@@ -84,10 +84,15 @@
               <div class="card" style="margin-top:10px">
                 <div class="item item-text-wrap">
 
+                      <!-- <div class="row row-no-padding">
+                          <button class="button button-positive button-no-padding button-clear icon icon-right ion-edit" style="padding-right:0"></button>
+                      </div> -->
+                      <button class="button button-small button-full button-clear button-positive icon-right icon ion-edit" style="margin-top:-5px"></button>
+
                 <!--basic info-->
                       <div class="row item item-borderless">
                         <div class="col">
-                          <div style="padding:10px 0 15px 0; text-align:center; color:#22c064">Basic Information</div>
+                          <div style="margin-top:-30px; text-align:center; color:#22c064">Basic Information</div>
                         </div>
                       </div>
 
@@ -109,13 +114,6 @@
                         </a>
                   </div>
 
-                  <!-- <div class="row item item-borderless">
-                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
-                        <a ng-repeat="w in vm.widgetInfo.work" class="col col-80">
-                             <span class="information">{{w.title}} @ {{w.org_name}}</span>
-                             <span class="information" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
-                        </a>
-                  </div> -->
 
                   <!--Home Town-->
                   <div class="row item item-borderless">
@@ -124,12 +122,7 @@
                             <span class="information">{{vm.widgetInfo.genrelInfo.home_town.name}}</span>
                         </a>
                   </div>
-                  <!-- <div class="row item item-borderless">
-                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
-                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.home_town.name!==''">
-                            <span class="information">From {{vm.widgetInfo.genrelInfo.home_town.name}}</span>
-                        </a>
-                  </div> -->
+
 
                   <!--Date of Birth-->
                   <div class="row item item-borderless">
@@ -138,12 +131,7 @@
                             <span class="information">{{vm.widgetInfo.genrelInfo.dob.name}}</span>
                         </a>
                   </div>
-                  <!-- <div class="row item item-borderless">
-                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
-                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.dob.name!==''">
-                            <span class="information">Birthdate: {{vm.widgetInfo.genrelInfo.dob.name}}</span>
-                        </a>
-                  </div> -->
+
 
 
                   <!-- interest-->
@@ -153,12 +141,7 @@
                             <span class="information" >{{vm.widgetInfo.genrelInfo.interest.name}}</span>
                         </a>
                   </div>
-                  <!-- <div class="row item item-borderless">
-                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
-                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
-                            <span class="information" >Interested In: {{vm.widgetInfo.genrelInfo.interest.name}}</span>
-                        </a>
-                  </div> -->
+
 
                   <!--language-->
                   <div class="row item item-borderless">
@@ -167,12 +150,7 @@
                           <span class="information" >{{vm.widgetInfo.genrelInfo.lang.name}}</span>
                         </a>
                   </div>
-                  <!-- <div class="row item item-borderless">
-                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
-                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
-                          <span class="information" >Knows: {{vm.widgetInfo.genrelInfo.lang.name}}</span>
-                        </a>
-                  </div> -->
+
 
 
                   <!--phone-->
@@ -209,31 +187,21 @@
 
                   <!--website-->
                   <div class="row item item-borderless">
-                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
+                        <a class="col" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
                             <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Website</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.website.name}}</span>
                         </a>
                   </div>
-                  <!-- <div class="row item item-borderless">
-                        <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
-                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
-                            <span class="information" >Website: {{vm.widgetInfo.genrelInfo.website.name}}</span>
-                        </a>
-                  </div> -->
+
 
                   <!--fav quote-->
                   <div class="row item item-borderless">
-                        <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
+                        <a class="col" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
                             <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Favourite Quote</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.quote.name}}</span>
                         </a>
                  </div>
-                 <!-- <div class="row item item-borderless item-text-wrap">
-                       <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
-                       <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
-                           <span class="information" >Favourite Quote:<br> {{vm.widgetInfo.genrelInfo.quote.name}}</span>
-                       </a>
-                </div> -->
+
 
 
                  </div>
@@ -255,26 +223,40 @@
 
 
                           <div class="row">
-                              <div class="col">
-                                 <div class="circle">
-                                   <i class="icon ion-images"></i>
-                                 </div> photos
-                              </div>
 
-                              <div class="col">
-                                  <span class="fa-stack fa-2x">
-                                      <i class="fa  fa-circle fa-stack-2x circle-shape"></i>
-                                      <i class="ion-ios-videocam fa-stack-1x" style="color:#22c064"></i>
-                                  </span>
-                                  <p>Videos</p>
-                              </div>
+                              <!--photos-->
+                                  <div class="col" >
+                                      <div class="activity-class">
+                                          <span class="fa-stack fa-2x">
+                                              <i class="icon ion-ios-circle-outline fa-stack-2x circle-shape"></i>
+                                              <i class="ion-images fa-stack-1x activity-icon"></i>
+                                          </span>
+                                          <p style="font-size:10px">Photos</p>
+                                      </div>
+                                  </div>
 
-                              <div class="col">
-                                 <div class="circle">
-                                 </div>
-                              </div>
-                          </div>
+                                  <!--videos-->
+                                    <div class="col">
+                                        <div class="activity-class">
+                                            <span class="fa-stack fa-2x">
+                                                <i class="icon ion-ios-circle-outline fa-stack-2x circle-shape"></i>
+                                                <i class="ion-ios-videocam fa-stack-1x activity-icon"></i>
+                                            </span>
+                                            <p style="font-size:10px">Videos</p>
+                                        </div>
+                                    </div>
 
+                                  <!--Audios-->
+                                    <div class="col">
+                                        <div class="activity-class">
+                                            <span class="fa-stack fa-2x">
+                                                <i class="icon ion-ios-circle-outline fa-stack-2x circle-shape"></i>
+                                                <i class="ion-radio-waves fa-stack-1x activity-icon"></i>
+                                            </span>
+                                            <p style="font-size:10px">Audios</p>
+                                        </div>
+                                    </div>
+                      </div>
                   </div>
              </div>
       <!-- <div style="padding-top:20px">
