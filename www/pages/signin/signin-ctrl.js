@@ -17,20 +17,17 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
 
     // final login
     function finallyDoLogin(){
-        console.log(vm.signinData);
 
         vm.signinData.lat = vm.signinData.lat ? vm.signinData.lat : vm.signinData.lat = "";
         vm.signinData.lan = vm.signinData.lan ? vm.signinData.lan : vm.signinData.lan = "";
 
         SiginFactory.doSignin(vm.signinData).then(
             function (response) {
-                console.log(response);
                 response = response.data;
                 if (response.status === "2000"){
                     $ionicLoading.hide();
                     if($localStorage.user){$localStorage.user = false;}
                     $localStorage.user = response.data;
-                    console.log($localStorage.user)
                     ionicToast.show("Login successful!", "top", false, 2000);
                     $state.go("app.tabs.home");
                 } else if(response.status === "5000"){
@@ -47,7 +44,6 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
                 }
             },function(error){
                 $ionicLoading.hide();
-                console.log(error);
             });
     }// final login
 

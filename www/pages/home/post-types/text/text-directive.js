@@ -96,7 +96,7 @@ function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $local
                     vm.post.post.likes += 1;
                 }
             },function(error){
-                console.log(error);
+                ionicToast.show("Something went wrong! Please try again", "bottom", false, 2000);
             }
         );
     }
