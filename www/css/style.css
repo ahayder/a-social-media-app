@@ -99,19 +99,91 @@ color: #22c064 !important;
         padding-bottom: 10px;
       }
 
-      #profile-info {
+      /*#profile-info {
         position: absolute;
         top: -95px;
         width: 100%;
         z-index: 2;
         text-align: center;
-      }
+      }*/
+
+/*--------------------------------------------------------------------------------------*/
+/*hexaqgonal profile image*/
+        .profile_image {
+          position: relative;
+          width: 50px;
+          height: 28.86px;
+          margin: 14.43px 0;
+          border-radius: 3px;
+          /*background-image: url(http://csshexagon.com/img/meow.jpg);*/
+          background-size: auto 57.7350px;
+          background-position: center;
+        }
+
+        .pp-top,
+        .pp-Bottom {
+          position: absolute;
+          z-index: 1;
+          width: 35.36px;
+          height: 35.36px;
+          border-radius: 3px;
+          overflow: hidden;
+          -webkit-transform: scaleY(0.5774) rotate(-45deg);
+          -ms-transform: scaleY(0.5774) rotate(-45deg);
+          transform: scaleY(0.5774) rotate(-45deg);
+          background: inherit;
+          left: 7.32px;
+        }
+
+        /*counter transform the bg image on the caps*/
+        .pp-top:after,
+        .pp-Bottom:after {
+          content: "";
+          position: absolute;
+          width: 50.0000px;
+          height: 28.86px;
+          border-radius: 3px;
+          -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-14.4338px);
+          -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-14.4338px);
+          transform:          rotate(45deg) scaleY(1.7321) translateY(-14.4338px);
+          -webkit-transform-origin: 0 0;
+          -ms-transform-origin: 0 0;
+          transform-origin: 0 0;
+          background: inherit;
+        }
+
+        .pp-top {
+          top: -17.6777px;
+        }
+
+        .pp-top:after {
+          background-position: center top;
+        }
+
+        .pp-Bottom {
+          bottom: -17.6777px;
+        }
+
+        .pp-Bottom:after {
+          background-position: center bottom;
+        }
+
+        .profile_image:after {
+          content: "";
+          position: absolute;
+          top: 0.0000px;
+          left: 0;
+          width: 50.0000px;
+          height: 28.86px;
+          border-radius: 2px;
+          z-index: 2;
+          background: inherit;
+        }
+
+/*-------------------------------------------------------------------------*/
 
 
-
-
-
-      #profile-image {
+      /*#profile-image {
         display: block;
         border-radius: 5px;
         border: 1px solid #fff;
@@ -119,7 +191,7 @@ color: #22c064 !important;
         height: 80px;
         margin-left: 8px;
         box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
-      }
+      }*/
 
 
       #pro-pic-edit{

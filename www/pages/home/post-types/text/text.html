@@ -3,7 +3,8 @@
         <img ng-src="{{vm.apiurl}}{{vm.post.post.owner_info.avatar}}">
         <h2>{{vm.post.post.owner_info.full_name}}
             <span style="font-size: 14px;" ng-if="vm.post.post.has_url"> shared a link</span>
-            <span style="font-size: 14px;" ng-if="vm.post.post.isShared"> shared a post</span></h2>
+            <span style="font-size: 14px;" ng-if="vm.post.post.isShared"> shared a post</span>
+        </h2>
         <p style="white-space:normal;">{{vm.post.post.created_at.diffForHumans}}</p>
 
     </ion-item>
