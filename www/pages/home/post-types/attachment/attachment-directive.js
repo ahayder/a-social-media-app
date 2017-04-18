@@ -22,9 +22,9 @@ function attachmentPost() {
     }
 }
 
-attController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', '$localStorage', 'HomeFactory', '$state'];
+attController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', '$localStorage', 'HomeFactory', '$state', 'ionicToast'];
 
-function attController($scope, Constants, $sce, $ionicPopover, $localStorage, HomeFactory, $state) {
+function attController($scope, Constants, $sce, $ionicPopover, $localStorage, HomeFactory, $state, ionicToast) {
     var vm = this;
     vm.apiurl = Constants.apiurl;
     vm.user = $localStorage.user.token;
@@ -67,5 +67,24 @@ function attController($scope, Constants, $sce, $ionicPopover, $localStorage, Ho
         $localStorage.post = vm.post;
         $state.go('app.tabs.comments', {type: postType});
     }
+
+
+
+    vm.saveThisPost = function(){
+        
+        var data = {"type":"2","post_type":"video","contentType":"1","contentId":vm.post.post.id,"tz":vm.user.userTZ};
+
+        HomeFactory.savePost(vm.user.key, data).then(
+            function(response){
+                if(response.data.status == "2000"){
+                    ionicToast.show("Saved successfully!", "bottom", false, 2000);
+                }else{
+                    ionicToast.show("Something went wrong! Please try again", "bottom", false, 2000);
+                }
+            },function(error){
+                ionicToast.show("Error! Please try again", "bottom", false, 2000);
+            }
+        );
+    }// save this post
 
 }

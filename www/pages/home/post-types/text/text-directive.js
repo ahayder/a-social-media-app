@@ -22,9 +22,9 @@ function textPost() {
     }
 }
 
-tController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', 'HomeFactory', '$localStorage', '$state'];
+tController.$inject = ['$scope', 'Constants', '$sce', '$ionicPopover', 'HomeFactory', '$localStorage', '$state', 'ionicToast'];
 
-function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $localStorage, $state) {
+function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $localStorage, $state, ionicToast) {
     var vm = this;
 
     vm.yvideo = false;
@@ -106,6 +106,24 @@ function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $local
         $localStorage.post = vm.post;
         $state.go('app.tabs.comments', {type: postType});
     }
+
+
+    vm.saveThisPost = function(){
+        
+        var data = {"type":"2","post_type":"video","contentType":"1","contentId":vm.post.post.id,"tz":vm.user.userTZ};
+
+        HomeFactory.savePost(vm.user.key, data).then(
+            function(response){
+                if(response.data.status == "2000"){
+                    ionicToast.show("Saved successfully!", "bottom", false, 2000);
+                }else{
+                    ionicToast.show("Something went wrong! Please try again", "bottom", false, 2000);
+                }
+            },function(error){
+                ionicToast.show("Error! Please try again", "bottom", false, 2000);
+            }
+        );
+    }// save this post
 
 
 }

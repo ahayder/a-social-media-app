@@ -137,7 +137,7 @@ function homeCtrl($scope,
                 ionicToast.show("Posted!", "top", false, 2000);
             }, function (error) {
                 $ionicLoading.hide();
-                ionicToast.show("Error!", "bottom", top, 3000);
+                ionicToast.show("Error!", "bottom", false, 3000);
             }
         );
     }//create post
