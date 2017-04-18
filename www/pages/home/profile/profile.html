@@ -31,6 +31,8 @@
                 <div id="profile-info">
 
                   <div class="row">
+
+                    <!--profile image-->
                       <div style="padding-left:10px">
                         <div class="profile_image" style="background-image: url(img/shovon_pp.jpg)">
                            <div class="pp-top"></div>
@@ -40,7 +42,8 @@
                         <!-- <img ng-src="{{vm.proPic}}" id="profile-image"> -->
                         <!-- <button id="pro-pic-edit" class="button button-light button-clear icon ion-camera"></button>  -->
 
-                        <div class="col">
+                    <!--name and profession-->
+                        <div class="col" style="margin-top:-5px">
                             <div>
                                 <div id="profile-name">{{vm.user.full_name}} </div>
                                 <div id="profile-description" ng-if="!vm.userOverview.workTitle == ''"><br> {{vm.userOverview.workTitle}}
@@ -63,25 +66,24 @@
 
 
 
-                    <!-- connections, follower, following items -->
-
+                <!-- connections, follower, following items -->
                     <div class="row" id="profile-btn">
                         <div class="col" style="padding-left:3%; padding-right:-10px">
-                            <button ng-click="vm.openModal('connections')" class="button button-block button-clear button-small button-positive" style="font-size:10px">
+                            <button ng-click="vm.openModal('connections')" class="button button-block button-clear button-small button-positive" style="font-size:9px">
                             <strong>{{vm.userOverview.connections}}</strong> Connections</button>
                         </div>
 
                         <!-- <div class="col vertical-line"></div> -->
 
                         <div class="col" style="">
-                            <button ng-click="vm.openModal('followers')" class="button button-block button-clear button-small button-positive" style="font-size:10px">
+                            <button ng-click="vm.openModal('followers')" class="button button-block button-clear button-small button-positive" style="font-size:9px">
                             <strong>{{vm.userOverview.follower}}</strong> Followers</button>
                         </div>
 
                         <!-- <div class="col vertical-line"></div> -->
 
                         <div class="col" style="padding-right:5%">
-                            <button ng-click="vm.openModal('following')" class="button button-block button-clear button-small button-positive" style="font-size:10px">
+                            <button ng-click="vm.openModal('following')" class="button button-block button-clear button-small button-positive" style="font-size:9px">
                             <strong>{{vm.userOverview.following}}</strong> Following</button>
                         </div>
                     </div>
