@@ -31,7 +31,7 @@ angular.module('freemig', [
   'ionic-toast',
   'ngStorage',
   'ngSanitize',
-  'plug.ionic-segment'
+  'plug.ionic-segment',
   ])
 
 .run(function($ionicPlatform, $localStorage, $state, $rootScope) {
@@ -55,6 +55,14 @@ angular.module('freemig', [
       $rootScope.isLoggedin = true;
       $state.go("app.tabs.home");
     } // Checking logged in condition
+
+    var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+    console.log(deviceInfo);
+deviceInfo.get(function(result) {
+        console.log("result = " + result);
+    }, function(e) {
+        console.log(e);
+    });
 
 
 
