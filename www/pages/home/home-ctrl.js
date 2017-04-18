@@ -54,6 +54,7 @@ function homeCtrl($scope,
 
         HomeFactory.getNewsFeedHome(vm.user.key, newsFeedHomePostData, pageNo).then(
             function (response) {
+                $ionicLoading.hide();
                 response = response.data.data.data_info;
                 if (response.length == 0) {
                     vm.morePostsCanBeLoaded = false;
@@ -74,10 +75,11 @@ function homeCtrl($scope,
 
 
             }, function (error) {
-
+                console.log(error);
+                $ionicLoading.hide();
             }
         );
-    }
+    }initNewsFeed(1, vm.feedType);
 
     vm.morePostsCanBeLoaded = false;
 
