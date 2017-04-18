@@ -30,21 +30,28 @@
             <div id="content">
                 <div id="profile-info">
 
-                  <div>
-                    <div class="profile_image" style="background-image: url(http://csshexagon.com/img/meow.jpg)">
-                       <div class="pp-top"></div>
-                       <div class="pp-Bottom"></div>
-                    </div>
+                  <div class="row">
+                      <div style="padding-left:10px">
+                        <div class="profile_image" style="background-image: url(img/shovon_pp.jpg)">
+                           <div class="pp-top"></div>
+                           <div class="pp-Bottom"></div>
+                        </div>
+                      </div>
                         <!-- <img ng-src="{{vm.proPic}}" id="profile-image"> -->
                         <!-- <button id="pro-pic-edit" class="button button-light button-clear icon ion-camera"></button>  -->
 
-                        <h4 id="profile-name">{{vm.user.full_name}}</h4>
+                        <div class="col">
+                            <div>
+                                <div id="profile-name">{{vm.user.full_name}} </div>
+                                <div id="profile-description" ng-if="!vm.userOverview.workTitle == ''"><br> {{vm.userOverview.workTitle}}
+                                    <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a>
+                                </div>
+                            </div>
+                        </div>
+
                   </div>
 
-                  <div class="row">
-                        <span id="profile-description" ng-if="!vm.userOverview.workTitle == ''">{{vm.userOverview.workTitle}}
-                        <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a></span>
-                  </div>
+
 
 
 
