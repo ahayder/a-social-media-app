@@ -26,21 +26,31 @@
             <div id="content">
                 <div id="profile-info">
 
-                  <div>
-                    <div class="profile_image" style="background-image: url(http://csshexagon.com/img/meow.jpg)">
-                       <div class="pp-top"></div>
-                       <div class="pp-Bottom"></div>
-                    </div>
+                  <div class="row">
+
+                    <!--profile image-->
+                      <div style="padding-left:10px">
+                        <div class="profile_image" style="background-image: url({{vm.proPic}})">
+                           <div class="pp-top"></div>
+                           <div class="pp-Bottom"></div>
+                        </div>
+                      </div>
                         <!-- <img ng-src="{{vm.proPic}}" id="profile-image"> -->
                         <!-- <button id="pro-pic-edit" class="button button-light button-clear icon ion-camera"></button>  -->
 
-                        <h4 id="profile-name">{{vm.user.full_name}}</h4>
+                    <!--name and profession-->
+                        <div class="col" style="margin-top:-5px">
+                            <div>
+                                <div id="profile-name">{{vm.user.full_name}} </div>
+                                <div id="profile-description" ng-if="!vm.userOverview.workTitle == ''"><br> {{vm.userOverview.workTitle}}
+                                    <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a>
+                                </div>
+                            </div>
+                        </div>
+
                   </div>
 
-                  <div class="row">
-                        <span id="profile-description" ng-if="!vm.userOverview.workTitle == ''">{{vm.userOverview.workTitle}}
-                        <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a></span>
-                  </div>
+
 
 
 
@@ -52,25 +62,24 @@
 
 
 
-                    <!-- connections, follower, following items -->
-
+                <!-- connections, follower, following items -->
                     <div class="row" id="profile-btn">
                         <div class="col" style="padding-left:3%; padding-right:-10px">
-                            <button ng-click="vm.openModal('connections')" class="button button-block button-clear button-small button-positive" style="font-size:10px">
+                            <button ng-click="vm.openModal('connections')" class="button button-block button-clear button-small button-positive" style="font-size:9px">
                             <strong>{{vm.userOverview.connections}}</strong> Connections</button>
                         </div>
 
                         <!-- <div class="col vertical-line"></div> -->
 
                         <div class="col" style="">
-                            <button ng-click="vm.openModal('followers')" class="button button-block button-clear button-small button-positive" style="font-size:10px">
+                            <button ng-click="vm.openModal('followers')" class="button button-block button-clear button-small button-positive" style="font-size:9px">
                             <strong>{{vm.userOverview.follower}}</strong> Followers</button>
                         </div>
 
                         <!-- <div class="col vertical-line"></div> -->
 
                         <div class="col" style="padding-right:5%">
-                            <button ng-click="vm.openModal('following')" class="button button-block button-clear button-small button-positive" style="font-size:10px">
+                            <button ng-click="vm.openModal('following')" class="button button-block button-clear button-small button-positive" style="font-size:9px">
                             <strong>{{vm.userOverview.following}}</strong> Following</button>
                         </div>
                     </div>

@@ -43,9 +43,13 @@
 
       <div class="item row">
            <div class="col col-20">
-                <ion-item class="item-avatar">
+                 <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.user.profileAvatar}})">
+                    <div class="pp-top"></div>
+                    <div class="pp-Bottom"></div>
+                 </div>
+                <!-- <ion-item class="item-avatar">
                     <img ng-src="{{vm.apiurl}}{{vm.user.profileAvatar}}">
-                </ion-item>
+                </ion-item> -->
           </div>
 
           <div class="col col-80">
