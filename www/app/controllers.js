@@ -11,20 +11,16 @@ angular.module('freemig.controllers', [])
     }
 
     vm.logout = function () {
-      console.log("logout");
-      console.log(vm.user);
-      return;
-      $http.get(vm.apiurl + "/en/api/v0.1/app/auth/logout/?token=" + vm.user.key).then(
+      console.log(vm.user.token.key)
+      $http.get(vm.apiurl + "/en/api/v0.1/app/auth/logout/?token=" + vm.user.token.key).then(
         function (success) {
-          $localStorage.user = undefined;
+          $localStorage.user = "";
           $rootScope.isLoggedin = false;
           ionicToast.show("Logout successful!", "top", false, 2000);
           $state.go("signin");
         }, function (error) {
           ionicToast.show("Error! Please try agin.", "top", false, 2000);
-        }
-      );
-
+        })
     }
 
 

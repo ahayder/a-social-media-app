@@ -45,13 +45,13 @@ function homeCtrl($scope,
 
 
     function initNewsFeed(pageNo, ft) {
-        console.log(pageNo)
+        
         var newsFeedHomePostData = {};
         newsFeedHomePostData.feedChoose = ft;
         newsFeedHomePostData.feedLoad = "home";
         newsFeedHomePostData.owner_type = "1";
         newsFeedHomePostData.tz = vm.user.userTZ;
-
+        
         HomeFactory.getNewsFeedHome(vm.user.key, newsFeedHomePostData, pageNo).then(
             function (response) {
                 $ionicLoading.hide();
@@ -66,7 +66,6 @@ function homeCtrl($scope,
                     }
                     vm.feeds = posts;
                     $scope.$broadcast('scroll.infiniteScrollComplete');
-                    // console.log(response.data.data.data_info);
                     console.log(vm.feeds);
                     $ionicLoading.hide();
                     pageNum++;

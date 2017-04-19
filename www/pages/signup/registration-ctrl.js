@@ -2,10 +2,10 @@ angular.module('freemig.registrationController', [])
 
 .controller('registrationCtrl', registrationCtrl)
 
-registrationCtrl.$inject = ['$scope', '$stateParams', '$http', '$state', 'RegistrationFactory']
+registrationCtrl.$inject = ['$scope', '$stateParams', '$http', '$state', 'RegistrationFactory', '$ionicLoading', 'ionicToast']
 
 
-function registrationCtrl($scope, $stateParams, $http, $state, RegistrationFactory) {
+function registrationCtrl($scope, $stateParams, $http, $state, RegistrationFactory, $ionicLoading, ionicToast) {
 
     var vm = this;
 
@@ -13,9 +13,8 @@ function registrationCtrl($scope, $stateParams, $http, $state, RegistrationFacto
         RegistrationFactory.getCountriesList().then(
             function(response){
                 vm.countries = response.data.data.country;
-                console.log(vm.countries);
             },function(response){
-                console.log("Error");
+                console.log("Countries Error");
             }
         );
     }getCountries();
@@ -28,6 +27,11 @@ function registrationCtrl($scope, $stateParams, $http, $state, RegistrationFacto
    
 
     vm.signup = function(){
+
+        $ionicLoading.show({
+            template: 'Working...'
+        })
+
         console.log(vm.signupData);
         var bday = new Date(vm.signupData.dob);
         vm.signupData.dobYear = bday.getFullYear();
@@ -38,11 +42,21 @@ function registrationCtrl($scope, $stateParams, $http, $state, RegistrationFacto
             function (response) {
                 console.log(response);
                 if (response.status === 2000) {
+                    $ionicLoading.hide();
+                    ionicToast.show("Registration Successfull!", "bottom", false, 2000);
                     $state.go("home");
-                } else {
-                    //error
+                } else if(response.status === 8000){
+                    $ionicLoading.hide();
+                    ionicToast.show("Registration Successfull!", "bottom", false, 2000);
+                    $state.go("home");
+                }
+                else{
+                    $ionicLoading.hide();
+                    ionicToast.show("Error! Please try again.", "bottom", false, 2000);
                 }
             },function(error){
+                $ionicLoading.hide();
+                ionicToast.show("Error! Please try again.", "bottom", false, 2000);
                 console.log(error);
             });
     }

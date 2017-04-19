@@ -49,16 +49,23 @@ angular.module('freemig', [
     }
 
     // Checking logged in condition
-    if($localStorage.user === undefined || typeof $localStorage.user === "undefined"){
+    if($localStorage.user === undefined || typeof $localStorage.user === "undefined"){ // undefined checking for the first time boot up
       $rootScope.isLoggedin = false;
-    }else if($localStorage.user){
+    }
+    else if($localStorage.user){ // if token exists
+      // Here check if token expires
+      console.log($localStorage.user);
       $rootScope.isLoggedin = true;
       $state.go("app.tabs.home");
-    } // Checking logged in condition
+    }
+    else if($localStorage.user == ""){
+      $rootScope.isLoggedin = false;
+    }
+     // Checking logged in condition
 
     var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
     console.log(deviceInfo);
-deviceInfo.get(function(result) {
+    deviceInfo.get(function(result) {
         console.log("result = " + result);
     }, function(e) {
         console.log(e);

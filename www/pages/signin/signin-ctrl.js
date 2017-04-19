@@ -26,24 +26,29 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
                 response = response.data;
                 if (response.status === "2000"){
                     $ionicLoading.hide();
-                    if($localStorage.user){$localStorage.user = false;}
                     $localStorage.user = response.data;
                     ionicToast.show("Login successful!", "top", false, 2000);
                     $state.go("app.tabs.home");
                 } else if(response.status === "5000"){
+                    $localStorage.user = "";
                     $ionicLoading.hide();
                     ionicToast.show("Please provide valid username or password.", "top", false, 3000);
                     //error
                 } else if(response.status === "8000"){
+                    $localStorage.user = "";
                     $ionicLoading.hide();
                     ionicToast.show("Error! Please try again.", "top", false, 3000);
                     //error
                 } else{
+                    $localStorage.user = "";
                     $ionicLoading.hide();
+                    ionicToast.show("Error! Please try again.", "top", false, 3000);
 
                 }
             },function(error){
+                $localStorage.user = "";
                 $ionicLoading.hide();
+                ionicToast.show("Error! Please try again.", "top", false, 3000);
             });
     }// final login
 
