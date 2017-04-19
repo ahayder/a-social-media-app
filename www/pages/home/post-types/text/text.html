@@ -1,7 +1,7 @@
 <div class="card">
 
           <ion-item>
-              <div class="row">
+              <div class="row row-no-padding">
                 <!--profile image-->
                     <div class="col col-20">
                         <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.post.owner_info.avatar}})">
@@ -10,6 +10,7 @@
                         </div>
                    </div>
 
+               <!--profile name-->
                    <div class="col col-80">
                        <div style="width:100%; padding: 5px 0 0 15px">
                             <div>
@@ -18,6 +19,7 @@
                                 <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared a post</span>
                             </div>
 
+                        <!--date-->
                             <p style="white-space:normal; font-size:10px">{{vm.post.post.created_at.diffForHumans}}</p>
                       </div>
                  </div>
@@ -34,54 +36,75 @@
 
     </ion-item> -->
 
-    <div class="item item-text-wrap" ng-if="vm.post.post.text_body !== ''">
+    <div class="item item-borderless item-text-wrap" ng-if="vm.post.post.text_body !== ''">
         {{vm.post.post.text_body}}
     </div>
 
 
 
-    <!--youtube video section-->
-
-    <div ng-if="vm.yvideo">
-        <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
-        <div class="item item-text-wrap">
-            <h2>{{vm.post.post.urlData.title}}</h2>
-            <p>{{vm.post.post.urlData.description}}</p>
-        </div>
-    </div>
-    <!--youtube video section-->
-    <!--vimeo video section-->
-    <div ng-if="vm.vvideo">
-        <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
-        <div class="item item-text-wrap">
-            <h2>{{vm.post.post.urlData.title}}</h2>
-            <p>{{vm.post.post.urlData.description}}</p>
-        </div>
-    </div>
-    <!--vimeo video section-->
-    <!--not video section-->
-    <div ng-if="vm.notVideo">
-        <div class="item item-image">
-            <img ng-src="{{vm.trustSrc(vm.post.post.urlData.og_image)}}">
-        </div>
-        <div class="item item-text-wrap">
-            <h2>{{vm.post.post.urlData.title}}</h2>
-            <p>{{vm.post.post.urlData.description}}</p>
-        </div>
-    </div>
-    <!--not video section-->
-
-    <!--if shared post-->
-    <div class="row row-no-padding" ng-if="vm.post.post.isShared">
-        <div class="col col-10"></div>
-        <div class="col col-90">
-            <div class="item item-avatar item-text-wrap">
-                <img ng-src="{{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}}"/>
-                <h2>{{vm.post.shared_post.originator_info.full_name}}</h2>
-                <p>{{vm.post.shared_post.edit_text_body}}</p>
+        <!--youtube video section-->
+            <div ng-if="vm.yvideo">
+                <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
+                <div class="item item-text-wrap">
+                    <h2>{{vm.post.post.urlData.title}}</h2>
+                    <p>{{vm.post.post.urlData.description}}</p>
+                </div>
             </div>
-        </div>
-    </div><!--if shared post-->
+        <!--youtube video section-->
+
+        <!--vimeo video section-->
+            <div ng-if="vm.vvideo">
+                <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
+                <div class="item item-text-wrap">
+                    <h2>{{vm.post.post.urlData.title}}</h2>
+                    <p>{{vm.post.post.urlData.description}}</p>
+                </div>
+            </div>
+        <!--vimeo video section-->
+
+        <!--not video section-->
+            <div ng-if="vm.notVideo">
+                <div class="item item-image">
+                    <img ng-src="{{vm.trustSrc(vm.post.post.urlData.og_image)}}">
+                </div>
+                <div class="item item-text-wrap">
+                    <h2>{{vm.post.post.urlData.title}}</h2>
+                    <p>{{vm.post.post.urlData.description}}</p>
+                </div>
+            </div>
+        <!--not video section-->
+
+
+        <!--if shared post-->
+                <div class="row row-no-padding" ng-if="vm.post.post.isShared">
+                    <div class="col col-10"></div>
+                    <div class="col col-20">
+                        <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}})">
+                           <div class="pp-top"></div>
+                           <div class="pp-Bottom"></div>
+                        </div>
+                    </div>
+
+                    <div class="col col-70">
+                        <span style="font-size: 14px; color:#22c064">{{vm.post.shared_post.originator_info.full_name}}</span>
+                        <p>{{vm.post.shared_post.edit_text_body}}</p>
+                    </div>
+
+                </div>
+        <!--if shared post-->
+
+        <!--if shared post-->
+            <!-- <div class="row row-no-padding" ng-if="vm.post.post.isShared">
+                <div class="col col-10"></div>
+                <div class="col col-90">
+                    <div class="item item-avatar item-text-wrap">
+                        <img ng-src="{{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}}"/>
+                        <h2>{{vm.post.shared_post.originator_info.full_name}}</h2>
+                        <p>{{vm.post.shared_post.edit_text_body}}</p>
+                    </div>
+                </div>
+            </div> -->
+        <!--if shared post-->
 
 
 
