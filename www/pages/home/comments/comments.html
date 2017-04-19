@@ -441,31 +441,49 @@
 
 
 
+      <!--comment section-->
+        <div class="card">
+            <textarea ng-model="vm.thisComment" class="item" placeholder="Make a comment" rows="2" cols="45"></textarea>
+            <button class="button button-full button-small button-positive button-clear" ng-click="vm.makeNewComment()">Save</button>
+            <div class="item item-borderless item-no-padding" ng-repeat="c in vm.comments">
+              <div class="row row-no-padding">
+                <!--profile image-->
+                    <div class="col col-20">
+                        <div class="profile_image" style="background-image: url({{vm.apiurl}}{{c.owner_info.avatar}})">
+                           <div class="pp-top"></div>
+                           <div class="pp-Bottom"></div>
+                        </div>
+                   </div>
 
+                   <!--profile name-->
+                       <div class="col col-80">
+                           <div style="width:100%; padding: 5px 0 0 15px">
+                                <div>
+                                    <span style="font-size: 14px; color:#22c064">{{c.owner_info.full_name}}</span>
+                                    <span style="font-size: 10px">{{c.created_at.diffForHumans}}</span>
+                                </div>
 
+                                  <p>{{c.comment}}</p>
+                          </div>
+                     </div>
+              </div>
+            </div>
+          </div>
 
-        <div class="list card">
-            <textarea ng-model="vm.thisComment" class="item" placeholder="Make a comment" rows="3" cols="35"></textarea>
-            <button class="button button-small" ng-click="vm.makeNewComment()">Save</button>
-            <div class="item item-avatar" ng-repeat="c in vm.comments">
+    <!--comment section-->
+        <!-- <div class="card">
+            <textarea ng-model="vm.thisComment" class="item" placeholder="Make a comment" rows="2" cols="45"></textarea>
+            <button class="button button-full button-small button-positive button-clear" ng-click="vm.makeNewComment()">Save</button>
+            <div class="item item-borderless item-no-padding item-avatar" ng-repeat="c in vm.comments">
                 <img ng-src="{{vm.apiurl}}{{c.owner_info.avatar}}">
-                <h2>{{c.owner_info.full_name}}<span style="font-size: 14px; color: darkgray"> {{c.created_at.diffForHumans}}</span></h2>
+                <h2>{{c.owner_info.full_name}}
+                  <span style="font-size: 14px; color: darkgray"> {{c.created_at.diffForHumans}}
+                  </span>
+                </h2>
                 <p>{{c.comment}}</p>
             </div>
-       </div>
+       </div> -->
             <div ng-if="vm.ifMoreCommentsCanBeLoaded == '1'" class="button button-full button-clear button-small button-positive" ng-click="vm.loadMoreComments()">Load more comments</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
     </ion-content>
 
