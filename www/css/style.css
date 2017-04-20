@@ -240,7 +240,7 @@ color: #22c064 !important;
 
 
   .information{
-    font-size: 10px;
+    font-size: 12px;
     color: #888;
   }
 
@@ -251,30 +251,37 @@ color: #22c064 !important;
           color: #888;
        }
 
+/*-----------------profile activity buttons --------------------*/
+.list__item {
+  display: inline-block;
+}
 
-       .activity-class{
-          width: 100%;
-          padding: 5px;
-          text-align: center;
-       }
 
-       .activity-icon{
-          color:#22c064;
-          font-size:20px;
-          padding:2px 0 0 1px;
-       }
+.list__icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px;
+  position: relative;
+}
 
-   /*.circle {
-     	width: 60px;
-     	height: 60px;
-     	background: #ffffff;
-     	-moz-border-radius: 50px;
-     	-webkit-border-radius: 50px;
-     	border-radius: 50px;
-      border: 1px solid #a4a4a4;
+.list__icon_social {
+  text-align: center;
+  border-radius: 50%;
+  background-color: #22c064;
+  color: #fff;
+  padding: 2rem;
+  font-size: 2rem;
+}
 
-  }*/
+.list__icon_social:active{
+  background-color: #1ba84a;
+}
 
-  .circle-shape{
-      color:#22c064;
-    }
+.icon_social {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*-----------------profile activity buttons --------------------*/

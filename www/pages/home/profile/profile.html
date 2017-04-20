@@ -109,7 +109,7 @@
                   <div class="row item">
                         <!-- <a class="col col-10 col-offset-10"><i class="icon ion-android-person"></i></a> -->
                         <div class="col">
-                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">about</p><br>
+                            <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">about</p><br>
                             <span class="information">{{vm.widgetInfo.genrelInfo.about.name}}</span>
                         </div>
                   </div>
@@ -117,7 +117,7 @@
                 <!--profession-->
                   <div class="row item item-borderless">
                         <a ng-repeat="w in vm.widgetInfo.work" class="col">
-                             <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Profession</p><br>
+                             <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Profession</p><br>
                              <span class="information">{{w.title}} @ {{w.org_name}}</span>
                              <span class="information" ng-show="w.wto!==''">Worked @ {{w.org_name}} as {{w.title}}</span>
                         </a>
@@ -127,7 +127,7 @@
                   <!--Home Town-->
                   <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.home_town.name!==''">
-                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Home Town</p><br>
+                            <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Home Town</p><br>
                             <span class="information">{{vm.widgetInfo.genrelInfo.home_town.name}}</span>
                         </a>
                   </div>
@@ -136,7 +136,7 @@
                   <!--Date of Birth-->
                   <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.dob.name!==''">
-                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Date of Birth</p><br>
+                            <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Date of Birth</p><br>
                             <span class="information">{{vm.widgetInfo.genrelInfo.dob.name}}</span>
                         </a>
                   </div>
@@ -146,7 +146,7 @@
                   <!-- interest-->
                   <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
-                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Interested In</p><br>
+                            <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Interested In</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.interest.name}}</span>
                         </a>
                   </div>
@@ -155,7 +155,7 @@
                   <!--language-->
                   <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
-                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Language</p><br>
+                            <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Language</p><br>
                           <span class="information" >{{vm.widgetInfo.genrelInfo.lang.name}}</span>
                         </a>
                   </div>
@@ -165,7 +165,7 @@
                   <!--phone-->
                   <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
-                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Phone</p><br>
+                            <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Phone</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.phone.name}}</span>
                         </a>
                   </div>
@@ -180,7 +180,7 @@
                   <!--relationship status-->
                   <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.relation.name!==''">
-                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Relationship Status</p><br>
+                            <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Relationship Status</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.relation.name}}</span>
                         </a>
                   </div>
@@ -189,7 +189,7 @@
                   <!--religious view-->
                   <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.religion.name!==''">
-                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Religious View</p><br>
+                            <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Religious View</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.religion.name}}</span>
                         </a>
                   </div>
@@ -197,7 +197,7 @@
                   <!--website-->
                   <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
-                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Website</p><br>
+                            <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Website</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.website.name}}</span>
                         </a>
                   </div>
@@ -206,7 +206,7 @@
                   <!--fav quote-->
                   <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
-                            <p style="margin-bottom:-25px; font-size:8px; color: #22c064;">Favourite Quote</p><br>
+                            <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Favourite Quote</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.quote.name}}</span>
                         </a>
                  </div>
@@ -233,106 +233,34 @@
 
                           <div class="row">
 
-                              <!--photos-->
-                                  <div class="col" >
-                                      <div class="activity-class">
-                                          <span class="fa-stack fa-2x">
-                                              <i class="icon ion-ios-circle-outline fa-stack-2x circle-shape"></i>
-                                              <i class="ion-images fa-stack-1x activity-icon"></i>
-                                          </span>
-                                          <p style="font-size:10px">Photos</p>
-                                      </div>
-                                  </div>
+                            <ul class="list">
+                                  <!-- photos -->
+                                      <li class="list__item social">
+                                        <a href="" class="list__icon list__icon_social">
+                                          <i class="icon_social ion-images"></i></a>
+                                          <p style="font-size:10px; padding-left:20px">Photos</p>
+                                      </li>
 
-                                  <!--videos-->
-                                    <div class="col">
-                                        <div class="activity-class">
-                                            <span class="fa-stack fa-2x">
-                                                <i class="icon ion-ios-circle-outline fa-stack-2x circle-shape"></i>
-                                                <i class="ion-ios-videocam fa-stack-1x activity-icon"></i>
-                                            </span>
-                                            <p style="font-size:10px">Videos</p>
-                                        </div>
-                                    </div>
+                                  <!-- Videos -->
+                                      <li class="list__item">
+                                        <a href="" class="list__icon list__icon_social">
+                                          <i class="icon_social ion-ios-videocam"></i></a>
+                                          <p style="font-size:10px; padding-left:20px">Videos</p>
+                                      </li>
 
-                                  <!--Audios-->
-                                    <div class="col">
-                                        <div class="activity-class">
-                                            <span class="fa-stack fa-2x">
-                                                <i class="icon ion-ios-circle-outline fa-stack-2x circle-shape"></i>
-                                                <i class="ion-radio-waves fa-stack-1x activity-icon"></i>
-                                            </span>
-                                            <p style="font-size:10px">Audios</p>
-                                        </div>
-                                    </div>
+                                  <!-- Audios -->
+                                      <li class="list__item">
+                                        <a href="" class="list__icon list__icon_social">
+                                          <i class="icon_social ion-mic-c"></i></a>
+                                          <p style="font-size:10px; padding-left:20px">Audios</p>
+                                      </li>
+
+                            </ul>
+
+            
                       </div>
                   </div>
-             </div>
-      <!-- <div style="padding-top:20px">
-
-          <div class="row item item-borderless">
-              <div class="col col-33" style="padding-left:10%">
-                  <a href=""><button class="button button-balanced button-outline icon ion-android-person"></button></a>
-                  <p style="padding-top:5px;  padding-left:10px; color:#11a74a; font-size:12px">About</p>
               </div>
-
-              <div class="col col-33" style="padding-left:7%">
-                  <a href=""><button class="button button-balanced button-outline icon ion-images"></button></a>
-                  <p style="padding-top:5px; padding-left:8px; color:#11a74a; font-size:12px">Photos</p>
-              </div>
-
-              <div class="col col-33" style="padding-left:5%">
-                  <a href="" style="text-decoration:none"><button class="button button-balanced button-outline  icon ion-android-people"></button></a>
-                  <p style="padding-top:5px; padding-left:8px; color:#11a74a; font-size:12px">Friends</p>
-              </div>
-         </div>
-
-
-         <div class="row item item-borderless">
-             <div class="col col-33" style="padding-left:10%">
-                 <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-ios-videocam"></button></a>
-                 <p style="padding-top:5px;padding-left:7px; color:#11a74a; font-size:12px">Groups</p>
-             </div>
-
-             <div class="col col-33" style="padding-left:7%">
-                 <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-android-microphone"></button></a>
-                 <p style="padding-top:5px; padding-left:8px; color:#11a74a; font-size:12px">Audios</p>
-             </div>
-
-             <div class="col col-33" style="padding-left:5%">
-                 <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-ios-people" ></button></a>
-                 <p style="padding-top:5px; padding-left: 1px; color:#11a74a; font-size:12px">Followers</p>
-             </div>
-        </div>
-
-
-        <div class="row item item-borderless">
-            <div class="col col-33" style="padding-left:10%">
-                <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-ios-videocam"></button></a>
-                <p style="padding-top:5px;padding-left:12px; color:#11a74a; font-size:12px">Chats</p>
-            </div>
-
-            <div class="col col-33" style="padding-left:7%">
-                <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-ios-videocam"></button></a>
-                <p style="padding-top:5px; padding-left:10px; color:#11a74a; font-size:12px">Videos</p>
-            </div>
-
-            <div class="col col-33" style="padding-left:5%">
-                <a href="" style="text-decoration:none"><button class="button button-balanced button-outline icon ion-ios-people" ></button></a>
-                <p style="padding-top:5px; padding-left:0; color:#11a74a; font-size:12px">Following</p>
-            </div>
-       </div>
-
-
-
-
-
-          <button class="button button-block button-light"><span style="color:#11a74a">See All Connections</span></button>
-
-    </div>-->
-    <!--activities-->
-
-
 
 
 
