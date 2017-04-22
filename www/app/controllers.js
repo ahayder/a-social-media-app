@@ -11,8 +11,9 @@ angular.module('freemig.controllers', [])
     }
 
     vm.logout = function () {
-      console.log(vm.user.token.key)
-      $http.get(vm.apiurl + "/en/api/v0.1/app/auth/logout/?token=" + vm.user.token.key).then(
+      console.log(vm.user.token)
+      // return;
+      $http.get(vm.apiurl + "/en/api/v0.1/app/auth/logout?token=" + vm.user.token.key).then(
         function (success) {
           $localStorage.user = "";
           $rootScope.isLoggedin = false;
@@ -21,6 +22,19 @@ angular.module('freemig.controllers', [])
         }, function (error) {
           ionicToast.show("Error! Please try agin.", "top", false, 2000);
         })
+    }
+
+
+    vm.testSms = function(){
+        var data = {"country_code":"880","country_name":"Bangladesh","token":"123456","phone":"+8801710125431"};
+
+        $http.post(vm.apiurl + '/en/app/api/v0.1/social/send-sms-phone', data).then(
+            function(res){
+                console.log(res);
+            },function(err){
+                console.log(err)
+            }
+        );
     }
 
 

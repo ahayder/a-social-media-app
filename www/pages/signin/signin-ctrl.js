@@ -118,5 +118,8 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
         else
        vm.inputType = 'password';
     };
+
+
+
     
 };

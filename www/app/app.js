@@ -27,6 +27,7 @@ angular.module('freemig', [
   'freemig.attachmentDirective',
   'freemig.videoDirective',
   'freemig.albumDirective',
+  'freemig.confirmCodeController',
   'ngCordova',
   'ionic-toast',
   'ngStorage',
@@ -77,6 +78,6 @@ angular.module('freemig', [
 })
 
 .constant("Constants", {
-    "apiurl": "http://198.38.89.216"
+    "apiurl": "https://mssiolefmig.freemig.com"
 });
 
