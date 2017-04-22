@@ -28,6 +28,13 @@ angular.module('freemig.routes', [])
 
   })
 
+  .state('confirm-code', {
+    url: '/confirm-code',
+    templateUrl: 'pages/code-confirmation/code-confirm.html',
+    controller: "codeConfirmCtrl as vm"
+
+  })
+
   .state('forgot-pass', {
     url: '/forgot-pass',
     templateUrl: 'pages/forgot-pass/forgot-pass.html',
