@@ -16,8 +16,11 @@
 
     <ion-content has-header="true">
         <div ng-if="vm.renderhtmlNow">
+
+
+
+        <!--background image-->
             <div id="profile-bg" ng-style="{'background-image': 'url({{vm.coverImage}})'}">
-                <!--cover pic edit icon -->
                 <button class="button button-light button-clear icon icon-right ion-edit" style="padding-right:10px; text-shadow: 1px 3px 6px #000000;"></button>
             </div>
 
@@ -28,26 +31,24 @@
 
                   <div class="row">
 
-                    <!--profile image-->
                       <div style="padding-left:10px">
                         <div class="profile_image" style="background-image: url({{vm.proPic}})">
                            <div class="pp-top"></div>
                            <div class="pp-Bottom"></div>
                         </div>
+
+                    <!--pro pic edit-->
+                        <button id="pro-pic-edit" class="button button-light button-small button-clear icon ion-camera"></button>
                       </div>
-                        <!-- <img ng-src="{{vm.proPic}}" id="profile-image"> -->
-                        <!-- <button id="pro-pic-edit" class="button button-light button-clear icon ion-camera"></button>  -->
 
-                    <!--name and profession-->
-                        <div class="col" style="margin-top:-5px">
-                            <div>
-                                <div id="profile-name">{{vm.user.full_name}} </div>
-                                <div id="profile-description" ng-if="!vm.userOverview.workTitle == ''"><br> {{vm.userOverview.workTitle}}
-                                    <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a>
-                                </div>
-                            </div>
-                        </div>
-
+                      <div class="col" style="margin-top:5px">
+                          <div>
+                              <div id="profile-name"><b>{{vm.user.full_name}}</b></div>
+                              <div id="profile-description" ng-if="!vm.userOverview.workTitle == ''"><br> {{vm.userOverview.workTitle}}
+                                  <a rel="nofollow" rel="noreferrer"href="https://www.freemig.com">@Freemig</a>
+                              </div>
+                          </div>
+                      </div>
                   </div>
 
 
@@ -69,14 +70,11 @@
                             <strong>{{vm.userOverview.connections}}</strong> Connections</button>
                         </div>
 
-                        <!-- <div class="col vertical-line"></div> -->
-
                         <div class="col" style="">
                             <button ng-click="vm.openModal('followers')" class="button button-block button-clear button-small button-positive" style="font-size:9px">
                             <strong>{{vm.userOverview.follower}}</strong> Followers</button>
                         </div>
 
-                        <!-- <div class="col vertical-line"></div> -->
 
                         <div class="col" style="padding-right:5%">
                             <button ng-click="vm.openModal('following')" class="button button-block button-clear button-small button-positive" style="font-size:9px">
@@ -84,14 +82,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
 
 
 
 
 <!-- basic info -->
-              <div class="card" style="margin-top:10px">
-                <div class="item item-text-wrap">
+              <div class="card" style="margin-top:-70px">
+                <div class="item item-text-wrap" style="margin-bottom:-10px">
 
                       <!-- <div class="row row-no-padding">
                           <button class="button button-positive button-no-padding button-clear icon icon-right ion-edit" style="padding-right:0"></button>
@@ -101,7 +99,7 @@
                 <!--basic info-->
                       <div class="row item item-borderless">
                         <div class="col">
-                          <div style="margin-top:-30px; text-align:center; color:#22c064">Basic Information</div>
+                          <div style="margin-top:-30px; text-align:center; color:#22c064;">Basic Information</div>
                         </div>
                       </div>
 
@@ -152,23 +150,27 @@
                   </div>
 
 
+                  <button class="button button-positive button-small button-full button-clear">See All basic Information</button>
+
+
+
                   <!--language-->
-                  <div class="row item item-borderless">
+                  <!-- <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.interest.name!==''">
                             <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Language</p><br>
                           <span class="information" >{{vm.widgetInfo.genrelInfo.lang.name}}</span>
                         </a>
-                  </div>
+                  </div> -->
 
 
 
                   <!--phone-->
-                  <div class="row item item-borderless">
+                  <!-- <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
                             <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Phone</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.phone.name}}</span>
                         </a>
-                  </div>
+                  </div> -->
                   <!-- <div class="row item item-borderless">
                         <a class="col col-10 col-offset-10"><i class="icon ion-images"></i></a>
                         <a class="col col-80" ng-if="vm.widgetInfo.genrelInfo.phone.name!==''">
@@ -178,38 +180,38 @@
 
 
                   <!--relationship status-->
-                  <div class="row item item-borderless">
+                  <!-- <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.relation.name!==''">
                             <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Relationship Status</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.relation.name}}</span>
                         </a>
-                  </div>
+                  </div> -->
 
 
                   <!--religious view-->
-                  <div class="row item item-borderless">
+                  <!-- <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.religion.name!==''">
                             <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Religious View</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.religion.name}}</span>
                         </a>
-                  </div>
+                  </div> -->
 
                   <!--website-->
-                  <div class="row item item-borderless">
+                  <!-- <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.website.name!==''">
                             <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Website</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.website.name}}</span>
                         </a>
-                  </div>
+                  </div> -->
 
 
                   <!--fav quote-->
-                  <div class="row item item-borderless">
+                  <!-- <div class="row item item-borderless">
                         <a class="col" ng-if="vm.widgetInfo.genrelInfo.quote.name!==''">
                             <p style="margin-bottom:-25px; font-size:10px; color: #22c064;">Favourite Quote</p><br>
                             <span class="information" >{{vm.widgetInfo.genrelInfo.quote.name}}</span>
                         </a>
-                 </div>
+                 </div> -->
 
 
 
@@ -257,13 +259,13 @@
 
                             </ul>
 
-            
+
                       </div>
                   </div>
               </div>
 
 
-
+          </div>
 
   </div>
  </ion-content>

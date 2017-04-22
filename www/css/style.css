@@ -76,39 +76,77 @@ color: #22c064 !important;
 
 
 
- /* profile section */
+ /*------------ cover photo-----------*/
 
- #profile-bg {
-        position: fixed;
-        left: 0;
-        top: -280px;
-        width: 100%;
-        height: 280px;
-        /*background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;*/
-        text-align: right;
-      }
+/*---------------------. /Cover photo----------------------------*/
+
 
       #content {
         position: relative;
-        margin-top: 280px;
+        margin-top: 100px;
+        padding-top: 60px;
         background-color: white;
-        box-shadow: 0px -1px 5px rgba(0,0,0,0.4);
-        padding-top: 50px;
-        padding-bottom: 10px;
+
+
+        /*margin-bottom: -50px;*/
+        box-shadow: 0px -1px 10px rgba(0,0,0,0.4);
       }
+
+      #profile-bg {
+             position: fixed;
+             left: 0;
+             top: -100px;
+             width: 100%;
+             height: 100px;
+             background-size: 100%;
+             background-position: 50% 20%;
+             background-repeat: no-repeat;
+             text-align: right;
+           }
 
       #profile-info {
         position: relative;
         top: -95px;
         width: 100%;
-        /*z-index: 2;
+        /*z-index: 1;
         text-align: center;*/
       }
 
-/*--------------------------------------------------------------------------------------*/
-/*hexaqgonal profile image*/
+      #pro-pic-edit{
+          position: relative;
+          margin-top:-25px;
+          margin-left: 10px;
+          z-index: 2;
+          text-shadow: 1px 3px 6px #000000;
+      }
+
+      #profile-name {
+        color: #ffffff;
+        font-size: 14px;
+        padding-left: 10px;
+        text-shadow: 1px 2px 5px #000000;
+      }
+
+      #profile-description {
+        font-size: 10px;
+        color: #888;
+        margin-left:10px;
+        margin-top: -20px;
+        /*text-shadow: 1px 3px 5px #000000;*/
+      }
+
+      #profile-description a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      #profile-btn{
+        margin-top: -20px;
+        color: #22c064;
+      }
+
+
+/*----------------------------hexaqgonal profile image------------------------------*/
         .profile_image {
           position: relative;
           width: 50px;
@@ -180,58 +218,10 @@ color: #22c064 !important;
           background: inherit;
         }
 
-/*-------------------------------------------------------------------------*/
+/*-----------------------------hexagonal profile image--------------------------------------*/
 
 
-      /*#profile-image {
-        display: block;
-        border-radius: 5px;
-        border: 1px solid #fff;
-        width: 80px;
-        height: 80px;
-        margin-left: 8px;
-        box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
-      }*/
-
-
-      #pro-pic-edit{
-          position: fixed;
-          margin-top:-40px;
-          margin-left: -40px;
-          text-shadow: 1px 3px 6px #000000;
-      }
-
-      #profile-name {
-        color: #ffffff;
-        font-size: 12px;
-        padding-left: 10px;
-        text-shadow: 1px 2px 5px #000000;
-      }
-
-      #profile-description {
-        font-size: 10px;
-        color: #ffffff;
-        margin-left:10px;
-        margin-top: -20px;
-        text-shadow: 1px 3px 5px #000000;
-      }
-
-      #profile-description a {
-        color: #ffffff;
-        text-decoration: none;
-      }
-
-      #profile-btn{
-        padding-top: 10px;
-        margin-bottom: auto;
-        padding-bottom: 10px;
-        color: #22c064;
-      }
-
-
-
-
-      .center {
+      .center{
       margin-left: auto;
       margin-right: auto;
       display: block;
@@ -269,8 +259,8 @@ color: #22c064 !important;
   border-radius: 50%;
   background-color: #22c064;
   color: #fff;
-  padding: 2rem;
-  font-size: 2rem;
+  padding: 1.8rem;
+  font-size: 1.8rem;
 }
 
 .list__icon_social:active{
