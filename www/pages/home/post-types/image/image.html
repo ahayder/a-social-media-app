@@ -41,8 +41,7 @@
 
 
     <!--if shared post-->
-    <div class="card"  style="margin:15px">
-      <div class="row" ng-if="vm.post.post.isShared" style="margin:10px">
+      <div class="row card" ng-if="vm.post.post.isShared" style="margin:15px">
         <!--profile image-->
             <div>
                 <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}})">
@@ -71,7 +70,7 @@
                 <p>{{vm.post.shared_post.edit_text_body}}</p>
             </div>
         </div> -->
-    </div>
+        
     <!--if shared post-->
 
 
