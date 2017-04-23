@@ -1,9 +1,9 @@
 <div class="card">
 
-        <ion-item>
+        <ion-item class="item item-borderless">
             <div class="row">
               <!--profile image-->
-                  <div class="col col-20">
+                  <div style="padding-left:10px">
                       <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.post.owner_info.avatar}})">
                          <div class="pp-top"></div>
                          <div class="pp-Bottom"></div>
@@ -15,15 +15,14 @@
                          <div style="width:100%; padding: 5px 0 0 15px">
                               <div>
                                   <span style="font-size: 14px; color:#22c064">{{vm.post.post.owner_info.full_name}}</span>
-                                  <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared a post</span>
+                                  <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared an attachment</span>
                               </div>
 
                           <!--date-->
                               <p style="white-space:normal; font-size:10px">{{vm.post.post.created_at.diffForHumans}}</p>
                         </div>
                    </div>
-
-            </div>   
+            </div>
         </ion-item>
         <!-- <ion-item class="item-avatar item-icon-right" id="home-list-item15">
             <img ng-src="{{vm.apiurl}}{{vm.post.post.owner_info.avatar}}">

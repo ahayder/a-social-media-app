@@ -1,6 +1,6 @@
 <div class="card">
 
-          <ion-item>
+          <ion-item class="item item-borderless">
               <div class="row row-no-padding">
                 <!--profile image-->
                     <div class="col col-20">
@@ -35,15 +35,16 @@
         <p style="white-space:normal;">{{vm.post.post.created_at.diffForHumans}}</p>
 
     </ion-item> -->
-
-    <div class="item item-borderless item-text-wrap" ng-if="vm.post.post.text_body !== ''">
-        {{vm.post.post.text_body}}
+    <div class="card" style="margin:10px">
+        <div class="item item-borderless item-text-wrap" ng-if="vm.post.post.text_body !== ''">
+            {{vm.post.post.text_body}}
+        </div>
     </div>
 
 
 
         <!--youtube video section-->
-            <div ng-if="vm.yvideo">
+            <div class="card" ng-if="vm.yvideo" style="margin:10px">
                 <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
                 <div class="item item-text-wrap">
                     <h2>{{vm.post.post.urlData.title}}</h2>
@@ -53,7 +54,7 @@
         <!--youtube video section-->
 
         <!--vimeo video section-->
-            <div ng-if="vm.vvideo">
+            <div class="card" ng-if="vm.vvideo" style="margin:10px">
                 <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
                 <div class="item item-text-wrap">
                     <h2>{{vm.post.post.urlData.title}}</h2>
@@ -63,7 +64,7 @@
         <!--vimeo video section-->
 
         <!--not video section-->
-            <div ng-if="vm.notVideo">
+            <div class="card" ng-if="vm.notVideo" style="margin:10px">
                 <div class="item item-image">
                     <img ng-src="{{vm.trustSrc(vm.post.post.urlData.og_image)}}">
                 </div>
@@ -76,21 +77,22 @@
 
 
         <!--if shared post-->
-                <div class="row row-no-padding" ng-if="vm.post.post.isShared">
-                    <div class="col col-10"></div>
-                    <div class="col col-20">
+              <div class="card" style="margin:15px">
+                <div class="row" ng-if="vm.post.post.isShared" style="margin:10px">
+                    <div>
                         <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}})">
                            <div class="pp-top"></div>
                            <div class="pp-Bottom"></div>
                         </div>
                     </div>
 
-                    <div class="col col-70">
+                    <div class="col">
                         <span style="font-size: 14px; color:#22c064">{{vm.post.shared_post.originator_info.full_name}}</span>
                         <p>{{vm.post.shared_post.edit_text_body}}</p>
                     </div>
 
                 </div>
+              </div>
         <!--if shared post-->
 
         <!--if shared post-->

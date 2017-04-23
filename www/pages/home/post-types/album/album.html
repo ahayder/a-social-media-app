@@ -1,9 +1,9 @@
 <div class="card">
 
-            <ion-item>
+            <ion-item class="item item-borderless">
                   <div class="row">
                     <!--profile image-->
-                        <div class="col col-20">
+                        <div style="padding-left:5px">
                             <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.post.owner_info.avatar}})">
                                <div class="pp-top"></div>
                                <div class="pp-Bottom"></div>
@@ -11,7 +11,7 @@
                        </div>
 
                     <!--profile name-->
-                       <div class="col col-80">
+                       <div class="col">
                            <div style="width:100%; padding: 5px 0 0 15px">
                                 <div>
                                     <span style="font-size: 14px; color:#22c064">{{vm.post.post.owner_info.full_name}}</span>
