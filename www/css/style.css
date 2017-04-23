@@ -218,9 +218,15 @@ color: #22c064 !important;
           background: inherit;
         }
 
-/*-----------------------------hexagonal profile image--------------------------------------*/
+/*-----------------------------/hexagonal profile image--------------------------------------*/
 
-
+.like-comment-share{
+  padding:1px 4px 1px 4px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  text-align: center;
+}
       .center{
       margin-left: auto;
       margin-right: auto;

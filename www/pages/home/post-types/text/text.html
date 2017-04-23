@@ -110,20 +110,48 @@
 
 
 
-<!-- Like, comment, share and view more -->
-    <div class="item row" >
-        <div class="col col-20">
-            <a ng-click="vm.likePost()"><i class="icon ion-heart" style="font-size:20px; vertical-align:middle;"></i></a>
-            <span style="font-size:12px"> {{vm.post.post.likes}}</span></div>
-        <div ui-sref="app.tabs.comments" class="col col-20">
-            <a ng-click="vm.goToCommentPage('text')"><i class="icon ion-ios-chatbubble" style="font-size:22px; vertical-align:middle;"></i></a>
-            <span style="font-size:12px"> {{vm.post.post.comments}}</span></div>
-        <div class="col col-20">
-            <a href=""><i class="icon ion-android-share-alt" style="font-size:20px; vertical-align:middle;"></i></a>
-            <span style="font-size:12px"> {{vm.post.post.shares}}</span></div>
-        <div class="col col-offset-20 col-20">
-            <a class="item-icon-right" ng-click="vm.showPopover($event)"><i class="icon ion-more" style="font-size:20px; vertical-align:middle;"></i></a></div>
-    </div><!-- Like, comment, share and view more -->
+  <!-- Like, comment, share and view more -->
+      <div class="row item item-borderless" >
+        <!--like-->
+          <div class="col">
+            <div class="like-comment-share">
+              <a ng-click="vm.likePost()">
+                <i class="icon ion-heart" style="font-size:10px; vertical-align:middle;"> Like</i>
+              </a>
+              <span style="font-size:10px"> ({{vm.post.post.likes}})</span>
+            </div>
+          </div>
+
+        <!--comment-->
+          <div ui-sref="app.tabs.comments" class="col">
+            <div class="like-comment-share">
+              <a ng-click="vm.goToCommentPage('text')">
+                <i class="icon ion-ios-chatbubble" style="font-size:10px; vertical-align:middle;"> Comment</i>
+              </a>
+              <span style="font-size:10px"> ({{vm.post.post.comments}})</span>
+            </div>
+          </div>
+
+        <!--Share-->
+          <div class="col">
+              <div class="like-comment-share">
+                <a >
+                  <i class="icon ion-android-share-alt" style="font-size:10px; vertical-align:middle;"> Share</i>
+                </a>
+                <span style="font-size:10px"> ({{vm.post.post.shares}})</span>
+              </div>
+          </div>
+
+          <!--Edit-->
+          <div class="col">
+            <div style="padding-left: 10px; width: 100%; text-align: right;">
+              <a class="item-icon-right" ng-click="vm.showPopover($event)">
+                <i class="icon ion-android-more-vertical" style="font-size:12px; vertical-align:middle"></i>
+              </a>
+            </div>
+          </div>
+      </div>
+  <!-- Like, comment, share and view more -->
 
 
 </div>
