@@ -39,7 +39,7 @@
             <p style="white-space:normal;">{{vm.post.post.created_at.diffForHumans}}</p>
 
         </ion-item> -->
-    <div class="card" style="10px">
+    <div class="card" style="margin: 10px">
         <div class="item item-text-wrap" ng-if="vm.post.post.text_body !== ''">
             {{vm.post.post.text_body}}
         </div>
@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <div class="card" style="10px" ng-if="vm.post.post.isShared">
+    <div class="card" style="margin: 10px" ng-if="vm.post.post.isShared">
         <div class="item item-text-wrap" ng-if="vm.post.post.text_body !== ''">
             {{vm.post.post.text_body}}
         </div>
