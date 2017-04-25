@@ -1,4 +1,4 @@
-<ion-view title="Confirm Code" hide-nav-bar="true" hide-back-button="true" id="page4">
+<ion-view title="Confirm Code" hide-nav-bar="true" hide-back-button="true">
   <ion-content padding="true" class="manual-ios-statusbar-padding background" scroll="false">
     <div class="spacer" style="width: 300px; height: 25px;"></div>
 
@@ -9,14 +9,21 @@
     <div class="spacer" style="width: 300px; height: 25px;"></div>
 
 
-    <form name="signinForm" novalidate class="list" style="margin:5%">
+    <form name="signinForm" novalidate style="margin:5%">
 
-      <!-- Username-->
-      <div class="list">
-        <label class="item item-input" style="border-radius:10px; border-width: 1.5px; border-style: solid; border-color:#ffffff; background-color: #ffffff;">
-                        <i class="icon ion-ios-person placeholder-icon" style="color:#37c673; font-size:20px"></i>
-                        <input type="text" placeholder="User Name" style="color:#0b883f; padding-bottom:2px; font-size:14px;" ng-model="vm.signinData.username">
-                </label>
+      <!--code confirm-->
+      <div>
+            <div style="width:100%; text-align:center; font-size:15px; color: white; padding:10px"><b>Enter code<b></div>
+            <div class="row row-no-padding row-wrap">
+                <form>
+                     <input class="col" maxlength="1" placeholder="" type="text" style="text-align:center; width: 30px; height: 40px; margin:5px"></input>
+                     <input class="col" maxlength="1" placeholder="" type="text" style="text-align:center; width: 30px; height: 40px; margin:5px"></input>
+                     <input class="col" maxlength="1" placeholder="" type="text" style="text-align:center; width: 30px; height: 40px; margin:5px"></input>
+                     <input class="col" maxlength="1" placeholder="" type="text" style="text-align:center; width: 30px; height: 40px; margin:5px"></input>
+                     <input class="col" maxlength="1" placeholder="" type="text" style="text-align:center; width: 30px; height: 40px; margin:5px"></input>
+                     <input class="col" maxlength="1" placeholder="" type="text" style="text-align:center; width: 30px; height: 40px; margin:5px"></input>
+                </form>
+            </div>
       </div>
 
       <button ng-click="vm.confirm()" class="button button-light button-block" style="border-radius: 10px;"><span style="color:#22c064">Confirm</span></button>
@@ -25,6 +32,6 @@
 
 
     <button ui-sref="forgot-pass" class="button button-light button-small button-block button-clear"><b>Didn't get the code yet? Resend<b></button>
-    
+
   </ion-content>
 </ion-view>
