@@ -121,5 +121,25 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
 
 
 
+    vm.testsms= function(){
+
+
+        var params = {"country_code":"880", "country_name":"Bangladesh", "token":"123456", "phone":"+8801672228726"};
+
+
+
+
+
+        SiginFactory.sms(params).then(
+            function(res){
+
+            },function(err){
+
+            }
+        );
+    }
+
+
+
     
 };

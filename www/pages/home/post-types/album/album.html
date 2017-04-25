@@ -15,8 +15,7 @@
                            <div style="width:100%; padding: 5px 0 0 15px">
                                 <div>
                                     <span style="font-size: 14px; color:#22c064">{{vm.post.post.owner_info.full_name}}</span>
-                                    <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared a post</span>
-                                    <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared a post</span>
+                                    <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared an album</span>
                                 </div>
 
                             <!--date-->
@@ -32,8 +31,8 @@
                 <p style="white-space:normal;">{{vm.post.post.created_at.diffForHumans}}</p>
 
             </ion-item> -->
-            <div class="item item-text-wrap" ng-if="vm.post.post.text_body !== ''">
-                {{vm.post.post.text_body}}
+            <div class="item item-text-wrap" ng-if="vm.post.post.text_body !== ''" ng-bind-html="vm.post.post.text_body">
+    
             </div>
 
 
@@ -57,6 +56,32 @@
                     <div class="col col-33 album-image"  style="margin-right:5px" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.post.files[4].file_path}})'}">
                     </div>
                     <div class="col col-33 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.post.files[5].file_path}})'}">
+                    </div>
+                </div>
+
+            </div>
+
+
+             <div class="item item-image" ng-if="vm.post.post.isShared">
+
+                <div class="row row-no-padding" style="margin-bottom:10px">
+                    <div class="col col-100 album-image album-first-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.shared_post.files[0].file_path}})'}">
+                    </div>
+                </div>
+
+                <div class="row row-no-padding" style="margin-bottom:10px" ng-show="vm.post.shared_post.files[2]">
+                    <div class="col col-50 album-image" style="margin-right:5px" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.shared_post.files[1].file_path}})'}">
+                    </div>
+                    <div class="col col-50 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.shared_post.files[2].file_path}})'}">
+                    </div>
+                </div>
+
+                <div class="row row-no-padding" ng-show="vm.post.shared_post.files[5]">
+                    <div class="col col-33 album-image"  style="margin-right:5px" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.shared_post.files[3].file_path}})'}">
+                    </div>
+                    <div class="col col-33 album-image"  style="margin-right:5px" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.shared_post.files[4].file_path}})'}">
+                    </div>
+                    <div class="col col-33 album-image" ng-style="{'background-image': 'url({{vm.apiurl}}/uploads/images/{{vm.post.shared_post.files[5].file_path}})'}">
                     </div>
                 </div>
 

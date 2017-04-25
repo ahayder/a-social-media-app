@@ -15,7 +15,7 @@
                  <div style="width:100%; padding: 5px 0 0 15px">
                       <div>
                           <span style="font-size: 14px; color:#22c064">{{vm.post.post.owner_info.full_name}}</span>
-                          <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared an image post</span>
+                          <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared an post</span>
                       </div>
 
                   <!--date-->
@@ -35,6 +35,15 @@
             {{vm.post.post.text_body}}
         </div>
         <div class="item item-image" ng-repeat="image in vm.post.post.files">
+            <img ng-src="{{vm.apiurl}}/uploads/images/{{image.file_path}}">
+        </div>
+    </div>
+
+    <div class="card" style="margin:10px" ng-if="vm.post.post.isShared">
+        <div class="item item-text-wrap" ng-if="vm.post.post.text_body !== ''">
+            {{vm.post.post.text_body}}
+        </div>
+        <div class="item item-image" ng-repeat="image in vm.post.shared_post.files">
             <img ng-src="{{vm.apiurl}}/uploads/images/{{image.file_path}}">
         </div>
     </div>

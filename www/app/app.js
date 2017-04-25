@@ -79,5 +79,6 @@ angular.module('freemig', [
 
 .constant("Constants", {
     "apiurl": "https://mssiolefmig.freemig.com"
+    // "apiurl":"http://198.38.89.216"
 });
 

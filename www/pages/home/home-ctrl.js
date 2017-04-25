@@ -25,6 +25,7 @@ function homeCtrl($scope,
     Constants)
     {
 
+
     var vm = this;
 
     $ionicLoading.show({
@@ -35,13 +36,14 @@ function homeCtrl($scope,
     vm.apiurl = Constants.apiurl;
     vm.status = {};
     vm.feedType = 1;
+    vm.morePostsCanBeLoaded = true;
 
     vm.trustSrc = function (src) {
         return $sce.trustAsResourceUrl(src);
     }
 
     var posts = [];
-    var pageNum = 1;
+    var pageNum = 2;// initiallly 2 as init function always will be load from page 1
 
 
     function initNewsFeed(pageNo, ft) {
@@ -55,12 +57,14 @@ function homeCtrl($scope,
         HomeFactory.getNewsFeedHome(vm.user.key, newsFeedHomePostData, pageNo).then(
             function (response) {
                 $ionicLoading.hide();
-                response = response.data.data.data_info;
-                if (response.length == 0) {
+                
+                if (response.data.status === "5000") {
                     vm.morePostsCanBeLoaded = false;
                     ionicToast.show("No more posts to show.", "bottom", false, 2000);
                 }
-                else {
+                else{
+                    vm.morePostsCanBeLoaded = true;
+                    response = response.data.data.data_info;
                     for (var i = 0; i < response.length; i++) {
                         posts.push(response[i]);
                     }
@@ -78,18 +82,19 @@ function homeCtrl($scope,
                 $ionicLoading.hide();
             }
         );
-    }initNewsFeed(1, vm.feedType);
-
-    vm.morePostsCanBeLoaded = false;
-
-    vm.loadMorePosts = function () {
-        if (posts.length == 99) {
-            vm.morePostsCanBeLoaded = true;
-        }
-        initNewsFeed(pageNum, vm.feedType);
     }
+    
+    // home init
+    (function(){
+            console.log("init");
+         initNewsFeed(1, vm.feedType);
+    })();
+   
+
+
 
     vm.doRefresh = function () {
+        console.log("do refresh working");
         posts = [];
         vm.feeds = posts;
         initNewsFeed(1, vm.feedType);
@@ -106,6 +111,17 @@ function homeCtrl($scope,
         initNewsFeed(1, vm.feedType);
     }
 
+
+    // more posts can be loaded
+    vm.loadMorePosts = function () {
+        initNewsFeed(pageNum, vm.feedType);
+        console.log("loadmorepost");
+        
+    }
+
+
+
+    // ceare text post
     vm.createPost = function (status) {
         console.log(status.text);
         $ionicLoading.show({

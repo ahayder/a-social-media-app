@@ -28,8 +28,8 @@
 
 
     <div class="card" style="margin:10px">
-        <div class="item item-borderless item-text-wrap" ng-if="vm.post.post.text_body !== ''">
-            {{vm.post.post.text_body}}
+        <div class="item item-borderless item-text-wrap" ng-if="vm.post.post.text_body !== ''" ng-bind-html="vm.post.post.text_body">
+
         </div>
     </div>
 
