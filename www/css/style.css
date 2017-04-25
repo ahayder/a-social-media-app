@@ -281,3 +281,24 @@ color: #22c064 !important;
 }
 
 /*-----------------profile activity buttons --------------------*/
+
+
+/*-----------------Notifiaction_page --------------------*/
+.notification-profile-name {
+  color: #22c064;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.noti-text-sec{
+  color:#888;
+}
+
+.noti-time{
+  padding-left: 10px;
+  margin-top: -10px;
+  color:#888;
+  font-size: 12px;
+}
+
+/*-----------------/Notifiaction_page --------------------*/
