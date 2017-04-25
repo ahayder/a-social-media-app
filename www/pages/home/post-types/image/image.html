@@ -13,7 +13,7 @@
 
             <div class="col">
                 <div style="width:100%; padding: 5px 0 0 15px">
-                    <div>
+                    <div class="item-text-wrap">
                         <span style="font-size: 14px; color:#22c064">{{vm.post.post.owner_info.full_name}}</span>
                         <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared an image</span>
                         <span style="font-size: 12px" ng-if="vm.post.post.taggedUsers.length > 0">
@@ -25,6 +25,8 @@
                             </span>
                         <a ng-if="vm.post.post.taggedUsers.length <= 2" ng-repeat="tuser in vm.post.post.taggedUsersInfo" href="{{vm.apiurl + tuser.url}}">{{tuser.full_name}} </a>
                         </span>
+                        <span style="font-size: 12px" ng-if="vm.post.post.attributes.activity"> <img ng-if="vm.post.post.attributes.feelText" ng-src="{{vm.apiurl + '/css/icons/now/' + vm.post.post.attributes.feelText}}"> {{vm.post.post.attributes.activity}}</span>
+                        <span style="font-size: 12px" ng-if="vm.post.post.attributes.userLocation"> at {{vm.post.post.attributes.userLocation}}</span>
                     </div>
 
                     <!--date-->
@@ -33,11 +35,6 @@
             </div>
         </div>
     </ion-item>
-    <!-- <ion-item class="item-avatar item-icon-right" id="home-list-item15">
-              <img ng-src="{{vm.apiurl}}{{vm.post.post.owner_info.avatar}}">
-              <h2>{{vm.post.post.owner_info.full_name}}<span style="font-size: 14px;" ng-if="vm.post.post.isShared"> shared a post</span></h2>
-              <p style="white-space:normal;">{{vm.post.post.created_at.diffForHumans}}</p>
-        </ion-item> -->
 
     <div class="card" style="margin:10px">
         <div class="item item-text-wrap" ng-if="vm.post.post.text_body !== ''">

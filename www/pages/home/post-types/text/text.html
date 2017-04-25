@@ -13,10 +13,11 @@
             <!--profile name-->
             <div class="col col-80">
                 <div style="width:100%; padding: 5px 0 0 15px">
-                    <div>
+                    <div class="item-text-wrap">
                         <span style="font-size: 14px; color:#22c064">{{vm.post.post.owner_info.full_name}}</span>
                         <span style="font-size: 12px" ng-if="vm.post.post.has_url"> shared a link</span>
                         <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared a post</span>
+                        <span style="font-size: 12px" ng-if="vm.post.post.attributes.activityPreview"> was watching {{vm.post.post.attributes.activityPreview.attr.title}}</span>
                         <span style="font-size: 12px" ng-if="vm.post.post.taggedUsers.length > 0">
                             with 
                             <span ng-if="vm.post.post.taggedUsers.length > 2">
@@ -24,8 +25,10 @@
                                 <a href="{{vm.apiurl + vm.post.post.taggedUsersInfo[1].url}}">{{vm.post.post.taggedUsersInfo[1].full_name}}</a>
                                 {{vm.post.post.taggedUsers.length - 2}} more people 
                             </span>
-                        <a ng-if="vm.post.post.taggedUsers.length <= 2" ng-repeat="tuser in vm.post.post.taggedUsersInfo" href="{{vm.apiurl + tuser.url}}">{{tuser.full_name}} </a>
+                            <a ng-if="vm.post.post.taggedUsers.length <= 2" ng-repeat="tuser in vm.post.post.taggedUsersInfo" href="{{vm.apiurl + tuser.url}}">{{tuser.full_name}} </a>
                         </span>
+                        <span style="font-size: 12px" ng-if="vm.post.post.attributes.activity"> <img ng-if="vm.post.post.attributes.feelText" ng-src="{{vm.apiurl + '/css/icons/now/' + vm.post.post.attributes.feelText}}"> {{vm.post.post.attributes.activity}}</span>
+                        <span style="font-size: 12px" ng-if="vm.post.post.attributes.userLocation"> at {{vm.post.post.attributes.userLocation}}</span>
                     </div>
 
                     <!--date-->
@@ -36,8 +39,8 @@
     </ion-item>
 
 
-    <div class="card" style="margin:10px">
-        <div class="item item-borderless item-text-wrap" ng-if="vm.post.post.text_body !== ''" ng-bind-html="vm.post.post.text_body">
+    <div class="card" style="margin:10px" ng-if="vm.post.post.text_body !== ''">
+        <div class="item item-borderless item-text-wrap" ng-bind-html="vm.post.post.text_body">
 
         </div>
     </div>
@@ -77,6 +80,22 @@
     <!--not video section-->
 
 
+    <!--activity preview section-->
+    <div class="card" ng-if="vm.activityPreview" style="margin:10px">
+        <div class="item item-image">
+            <img ng-src="{{vm.trustSrc(vm.post.post.attributes.activityPreview.attr.poster_path)}}">
+        </div>
+        <div class="item item-text-wrap">
+            <h2>{{vm.post.post.attributes.activityPreview.attr.original_title}}</h2>
+            <p>{{vm.post.post.attributes.activityPreview.attr.overview}}</p>
+        </div>
+    </div>
+    <!--activity section-->
+
+
+
+
+
     <!--if shared post-->
 
     <div class="row card" ng-if="vm.post.post.isShared" style="margin:10px">
@@ -91,25 +110,12 @@
             <span style="font-size: 14px; color:#22c064">{{vm.post.shared_post.originator_info.full_name}}</span>
             <p>{{vm.post.shared_post.edit_text_body}}</p>
         </div>
-
-        <!--date-->
-        <!-- <p style="white-space:normal; font-size:10px">{{vm.post.post.created_at.diffForHumans}}</p> -->
     </div>
 
     <!--if shared post-->
 
-    <!--if shared post-->
-    <!-- <div class="row row-no-padding" ng-if="vm.post.post.isShared">
-                <div class="col col-10"></div>
-                <div class="col col-90">
-                    <div class="item item-avatar item-text-wrap">
-                        <img ng-src="{{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}}"/>
-                        <h2>{{vm.post.shared_post.originator_info.full_name}}</h2>
-                        <p>{{vm.post.shared_post.edit_text_body}}</p>
-                    </div>
-                </div>
-            </div> -->
-    <!--if shared post-->
+
+
 
 
 

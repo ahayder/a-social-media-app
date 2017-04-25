@@ -30,6 +30,7 @@ function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $local
     vm.yvideo = false;
     vm.vvideo = false;
     vm.notVideo = false;
+    vm.activityPreview = false;
 
     vm.apiurl = Constants.apiurl;
     vm.user = $localStorage.user.token;
@@ -41,6 +42,10 @@ function tController($scope, Constants, $sce, $ionicPopover, HomeFactory, $local
     console.log("inside text");
 
     function checkForMedia(){
+        // Checking activity preview if available
+        if(vm.post.post.attributes.hasOwnProperty("activityPreview")){
+            vm.activityPreview = true;
+        }// checking ativity preview
         if(vm.post.post.has_url){
             if(vm.post.post.hasOwnProperty("urlData")){
                 if(vm.post.post.urlData.preview){
