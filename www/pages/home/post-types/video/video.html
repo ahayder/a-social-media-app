@@ -15,6 +15,15 @@
                     <div>
                         <span style="font-size: 14px; color:#22c064">{{vm.post.post.owner_info.full_name}}</span>
                         <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared a video</span>
+                        <span style="font-size: 12px" ng-if="vm.post.post.taggedUsers.length > 0">
+                            with 
+                            <span ng-if="vm.post.post.taggedUsers.length > 2">
+                                <a href="{{vm.apiurl + vm.post.post.taggedUsersInfo[0].url}}">{{vm.post.post.taggedUsersInfo[0].full_name}}, </a>
+                                <a href="{{vm.apiurl + vm.post.post.taggedUsersInfo[1].url}}">{{vm.post.post.taggedUsersInfo[1].full_name}}</a>
+                                {{vm.post.post.taggedUsers.length - 2}} more people 
+                            </span>
+                        <a ng-if="vm.post.post.taggedUsers.length <= 2" ng-repeat="tuser in vm.post.post.taggedUsersInfo" href="{{vm.apiurl + tuser.url}}">{{tuser.full_name}} </a>
+                        </span>
                     </div>
 
                     <!--date-->

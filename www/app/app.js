@@ -27,6 +27,7 @@ angular.module('freemig', [
   'freemig.attachmentDirective',
   'freemig.videoDirective',
   'freemig.albumDirective',
+  'freemig.profileDirective',
   'freemig.confirmCodeController',
   'ngCordova',
   'ionic-toast',

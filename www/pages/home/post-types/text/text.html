@@ -1,30 +1,39 @@
 <div class="card">
 
-          <ion-item class="item item-borderless">
-              <div class="row row-no-padding">
-                <!--profile image-->
-                    <div class="col col-20">
-                        <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.post.owner_info.avatar}})">
-                           <div class="pp-top"></div>
-                           <div class="pp-Bottom"></div>
-                        </div>
-                   </div>
+    <ion-item class="item item-borderless">
+        <div class="row row-no-padding">
+            <!--profile image-->
+            <div class="col col-20">
+                <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.post.owner_info.avatar}})">
+                    <div class="pp-top"></div>
+                    <div class="pp-Bottom"></div>
+                </div>
+            </div>
 
-               <!--profile name-->
-                   <div class="col col-80">
-                       <div style="width:100%; padding: 5px 0 0 15px">
-                            <div>
-                                <span style="font-size: 14px; color:#22c064">{{vm.post.post.owner_info.full_name}}</span>
-                                <span style="font-size: 12px" ng-if="vm.post.post.has_url"> shared a link</span>
-                                <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared a post</span>
-                            </div>
+            <!--profile name-->
+            <div class="col col-80">
+                <div style="width:100%; padding: 5px 0 0 15px">
+                    <div>
+                        <span style="font-size: 14px; color:#22c064">{{vm.post.post.owner_info.full_name}}</span>
+                        <span style="font-size: 12px" ng-if="vm.post.post.has_url"> shared a link</span>
+                        <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared a post</span>
+                        <span style="font-size: 12px" ng-if="vm.post.post.taggedUsers.length > 0">
+                            with 
+                            <span ng-if="vm.post.post.taggedUsers.length > 2">
+                                <a href="{{vm.apiurl + vm.post.post.taggedUsersInfo[0].url}}">{{vm.post.post.taggedUsersInfo[0].full_name}}, </a>
+                                <a href="{{vm.apiurl + vm.post.post.taggedUsersInfo[1].url}}">{{vm.post.post.taggedUsersInfo[1].full_name}}</a>
+                                {{vm.post.post.taggedUsers.length - 2}} more people 
+                            </span>
+                        <a ng-if="vm.post.post.taggedUsers.length <= 2" ng-repeat="tuser in vm.post.post.taggedUsersInfo" href="{{vm.apiurl + tuser.url}}">{{tuser.full_name}} </a>
+                        </span>
+                    </div>
 
-                        <!--date-->
-                            <p style="white-space:normal; font-size:10px">{{vm.post.post.created_at.diffForHumans}}</p>
-                      </div>
-                 </div>
-              </div>
-          </ion-item>
+                    <!--date-->
+                    <p style="white-space:normal; font-size:10px">{{vm.post.post.created_at.diffForHumans}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-item>
 
 
     <div class="card" style="margin:10px">
@@ -35,62 +44,62 @@
 
 
 
-        <!--youtube video section-->
-            <div class="card" ng-if="vm.yvideo" style="margin:10px">
-                <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
-                <div class="item item-text-wrap">
-                    <h2>{{vm.post.post.urlData.title}}</h2>
-                    <p>{{vm.post.post.urlData.description}}</p>
-                </div>
+    <!--youtube video section-->
+    <div class="card" ng-if="vm.yvideo" style="margin:10px">
+        <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
+        <div class="item item-text-wrap">
+            <h2>{{vm.post.post.urlData.title}}</h2>
+            <p>{{vm.post.post.urlData.description}}</p>
+        </div>
+    </div>
+    <!--youtube video section-->
+
+    <!--vimeo video section-->
+    <div class="card" ng-if="vm.vvideo" style="margin:10px">
+        <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
+        <div class="item item-text-wrap">
+            <h2>{{vm.post.post.urlData.title}}</h2>
+            <p>{{vm.post.post.urlData.description}}</p>
+        </div>
+    </div>
+    <!--vimeo video section-->
+
+    <!--not video section-->
+    <div class="card" ng-if="vm.notVideo" style="margin:10px">
+        <div class="item item-image">
+            <img ng-src="{{vm.trustSrc(vm.post.post.urlData.og_image)}}">
+        </div>
+        <div class="item item-text-wrap">
+            <h2>{{vm.post.post.urlData.title}}</h2>
+            <p>{{vm.post.post.urlData.description}}</p>
+        </div>
+    </div>
+    <!--not video section-->
+
+
+    <!--if shared post-->
+
+    <div class="row card" ng-if="vm.post.post.isShared" style="margin:10px">
+        <div>
+            <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}})">
+                <div class="pp-top"></div>
+                <div class="pp-Bottom"></div>
             </div>
-        <!--youtube video section-->
+        </div>
 
-        <!--vimeo video section-->
-            <div class="card" ng-if="vm.vvideo" style="margin:10px">
-                <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
-                <div class="item item-text-wrap">
-                    <h2>{{vm.post.post.urlData.title}}</h2>
-                    <p>{{vm.post.post.urlData.description}}</p>
-                </div>
-            </div>
-        <!--vimeo video section-->
+        <div class="col">
+            <span style="font-size: 14px; color:#22c064">{{vm.post.shared_post.originator_info.full_name}}</span>
+            <p>{{vm.post.shared_post.edit_text_body}}</p>
+        </div>
 
-        <!--not video section-->
-            <div class="card" ng-if="vm.notVideo" style="margin:10px">
-                <div class="item item-image">
-                    <img ng-src="{{vm.trustSrc(vm.post.post.urlData.og_image)}}">
-                </div>
-                <div class="item item-text-wrap">
-                    <h2>{{vm.post.post.urlData.title}}</h2>
-                    <p>{{vm.post.post.urlData.description}}</p>
-                </div>
-            </div>
-        <!--not video section-->
+        <!--date-->
+        <!-- <p style="white-space:normal; font-size:10px">{{vm.post.post.created_at.diffForHumans}}</p> -->
+    </div>
 
+    <!--if shared post-->
 
-        <!--if shared post-->
-
-                <div class="row card" ng-if="vm.post.post.isShared" style="margin:10px">
-                    <div>
-                        <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}})">
-                           <div class="pp-top"></div>
-                           <div class="pp-Bottom"></div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <span style="font-size: 14px; color:#22c064">{{vm.post.shared_post.originator_info.full_name}}</span>
-                        <p>{{vm.post.shared_post.edit_text_body}}</p>
-                    </div>
-
-                    <!--date-->
-                        <!-- <p style="white-space:normal; font-size:10px">{{vm.post.post.created_at.diffForHumans}}</p> -->
-                </div>
-              
-        <!--if shared post-->
-
-        <!--if shared post-->
-            <!-- <div class="row row-no-padding" ng-if="vm.post.post.isShared">
+    <!--if shared post-->
+    <!-- <div class="row row-no-padding" ng-if="vm.post.post.isShared">
                 <div class="col col-10"></div>
                 <div class="col col-90">
                     <div class="item item-avatar item-text-wrap">
@@ -100,52 +109,52 @@
                     </div>
                 </div>
             </div> -->
-        <!--if shared post-->
+    <!--if shared post-->
 
 
 
-  <!-- Like, comment, share and view more -->
-      <div class="row item item-borderless" >
+    <!-- Like, comment, share and view more -->
+    <div class="row item item-borderless">
         <!--like-->
-          <div class="col">
+        <div class="col">
             <div class="like-comment-share">
-              <a ng-click="vm.likePost()">
-                <i class="icon ion-heart" style="font-size:10px; vertical-align:middle;"> Like</i>
-              </a>
-              <span style="font-size:10px"> ({{vm.post.post.likes}})</span>
+                <a ng-click="vm.likePost()">
+                    <i class="icon ion-heart" style="font-size:10px; vertical-align:middle;"> Like</i>
+                </a>
+                <span style="font-size:10px"> ({{vm.post.post.likes}})</span>
             </div>
-          </div>
+        </div>
 
         <!--comment-->
-          <div ui-sref="app.tabs.comments" class="col">
+        <div ui-sref="app.tabs.comments" class="col">
             <div class="like-comment-share">
-              <a ng-click="vm.goToCommentPage('text')">
-                <i class="icon ion-ios-chatbubble" style="font-size:10px; vertical-align:middle;"> Comment</i>
-              </a>
-              <span style="font-size:10px"> ({{vm.post.post.comments}})</span>
+                <a ng-click="vm.goToCommentPage('text')">
+                    <i class="icon ion-ios-chatbubble" style="font-size:10px; vertical-align:middle;"> Comment</i>
+                </a>
+                <span style="font-size:10px"> ({{vm.post.post.comments}})</span>
             </div>
-          </div>
+        </div>
 
         <!--Share-->
-          <div class="col">
-              <div class="like-comment-share">
-                <a >
-                  <i class="icon ion-android-share-alt" style="font-size:10px; vertical-align:middle;"> Share</i>
+        <div class="col">
+            <div class="like-comment-share">
+                <a>
+                    <i class="icon ion-android-share-alt" style="font-size:10px; vertical-align:middle;"> Share</i>
                 </a>
                 <span style="font-size:10px"> ({{vm.post.post.shares}})</span>
-              </div>
-          </div>
-
-          <!--Edit-->
-          <div class="col">
-            <div style="padding-left: 10px; width: 100%; text-align: right;">
-              <a class="item-icon-right" ng-click="vm.showPopover($event)">
-                <i class="icon ion-android-more-vertical" style="font-size:12px; vertical-align:middle"></i>
-              </a>
             </div>
-          </div>
-      </div>
-  <!-- Like, comment, share and view more -->
+        </div>
+
+        <!--Edit-->
+        <div class="col">
+            <div style="padding-left: 10px; width: 100%; text-align: right;">
+                <a class="item-icon-right" ng-click="vm.showPopover($event)">
+                    <i class="icon ion-android-more-vertical" style="font-size:12px; vertical-align:middle"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Like, comment, share and view more -->
 
 
 </div>

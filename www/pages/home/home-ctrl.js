@@ -86,7 +86,6 @@ function homeCtrl($scope,
     
     // home init
     (function(){
-            console.log("init");
          initNewsFeed(1, vm.feedType);
     })();
    
@@ -94,7 +93,6 @@ function homeCtrl($scope,
 
 
     vm.doRefresh = function () {
-        console.log("do refresh working");
         posts = [];
         vm.feeds = posts;
         initNewsFeed(1, vm.feedType);
@@ -115,8 +113,6 @@ function homeCtrl($scope,
     // more posts can be loaded
     vm.loadMorePosts = function () {
         initNewsFeed(pageNum, vm.feedType);
-        console.log("loadmorepost");
-        
     }
 
 
