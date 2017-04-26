@@ -27,7 +27,7 @@
                             </span>
                             <a ng-if="vm.post.post.taggedUsers.length <= 2" ng-repeat="tuser in vm.post.post.taggedUsersInfo" href="{{vm.apiurl + tuser.url}}">{{tuser.full_name}} </a>
                         </span>
-                        <span style="font-size: 12px" ng-if="vm.post.post.attributes.activity"> <img ng-if="vm.post.post.attributes.feelText" ng-src="{{vm.apiurl + '/css/icons/now/' + vm.post.post.attributes.feelText}}"> {{vm.post.post.attributes.activity}}</span>
+                        <span style="font-size: 12px" ng-if="vm.post.post.attributes.activity"> <img ng-if="vm.post.post.attributes.feelText" ng-src="{{vm.apiurl + '/css/icons/now/' + vm.post.post.attributes.feelText}}" width=15> {{vm.post.post.attributes.activity}}</span>
                         <span style="font-size: 12px" ng-if="vm.post.post.attributes.userLocation"> at {{vm.post.post.attributes.userLocation}}</span>
                     </div>
 
@@ -39,18 +39,17 @@
     </ion-item>
 
 
-    <div class="card" style="margin:10px" ng-if="vm.post.post.text_body !== ''">
-        <div class="item item-borderless item-text-wrap" ng-bind-html="vm.post.post.text_body">
 
-        </div>
+    <div ng-if="vm.post.post.text_body !== ''" class="item item-borderless item-text-wrap" ng-bind-html="vm.post.post.text_body">
+
     </div>
 
 
 
     <!--youtube video section-->
-    <div class="card" ng-if="vm.yvideo" style="margin:10px">
+    <div ng-if="vm.yvideo">
         <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
-        <div class="item item-text-wrap">
+        <div class="item item-borderless item-text-wrap">
             <h2>{{vm.post.post.urlData.title}}</h2>
             <p>{{vm.post.post.urlData.description}}</p>
         </div>
@@ -58,9 +57,9 @@
     <!--youtube video section-->
 
     <!--vimeo video section-->
-    <div class="card" ng-if="vm.vvideo" style="margin:10px">
+    <div ng-if="vm.vvideo">
         <iframe width="100%" ng-src="{{vm.trustSrc(vm.post.post.iframe)}}"></iframe>
-        <div class="item item-text-wrap">
+        <div class="item item-borderless item-text-wrap">
             <h2>{{vm.post.post.urlData.title}}</h2>
             <p>{{vm.post.post.urlData.description}}</p>
         </div>
@@ -68,11 +67,11 @@
     <!--vimeo video section-->
 
     <!--not video section-->
-    <div class="card" ng-if="vm.notVideo" style="margin:10px">
-        <div class="item item-image">
+    <div ng-if="vm.notVideo">
+        <div class="item item-borderless item-image">
             <img ng-src="{{vm.trustSrc(vm.post.post.urlData.og_image)}}">
         </div>
-        <div class="item item-text-wrap">
+        <div class="item item-borderless item-text-wrap">
             <h2>{{vm.post.post.urlData.title}}</h2>
             <p>{{vm.post.post.urlData.description}}</p>
         </div>
@@ -81,11 +80,11 @@
 
 
     <!--activity preview section-->
-    <div class="card" ng-if="vm.activityPreview" style="margin:10px">
-        <div class="item item-image">
+    <div class="item item-borderless" ng-if="vm.activityPreview">
+        <div class="item item-borderless item-image">
             <img ng-src="{{vm.trustSrc(vm.post.post.attributes.activityPreview.attr.poster_path)}}">
         </div>
-        <div class="item item-text-wrap">
+        <div class="item item-borderless item-text-wrap">
             <h2>{{vm.post.post.attributes.activityPreview.attr.original_title}}</h2>
             <p>{{vm.post.post.attributes.activityPreview.attr.overview}}</p>
         </div>
@@ -98,18 +97,23 @@
 
     <!--if shared post-->
 
-    <div class="row card" ng-if="vm.post.post.isShared" style="margin:10px">
-        <div>
-            <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}})">
-                <div class="pp-top"></div>
-                <div class="pp-Bottom"></div>
+    <div class="row" ng-if="vm.post.post.isShared">
+
+        <div class="col col-offset-20"></div>
+        <div class="col col-80">
+            <div class="col col-20">
+                <div class="profile_image" style="background-image: url({{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}})">
+                    <div class="pp-top"></div>
+                    <div class="pp-Bottom"></div>
+                </div>
+            </div>
+
+            <div class="col col-80">
+                <span style="font-size: 14px; color:#22c064">{{vm.post.shared_post.originator_info.full_name}}</span>
+                <p>{{vm.post.shared_post.edit_text_body}}</p>
             </div>
         </div>
 
-        <div class="col">
-            <span style="font-size: 14px; color:#22c064">{{vm.post.shared_post.originator_info.full_name}}</span>
-            <p>{{vm.post.shared_post.edit_text_body}}</p>
-        </div>
     </div>
 
     <!--if shared post-->
@@ -120,7 +124,7 @@
 
 
     <!-- Like, comment, share and view more -->
-    <div class="row item item-borderless">
+    <div class="row item">
         <!--like-->
         <div class="col">
             <div class="like-comment-share">

@@ -41,7 +41,7 @@
         <p style="white-space:normal;">{{vm.post.post.created_at.diffForHumans}}</p>
 
     </ion-item> -->
-    <div class="card" style="margin:15px" ng-if="!vm.post.post.isShared">
+    <div class="item item-borderless" ng-if="!vm.post.post.isShared">
         <div class="item item-text-wrap" ng-if="vm.post.post.text_body !== ''">
             {{vm.post.post.text_body}}
         </div>
@@ -56,7 +56,7 @@
         </div>
     </div>
 
-    <div class="card" style="margin:15px" ng-if="vm.post.post.isShared">
+    <div class="item item-borderless" ng-if="vm.post.post.isShared">
         <div class="item item-text-wrap" ng-if="vm.post.post.text_body !== ''">
             {{vm.post.post.text_body}}
         </div>
@@ -72,7 +72,7 @@
     </div>
 
     <!--if shared post-->
-    <div class="row card" ng-if="vm.post.post.isShared" style="margin:15px">
+    <div class="row" ng-if="vm.post.post.isShared">
 
         <!--profile image-->
         <div>
@@ -95,19 +95,12 @@
             </div>
         </div>
 
-        <!-- <div class="col col-90">
-                  <div class="item item-avatar item-text-wrap">
-                      <img ng-src="{{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}}"/>
-                      <h2>{{vm.post.shared_post.originator_info.full_name}}</h2>
-                      <p>{{vm.post.shared_post.edit_text_body}}</p>
-                  </div>
-              </div> -->
     </div>
     <!--if shared post-->
 
 
     <!-- Like, comment, share and view more -->
-    <div class="row item item-borderless">
+    <div class="row item">
         <!--like-->
         <div class="col">
             <div class="like-comment-share">

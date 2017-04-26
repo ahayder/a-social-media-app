@@ -16,7 +16,6 @@
                     <div class="item-text-wrap">
                         <span style="font-size: 14px; color:#22c064">{{vm.post.post.owner_info.full_name}}</span>
                         <span style="font-size: 12px" ng-if="vm.post.post.isShared"> shared a post</span>
-                        <span style="font-size: 12px" ng-if="!vm.post.post.isShared">{{vm.post.post.attributes.activity}}</span>
                         <span style="font-size: 12px" ng-if="vm.post.post.taggedUsers.length > 0">
                             with 
                             <span ng-if="vm.post.post.taggedUsers.length > 2">
