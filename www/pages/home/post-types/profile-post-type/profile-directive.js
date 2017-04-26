@@ -5,7 +5,7 @@ angular.module('freemig.profileDirective', [])
 function profilePost() {
     var directive = {
         restrict: 'E',
-        templateUrl: 'pages/home/post-types/profile/profile.html',
+        templateUrl: 'pages/home/post-types/profile-post-type/profile.html',
         scope: {
             post: '='
         },
