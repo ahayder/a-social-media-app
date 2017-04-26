@@ -286,19 +286,19 @@ color: #22c064 !important;
 /*-----------------Notifiaction_page --------------------*/
 .notification-profile-name {
   color: #22c064;
-  font-size: 14px;
-  padding-left: 10px;
+  font-size: 12px;
 }
 
 .noti-text-sec{
-  color:#888;
+  color:#505050;
+  font-size: 12px;
 }
 
 .noti-time{
   padding-left: 10px;
   margin-top: -10px;
   color:#888;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 /*-----------------/Notifiaction_page --------------------*/
