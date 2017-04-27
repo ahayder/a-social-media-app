@@ -17,6 +17,7 @@ color: #22c064 !important;
 }
 
 
+
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -284,6 +285,12 @@ color: #22c064 !important;
 
 
 /*-----------------Notifiaction_page --------------------*/
+.name-style{
+  margin-top:-5px !important;
+  padding-bottom:-10px !important;
+  background-color:transparent !important;
+}
+
 .notification-profile-name {
   color: #22c064;
   font-size: 12px;
@@ -295,10 +302,22 @@ color: #22c064 !important;
 }
 
 .noti-time{
-  padding-left: 10px;
   margin-top: -10px;
   color:#888;
   font-size: 10px;
+}
+
+.button-thin{
+  min-width: 20px !important;
+  min-height: 22px !important;
+  line-height: 5px !important;
+}
+
+.btn-style{
+  margin: 0 2px 0 2px !important;
+  font-size: 10px !important;
+  border-width: 1px !important;
+  border-radius:20px !important;
 }
 
 /*-----------------/Notifiaction_page --------------------*/
