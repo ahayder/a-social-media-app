@@ -1,0 +1,32 @@
+<ion-modal-view>
+    <ion-header-bar align-title="left" class="bar-positive">
+        <div class="buttons">
+            <button ng-click="vm.closeCheckinModal()" class="button button-icon button-clear ion-ios-close-empty"></button>
+        </div>
+        <h1 class="title">Check In</h1>
+    </ion-header-bar>
+
+    <ion-content style="height: 100%">
+
+        <div class="list">
+            
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+            </label>
+
+        </div>
+
+        <div class="card">
+            <button ng-if="vm.locationPermission" class="button button-icon button-positive">Turn on Location</button>
+        </div>
+
+    </ion-content>
+
+
+    
+
+
+
+
+</ion-modal-view>

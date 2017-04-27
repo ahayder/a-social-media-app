@@ -302,3 +302,19 @@ color: #22c064 !important;
 }
 
 /*-----------------/Notifiaction_page --------------------*/
+
+
+
+/*----------------------Stickey footer*-------------------------*/
+
+
+.stickyFooter {
+  padding: 20px;
+  width: 100%;
+  background: grey;
+  bottom: -60px;
+  position: absolute; }
+ion-content[sticky-footer] .scroll {
+  padding-bottom: 60px; }
+
+/*----------------------Stickey footer*-------------------------*/

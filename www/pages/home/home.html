@@ -41,7 +41,7 @@
 <!-- avater and status -->
     <div class="list card">
 
-      <div class="item row ">
+      <div class="item row">
            <div class="col col-20">
                  <div class="profile_image" style="background-image: url({{vm.apiurl + vm.user.profileAvatar}})">
                     <div class="pp-top"></div>
@@ -49,22 +49,27 @@
                  </div>
 
           </div>
-
+<!--
           <div class="col col-80">
                <form>
                    <label class="item item-input">
-                       <textarea ng-model="vm.status.text" placeholder="Share your activity pulse"></textarea>
+                       <textarea ng-click="vm.showCreatePostModal()" ng-model="vm.status.text" placeholder="Update your activity"></textarea>
                    </label>
               </form>
+          </div>-->
+
+
+          <div class="col col-80" ng-click="vm.showCreatePostModal()">
+               <p>Update your activity pulse</p>
           </div>
 
       </div>
 
 
-      <div  class="button-bar" style="padding-bottom:-5px">
+      <!--<div  class="button-bar" style="padding-bottom:-5px">
         <button class="button button-positive button-clear icon ion-camera"> Photos</button>
         <button style="border-left: 1px solid #33cd5f;" class="button button-balanced button-clear icon ion-location"> Check in</button>
-      </div>
+      </div>-->
 
 
   </div>
@@ -84,10 +89,9 @@
       </div>
     </ion-list>
 
-   <ion-infinite-scroll
-    icon="ion-loading-c"
-    distance="10%"
-    on-infinite="vm.loadMorePosts()">
+   <ion-infinite-scroll 
+   distance="10%" 
+   on-infinite="vm.loadMorePosts()">
   </ion-infinite-scroll>
 
   </ion-content>

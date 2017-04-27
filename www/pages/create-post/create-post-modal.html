@@ -1,0 +1,60 @@
+<ion-modal-view>
+    <ion-header-bar align-title="left" class="bar-positive">
+        <div class="buttons">
+            <button ng-click="vm.closeCreatePostModal()" class="button button-icon button-clear ion-ios-close-empty"></button>
+        </div>
+        <h1 class="title">Update Status</h1>
+        <div class="buttons">
+            <button ng-click="vm.createPost()" class="button button-clear">Create</button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content style="height: 100%">
+
+        <div class="list">
+            <!--avatar section-->
+            <div class="item item-borderless row">
+                <div class="col col-20">
+                    <div class="profile_image" style="background-image: url({{vm.apiurl + vm.user.profileAvatar}})">
+                        <div class="pp-top"></div>
+                        <div class="pp-Bottom"></div>
+                    </div>
+
+                </div>
+
+                <div class="col col-80" ng-click="vm.showCreatePostModal()">
+                    <h2>{{vm.user.full_name}}</h2>
+                    <button class="button button-small button-stable">Public</button>
+                </div>
+
+            </div>
+            <!--END of avatar section-->
+
+
+            <div class="item item-borderless">
+                <textarea ng-model="vm.status.text" placeholder="Update your activity" rows="10" cols="40"></textarea>
+            </div>
+
+            <div>
+                <div class="item item-borderless"></div>
+                <div class="item item-borderless"></div>
+                <div class="item item-icon-left" ng-click="vm.showPhotoVideoModal()"><i class="icon ion-image"></i>Photo/Video</div>
+                <div class="item item-icon-left" ng-click="vm.showCheckinModal()"><i class="icon ion-ios-location"></i>Check in</div>
+                <div class="item item-icon-left" ng-click="vm.showFeelingActivityModal()"><i class="icon ion-happy"></i>Feeling/Activity</div>
+                <div class="item item-icon-left" ng-click="vm.showTagFriendsModal()"><i class="icon ion-ios-personadd"></i>Tag Frineds</div
+            </div>
+
+        </div>
+
+    
+
+
+    </ion-content>
+
+
+    
+
+
+
+
+</ion-modal-view>

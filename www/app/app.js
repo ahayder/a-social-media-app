@@ -7,6 +7,7 @@
 angular.module('freemig', [
   'ionic',
   'freemig.controllers',
+  'freemig.services',
   'freemig.routes',
   'freemig.signinController',
   'freemig.signinFactory',
@@ -64,14 +65,23 @@ angular.module('freemig', [
       $rootScope.isLoggedin = false;
     }
      // Checking logged in condition
+    
 
-    var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-    console.log(deviceInfo);
-    deviceInfo.get(function(result) {
-        console.log("result = " + result);
-    }, function(e) {
-        console.log(e);
-    });
+    //---------------------------------------- gettting device inormation---------------------------------
+    try{
+      var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+      console.log(deviceInfo);
+      deviceInfo.get(function(result) {
+          console.log("result = " + result);
+      }, function(e) {
+          console.log(e);
+      });
+    }catch(e){
+      console.log("Device e gele cordova paibo, ohonka paisena!");
+    }
+
+    //---------------------------------------- gettting device inormation---------------------------------
+    
 
 
 

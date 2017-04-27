@@ -10,8 +10,10 @@ homeCtrl.$inject = ['$scope',
     '$state',
     '$localStorage',
     '$ionicLoading',
+    '$ionicModal',
     '$sce',
-    'Constants']
+    'Constants',
+    'LocationService']
 
 function homeCtrl($scope,
     $http,
@@ -21,9 +23,10 @@ function homeCtrl($scope,
     $state,
     $localStorage,
     $ionicLoading,
+    $ionicModal,
     $sce,
-    Constants)
-    {
+    Constants,
+    LocationService) {
 
 
     var vm = this;
@@ -37,6 +40,7 @@ function homeCtrl($scope,
     vm.status = {};
     vm.feedType = 1;
     vm.morePostsCanBeLoaded = true;
+    vm.locationPermission = false;
 
     vm.trustSrc = function (src) {
         return $sce.trustAsResourceUrl(src);
@@ -47,22 +51,22 @@ function homeCtrl($scope,
 
 
     function initNewsFeed(pageNo, ft) {
-        
+
         var newsFeedHomePostData = {};
         newsFeedHomePostData.feedChoose = ft;
         newsFeedHomePostData.feedLoad = "home";
         newsFeedHomePostData.owner_type = "1";
         newsFeedHomePostData.tz = vm.user.userTZ;
-        
+
         HomeFactory.getNewsFeedHome(vm.user.key, newsFeedHomePostData, pageNo).then(
             function (response) {
                 $ionicLoading.hide();
-                
+
                 if (response.data.status === "5000") {
                     vm.morePostsCanBeLoaded = false;
                     ionicToast.show("No more posts to show.", "bottom", false, 2000);
                 }
-                else{
+                else {
                     vm.morePostsCanBeLoaded = true;
                     response = response.data.data.data_info;
                     for (var i = 0; i < response.length; i++) {
@@ -83,12 +87,12 @@ function homeCtrl($scope,
             }
         );
     }
-    
+
     // home init
-    (function(){
-         initNewsFeed(1, vm.feedType);
+    (function () {
+        initNewsFeed(1, vm.feedType);
     })();
-   
+
 
 
 
@@ -117,9 +121,140 @@ function homeCtrl($scope,
 
 
 
-    // ceare text post
-    vm.createPost = function (status) {
-        console.log(status.text);
+
+    //-------------------------------------------- create post modal-----------------------------------//
+    vm.showCreatePostModal = function () {
+
+        $ionicModal.fromTemplateUrl('pages/create-post/create-post-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.createModal = modal;
+            $scope.createModal.show();
+        });
+
+    };
+
+    vm.closeCreatePostModal = function () {
+        $scope.createModal.hide();
+    };
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function () {
+        $scope.createModal.remove();
+    });
+    //-------------------------------------------- create post modal-----------------------------------//
+
+
+
+    //-------------------------------------------- checkin modal-----------------------------------//
+    vm.showCheckinModal = function () {
+
+        $ionicModal.fromTemplateUrl('pages/create-post/checkin-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.checkin = modal;
+            $scope.checkin.show();
+        });
+
+        LocationService.askLocationPermission()
+            .then(LocationService.getCoords)
+            .then(function (coords) {
+                console.log(coords);
+                vm.locationPermission = true;
+            })
+            .catch(function (err) {
+                console.log(err);
+                vm.locationPermission = false;
+            });
+
+    };
+
+    vm.closeCheckinModal = function () {
+        $scope.checkin.hide();
+    };
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function () {
+        $scope.checkin.remove();
+    });
+    //-------------------------------------------- checkin modal-----------------------------------//
+
+
+
+    //-------------------------------------------- photo/video modal-----------------------------------//
+    vm.showPhotoVideoModal = function () {
+
+        $ionicModal.fromTemplateUrl('pages/create-post/photo-video-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.photoVideo = modal;
+            $scope.photoVideo.show();
+        });
+
+    };
+
+    vm.closePhotoVideoModal = function () {
+        $scope.photoVideo.hide();
+    };
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function () {
+        $scope.photoVideo.remove();
+    });
+    //-------------------------------------------- photo/video modal-----------------------------------//
+
+
+
+    //-------------------------------------------- feeling/activity modal-----------------------------------//
+    vm.showFeelingActivityModal = function () {
+
+        $ionicModal.fromTemplateUrl('pages/create-post/feeling-activity-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.feelingActivity = modal;
+            $scope.feelingActivity.show();
+        });
+
+    };
+
+    vm.closefeelingActivityModal = function () {
+        $scope.feelingActivity.hide();
+    };
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function () {
+        $scope.feelingActivity.remove();
+    });
+    //-------------------------------------------- feeling/activity modal-----------------------------------//
+
+
+    //-------------------------------------------- tag-friends modal-----------------------------------//
+    vm.showTagFriendsModal = function () {
+
+        $ionicModal.fromTemplateUrl('pages/create-post/tag-friends-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.tagFriends = modal;
+            $scope.tagFriends.show();
+        });
+
+    };
+
+    vm.closeTagFriendsModal = function () {
+        $scope.tagFriends.hide();
+    };
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function () {
+        $scope.tagFriends.remove();
+    });
+    //-------------------------------------------- tag-friends modal-----------------------------------//
+
+
+
+    // create text post
+    vm.createPost = function () {
+        console.log(vm.status.text);
         $ionicLoading.show({
             template: 'Working...'
         })
@@ -127,7 +262,7 @@ function homeCtrl($scope,
         var data = {
             "tz": vm.user.userTZ,
             "owner_type": "1",
-            "text_body": status.text,
+            "text_body": vm.status.text,
             "text_title": "text",
             "by_owner": "1",
             "privacy": "1",
@@ -148,12 +283,14 @@ function homeCtrl($scope,
             function (response) {
                 $ionicLoading.hide();
                 ionicToast.show("Posted!", "top", false, 2000);
+                initNewsFeed(1, vm.feedType);
+                vm.closeCreatePostModal();
             }, function (error) {
                 $ionicLoading.hide();
                 ionicToast.show("Error!", "bottom", false, 3000);
             }
         );
-    }//create post
+    }//create text post
 
 
 };
