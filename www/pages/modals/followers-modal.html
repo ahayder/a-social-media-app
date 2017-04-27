@@ -1,0 +1,19 @@
+<ion-modal-view>
+    <ion-header-bar align-title="left" class="bar-positive">
+        <h1 class="title">Followers</h1>
+        <div class="buttons">
+            <button ng-click="vm.closeModal()" class="button button-icon button-clear ion-close"></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content>
+        <div class="list">
+            <a ng-repeat="f in vm.followers" class="item item-avatar" href="#">
+                <img ng-src="{{vm.apiurl}}{{f.avatar}}">
+                <h2>{{f.full_name}}</h2>
+                <p>{{f.workTitle}}</p>
+            </a>
+        </div>
+    </ion-content>
+
+</ion-modal-view>

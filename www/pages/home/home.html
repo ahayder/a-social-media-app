@@ -1,48 +1,98 @@
 <ion-view title="Home" ng-cloak >
-  
-  <ion-content padding="true" class="has-header" scroll="true">
+
+  <ion-nav-bar class="bar-positive">
+
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-person" ui-sref="app.tabs.profile">
+        </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+
+<!-- regular and professional -->
+  <div class="bar bar-subheader bar-positive">
+      <ion-segment ng-model="feedType" full="false" balanced>
+        <ion-segment-button value="'1''" ng-click="vm.changeFeedType(1)" style="color:white">
+          Regular
+        </ion-segment-button>
+        <ion-segment-button value="'2''" ng-click="vm.changeFeedType(2)" style="color:white">
+          Professional
+        </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <ion-content padding="true" class="has-subheader" style="background-color: #ccc;">
 
     <ion-refresher
       pulling-text="Pull to refresh..."
       on-refresh="vm.doRefresh()">
     </ion-refresher>
 
-    <div class="list card" id="home-card23">
-      <ion-item class="item-avatar item-icon-right" id="home-list-item11">
-        <h2>Item</h2>
-        <p style="white-space:normal;">this should the the input line</p>
-        <i class="icon ion-gear-b"></i>
-      </ion-item>
-      <form id="home-form1" class="list">
-        <label class="item item-input" id="home-textarea1">
-          <span class="input-label">Text</span><textarea placeholder=""></textarea></label>
-      </form>
-      <div id="home-button-bar1" class="button-bar">
-        <button id="home-button4" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-camera"></button>
-        <button id="home-button10" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-happy"></button>
-        <button id="home-button11" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-location"></button>
-        <button id="home-button12" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-music-note"></button>
-        <button id="home-button13" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-videocamera"></button>
-        <button id="home-button14" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-android-attach"></button>
-        <button id="home-button24" style="font-weight:200;font-size:5px;" class="button button-light button-small button-block button-icon no-padding icon ion-android-send"></button>
+
+
+
+<!-- avater and status -->
+    <div class="list card">
+
+      <div class="item row">
+           <div class="col col-20">
+                 <div class="profile_image" style="background-image: url({{vm.apiurl + vm.user.profileAvatar}})">
+                    <div class="pp-top"></div>
+                    <div class="pp-Bottom"></div>
+                 </div>
+
+          </div>
+<!--
+          <div class="col col-80">
+               <form>
+                   <label class="item item-input">
+                       <textarea ng-click="vm.showCreatePostModal()" ng-model="vm.status.text" placeholder="Update your activity"></textarea>
+                   </label>
+              </form>
+          </div>-->
+
+
+          <div class="col col-80" ng-click="vm.showCreatePostModal()">
+               <p>Update your activity pulse</p>
+          </div>
+
       </div>
-    </div>
+
+
+      <!--<div  class="button-bar" style="padding-bottom:-5px">
+        <button class="button button-positive button-clear icon ion-camera"> Photos</button>
+        <button style="border-left: 1px solid #33cd5f;" class="button button-balanced button-clear icon ion-location"> Check in</button>
+      </div>-->
+
+
+  </div>
+
+
+
+
     <ion-list>
       <div ng-repeat="p in vm.feeds" ng-switch on="p.post.post_type">
-        <text-post ng-switch-when="text" post="p.post"></text-post>
-        <image-post ng-switch-when="images" post="p.post"></image-post>
-        <audio-post ng-switch-when="audio" post="p.post"></audio-post>
-        <attachment-post ng-switch-when="attachment" post="p.post"></attachment-post>
-        <video-post ng-switch-when="video" post="p.post"></video-post>
+        <text-post ng-switch-when="text" post="p"></text-post>
+        <image-post ng-switch-when="images" post="p"></image-post>
+        <audio-post ng-switch-when="audio" post="p"></audio-post>
+        <attachment-post ng-switch-when="attachment" post="p"></attachment-post>
+        <video-post ng-switch-when="video" post="p"></video-post>
+        <album-post ng-switch-when="album" post="p"></album-post>
+        <profile-post ng-switch-when="profile" post="p"></profile-post>
       </div>
     </ion-list>
-   
-   <ion-infinite-scroll
-    ng-if="!vm.morePostsCanBeLoaded"
-    icon="ion-loading-c" 
-    distance="10%" 
-    on-infinite="vm.loadMorePosts()">
+
+   <ion-infinite-scroll 
+   distance="10%" 
+   on-infinite="vm.loadMorePosts()">
   </ion-infinite-scroll>
-    
+
   </ion-content>
 </ion-view>

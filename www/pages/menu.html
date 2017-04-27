@@ -13,53 +13,42 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-content > 
+    <ion-content >
       <ion-list>
         <div class="item item-avatar">
           <img ng-src="{{vm.apiurl}}{{vm.user.token.profileAvatar}}">
           <h2>{{vm.user.token.full_name}}</h2>
           <p>{{vm.user.token.location.city}}</p>
         </div>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Home
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          All Connections
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Messages
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Pages
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Groups
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Classrooms
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Tasks
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Blog
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Polls
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Events
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          My Gifts
-        </ion-item>
-        <ion-item menu-close ui-sref="app.tabs.home">
-          Settings
-        </ion-item>
-        <ion-item menu-close ng-click="vm.logout()">
-          Logout
-        </ion-item>
-       
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon fa fa-home" style="color:#11a74a;font-size:20px"></i>Home</a>
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon fa fa-users"  style="font-size:20px"></i>All Connections</a>
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon fa fa-envelope" style="font-size:20px"></i>Messages</a>
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon fa fa-leaf" style="font-size:20px"></i>Pages</a>
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon fa fa-crosshairs" style="font-size:20px"></i>Groups</a>
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon fa fa-circle-o-notch" style="font-size:20px"></i>Classrooms</a>
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon fa fa-calendar" style="font-size:20px"></i>Tasks</a>
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon fa fa-sticky-note" style="font-size:20px"></i>Blogs</a>
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon fa fa-cubes" style="font-size:20px"></i>Polls</a>
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon fa fa-calendar" style="font-size:20px"></i>Events</a>
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon ion-ios-flower" style="font-size:20px"></i>My Gifts</a>
+
+        <a class="item item-icon-left" menu-close ui-sref="app.tabs.home"><i class="icon ion-gear-a" style="font-size:20px"></i>Settings</a>
+
+        <a class="item item-icon-left" menu-close ng-click="vm.testSms()"><i class="icon ion-log-out" style="font-size:20px"></i>Test Sms</a>
+
+        <a class="item item-icon-left" menu-close ng-click="vm.logout()"><i class="icon ion-log-out" style="font-size:20px"></i>Logout</a>
+
       </ion-list>
     </ion-content>
   </ion-side-menu>

@@ -11,39 +11,44 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
     vm.signinData = {};
 
 
+    // Set the default value of inputType
+   vm.inputType = 'password';
+
+
     // final login
     function finallyDoLogin(){
-        console.log(vm.signinData);
 
         vm.signinData.lat = vm.signinData.lat ? vm.signinData.lat : vm.signinData.lat = "";
         vm.signinData.lan = vm.signinData.lan ? vm.signinData.lan : vm.signinData.lan = "";
 
         SiginFactory.doSignin(vm.signinData).then(
             function (response) {
-                console.log(response);
                 response = response.data;
                 if (response.status === "2000"){
                     $ionicLoading.hide();
-                    if($localStorage.user){$localStorage.user = false;}
                     $localStorage.user = response.data;
-                    console.log($localStorage.user)
                     ionicToast.show("Login successful!", "top", false, 2000);
                     $state.go("app.tabs.home");
                 } else if(response.status === "5000"){
+                    $localStorage.user = "";
                     $ionicLoading.hide();
                     ionicToast.show("Please provide valid username or password.", "top", false, 3000);
                     //error
                 } else if(response.status === "8000"){
+                    $localStorage.user = "";
                     $ionicLoading.hide();
                     ionicToast.show("Error! Please try again.", "top", false, 3000);
                     //error
                 } else{
+                    $localStorage.user = "";
                     $ionicLoading.hide();
+                    ionicToast.show("Error! Please try again.", "top", false, 3000);
 
                 }
             },function(error){
+                $localStorage.user = "";
                 $ionicLoading.hide();
-                console.log(error);
+                ionicToast.show("Error! Please try again.", "top", false, 3000);
             });
     }// final login
 
@@ -105,5 +110,36 @@ function signinCtrl(SiginFactory, ionicToast, $cordovaGeolocation, $state, $loca
         // MARK:- Geolocation
         getUserLocation();
     }
+    
+    // Hide & show password function
+    vm.hideShowPassword = function(){
+        if (vm.inputType == 'password')
+       vm.inputType = 'text';
+        else
+       vm.inputType = 'password';
+    };
+
+
+
+    vm.testsms= function(){
+
+
+        var params = {"country_code":"880", "country_name":"Bangladesh", "token":"123456", "phone":"+8801672228726"};
+
+
+
+
+
+        SiginFactory.sms(params).then(
+            function(res){
+
+            },function(err){
+
+            }
+        );
+    }
+
+
+
     
 };

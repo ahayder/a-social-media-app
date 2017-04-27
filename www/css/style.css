@@ -1,4 +1,23 @@
 /* Empty. Add your own CSS if you like */
+
+input::-webkit-input-placeholder {
+color: #22c064 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+color: #22c064 !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #22c064 !important;
+}
+
+input:-ms-input-placeholder {
+color: #22c064 !important;
+}
+
+
+
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -13,8 +32,9 @@
     height: 100%;
 }
 
+
 .background{
-    background: url('../img/sign_in_img.jpg') no-repeat;
+    background: url('../img/sign_in_splash.jpg') no-repeat;
     background-size: cover;
 }
 
@@ -22,3 +42,298 @@
 .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs{
     top: 36px;
 }
+
+#sign-in-field{
+  border-radius:25px;
+  border-width: 2px;
+  border-style: solid;
+  border-color:#ffffff;
+  background-color: transparent;"
+}
+
+
+.album-image{
+    height: 110px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.album-first-image{
+    height: 170px;
+}
+
+.narrow-padding{
+  padding: 3px !important;
+}
+
+/*#remember_me{
+  display: block;
+  text-align: center;
+  line-height: 300%;
+  font-size: .8em;
+  color: white;
+}*/
+
+
+
+ /*------------ cover photo-----------*/
+
+/*---------------------. /Cover photo----------------------------*/
+
+
+      #content {
+        position: relative;
+        margin-top: 100px;
+        padding-top: 60px;
+        background-color: white;
+
+
+        /*margin-bottom: -50px;*/
+        box-shadow: 0px -1px 10px rgba(0,0,0,0.4);
+      }
+
+      #profile-bg {
+             position: fixed;
+             left: 0;
+             top: -100px;
+             width: 100%;
+             height: 100px;
+             background-size: 100%;
+             background-position: 50% 20%;
+             background-repeat: no-repeat;
+             text-align: right;
+           }
+
+      #profile-info {
+        position: relative;
+        top: -95px;
+        width: 100%;
+        /*z-index: 1;
+        text-align: center;*/
+      }
+
+      #pro-pic-edit{
+          position: relative;
+          margin-top:-25px;
+          margin-left: 10px;
+          z-index: 2;
+          text-shadow: 1px 3px 6px #000000;
+      }
+
+      #profile-name {
+        color: #ffffff;
+        font-size: 14px;
+        padding-left: 10px;
+        text-shadow: 1px 2px 5px #000000;
+      }
+
+      #profile-description {
+        font-size: 10px;
+        color: #888;
+        margin-left:10px;
+        margin-top: -20px;
+        /*text-shadow: 1px 3px 5px #000000;*/
+      }
+
+      #profile-description a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      #profile-btn{
+        margin-top: -20px;
+        color: #22c064;
+      }
+
+
+/*----------------------------hexaqgonal profile image------------------------------*/
+        .profile_image {
+          position: relative;
+          width: 50px;
+          height: 28.86px;
+          margin: 14.43px 0;
+          border-radius: 3px;
+          /*background-image: url(http://csshexagon.com/img/meow.jpg);*/
+          background-size: auto 57.7350px;
+          background-position: center;
+        }
+
+        .pp-top,
+        .pp-Bottom {
+          position: absolute;
+          z-index: 1;
+          width: 35.36px;
+          height: 35.36px;
+          border-radius: 3px;
+          overflow: hidden;
+          -webkit-transform: scaleY(0.5774) rotate(-45deg);
+          -ms-transform: scaleY(0.5774) rotate(-45deg);
+          transform: scaleY(0.5774) rotate(-45deg);
+          background: inherit;
+          left: 7.32px;
+        }
+
+        /*counter transform the bg image on the caps*/
+        .pp-top:after,
+        .pp-Bottom:after {
+          content: "";
+          position: absolute;
+          width: 50.0000px;
+          height: 28.86px;
+          border-radius: 3px;
+          -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-14.4338px);
+          -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-14.4338px);
+          transform:          rotate(45deg) scaleY(1.7321) translateY(-14.4338px);
+          -webkit-transform-origin: 0 0;
+          -ms-transform-origin: 0 0;
+          transform-origin: 0 0;
+          background: inherit;
+        }
+
+        .pp-top {
+          top: -17.6777px;
+        }
+
+        .pp-top:after {
+          background-position: center top;
+        }
+
+        .pp-Bottom {
+          bottom: -17.6777px;
+        }
+
+        .pp-Bottom:after {
+          background-position: center bottom;
+        }
+
+        .profile_image:after {
+          content: "";
+          position: absolute;
+          top: 0.0000px;
+          left: 0;
+          width: 50.0000px;
+          height: 28.86px;
+          border-radius: 2px;
+          z-index: 2;
+          background: inherit;
+        }
+
+/*-----------------------------/hexagonal profile image--------------------------------------*/
+
+.like-comment-share{
+  padding:1px 4px 1px 4px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  text-align: center;
+}
+      .center{
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+  }
+
+
+
+  .information{
+    font-size: 12px;
+    color: #888;
+  }
+
+
+      .profile_basic_info{
+          font-size:10px;
+          padding: 30px;
+          color: #888;
+       }
+
+/*-----------------profile activity buttons --------------------*/
+.list__item {
+  display: inline-block;
+}
+
+
+.list__icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px;
+  position: relative;
+}
+
+.list__icon_social {
+  text-align: center;
+  border-radius: 50%;
+  background-color: #22c064;
+  color: #fff;
+  padding: 1.8rem;
+  font-size: 1.8rem;
+}
+
+.list__icon_social:active{
+  background-color: #1ba84a;
+}
+
+.icon_social {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*-----------------profile activity buttons --------------------*/
+
+
+/*-----------------Notifiaction_page --------------------*/
+.name-style{
+  margin-top:-5px !important;
+  padding-bottom:-10px !important;
+  background-color:transparent !important;
+}
+
+.notification-profile-name {
+  color: #22c064;
+  font-size: 12px;
+}
+
+.noti-text-sec{
+  color:#505050;
+  font-size: 12px;
+}
+
+.noti-time{
+  margin-top: -10px;
+  color:#888;
+  font-size: 10px;
+}
+
+.button-thin{
+  min-width: 20px !important;
+  min-height: 22px !important;
+  line-height: 5px !important;
+}
+
+.btn-style{
+  margin: 0 2px 0 2px !important;
+  font-size: 10px !important;
+  border-width: 1px !important;
+  border-radius:20px !important;
+}
+
+/*-----------------/Notifiaction_page --------------------*/
+
+
+
+/*----------------------Stickey footer*-------------------------*/
+
+
+.stickyFooter {
+  padding: 20px;
+  width: 100%;
+  background: grey;
+  bottom: -60px;
+  position: absolute; }
+ion-content[sticky-footer] .scroll {
+  padding-bottom: 60px; }
+
+/*----------------------Stickey footer*-------------------------*/

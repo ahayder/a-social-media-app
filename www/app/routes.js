@@ -1,6 +1,11 @@
 angular.module('freemig.routes', [])
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+  $ionicConfigProvider.tabs.position('bottom');
+
+
+
   $stateProvider
 
   .state('app', {
@@ -20,6 +25,13 @@ angular.module('freemig.routes', [])
     url: '/signup',
     templateUrl: 'pages/signup/registration.html',
     controller: "registrationCtrl as vm"
+
+  })
+
+  .state('confirm-code', {
+    url: '/confirm-code',
+    templateUrl: 'pages/code-confirmation/code-confirm.html',
+    controller: "codeConfirmCtrl as vm"
 
   })
 
@@ -45,6 +57,26 @@ angular.module('freemig.routes', [])
       'tab1': {
         templateUrl: 'pages/home/home.html',
         controller: 'homeCtrl as vm'
+      }
+    }
+  })
+
+  .state('app.tabs.profile', {
+    url: '/profile',
+    views: {
+      'tab1': {
+        templateUrl: 'pages/home/profile/profile.html',
+        controller: "profileCtrl as vm"
+      }
+    }
+  })
+
+  .state('app.tabs.comments', {
+    url: '/comments/:type',
+    views: {
+      'tab1': {
+        templateUrl: 'pages/home/comments/comments.html',
+        controller: "commentsCtrl as vm"
       }
     }
   })

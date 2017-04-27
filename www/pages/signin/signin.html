@@ -1,23 +1,57 @@
-<ion-view title="signin" hide-nav-bar="true" hide-back-button="true" id="page4" >
+<ion-view title="signin" hide-nav-bar="true" hide-back-button="true" id="page4">
   <ion-content padding="true" class="manual-ios-statusbar-padding background" scroll="false">
     <div class="spacer" style="width: 300px; height: 25px;"></div>
+
+    <!--freemig icon-->
     <div>
-      <img src="img/freemig_icon.png" style="display: block; width: 25%; height: auto; margin-left: auto; margin-right: auto; margin-bottom:30px; margin-top:30px">
+      <img src="img/freemig_icon.png" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto; margin-bottom:40px; margin-top:40px">
     </div>
     <div class="spacer" style="width: 300px; height: 25px;"></div>
-    <form name="signinForm" novalidate id="signin-form1" class="list">
-      <label class="item item-input" id="signin-input1">
-        <input name="username" type="text" placeholder="Username/Email" ng-model="vm.signinData.username">
-      </label>
-      <label class="item item-input" id="signin-input2">
-        <input name="password" type="password" placeholder="Password" ng-model="vm.signinData.password">
-      </label>
-      <button ng-click="vm.signin()" id="signin-button2" class="button button-light  button-block">Sign In</button>
+
+
+    <form name="signinForm" novalidate class="list" style="margin:5%">
+
+      <!-- Username-->
+      <div class="list">
+        <label class="item item-input" style="border-radius:10px; border-width: 1.5px; border-style: solid; border-color:#ffffff; background-color: #ffffff;">
+                        <i class="icon ion-ios-person placeholder-icon" style="color:#37c673; font-size:20px"></i>
+                        <input type="text" placeholder="User Name" style="color:#0b883f; padding-bottom:2px; font-size:14px;" ng-model="vm.signinData.username">
+                </label>
+      </div>
+
+      <!-- <label class="item item-input item-floating-label " id="signin-input1">
+          <span class="input-label" style="color:#DDDDDD; font-size:10px">User Name</span>
+          <input type="text" placeholder="User Name" style="color:white;padding-bottom:20px;font-size:17px;" ng-model="vm.signinData.username">
+      </label> -->
+
+      <!-- password-->
+      <div class="item item-input" style="margin-top:-5px; border-radius:10px; border-width: 1.5px; border-style: solid; border-color:#ffffff; background-color: #ffffff;">
+        <i class="icon icon-left ion-ios-locked placeholder-icon" style="color:#37c673; font-size:20px"></i>
+        <input type="{{vm.inputType}}" placeholder="Password" style="color:#0b883f; padding-bottom:2px; font-size:14px" ng-model="vm.signinData.password">
+        <i ng-if="vm.inputType == 'password'" ng-click="vm.hideShowPassword()" class="icon icon-right ion-eye placeholder-icon" style="color:#728078; padding-right:15px"></i>
+        <i ng-click="vm.hideShowPassword()" ng-if="vm.inputType == 'text'" class="icon icon-right ion-eye-disabled placeholder-icon"
+          style="color:#728078; padding-right:15px"></i>
+      </div>
+
+
+      <!-- <label class="item item-input item-floating-label" id="signin-input1">
+          <span class="input-label" style="color:#DDDDDD; font-size:10px">Password</span>
+          <input type="password" placeholder="Password" style="color:white;padding-bottom:20px;font-size:17px" ng-model="vm.signinData.password">
+      </label> -->
+
+
+      <button ng-click="vm.signin()" class="button button-light button-block" style="border-radius: 10px;"><span style="color:#22c064">Sign In</span></button>
+
+
     </form>
 
-    <div id="signin-button-bar1" class="button-bar">
-      <button ui-sref="signup" id="signin-button6" class="button button-light button-small button-block button-clear">Create Account</button>
-      <button ui-sref="forgot-pass" id="signin-button7" class="button button-light button-small button-block button-clear">Forgot Password?</button>
+    <div class="button-bar" style="margin-left:-10%">
+      <button ui-sref="signup" class="button button-light button-small button-block button-clear"><b>Create Account<b></button>
+      <button ui-sref="forgot-pass" class="button button-light button-small button-block button-clear"><b>Forgot Password?<b></button>
     </div>
+
+    <button class="button button-positive" ui-sref="confirm-code">Code confirm page</button>
+    <button class="button button-positive" ng-click="vm.testsms()">Test</button>
+    
   </ion-content>
 </ion-view>

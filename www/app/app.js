@@ -7,26 +7,34 @@
 angular.module('freemig', [
   'ionic',
   'freemig.controllers',
+  'freemig.services',
   'freemig.routes',
   'freemig.signinController',
   'freemig.signinFactory',
   'freemig.registrationController',
   'freemig.registrationFactory',
   'freemig.forgotPassController',
+  'freemig.profileController',
+  'freemig.profileFactory',
+  'freemig.commentsController',
   'freemig.homeController',
+  'freemig.homeFactory',
   'freemig.notificationsController',
   'freemig.friendsController',
   'freemig.messagesController',
-  'freemig.homeFactory',
   'freemig.textDirective',
   'freemig.imageDirective',
   'freemig.audioDirective',
   'freemig.attachmentDirective',
   'freemig.videoDirective',
+  'freemig.albumDirective',
+  'freemig.profileDirective',
+  'freemig.confirmCodeController',
   'ngCordova',
   'ionic-toast',
   'ngStorage',
-  'ngSanitize'
+  'ngSanitize',
+  'plug.ionic-segment',
   ])
 
 .run(function($ionicPlatform, $localStorage, $state, $rootScope) {
@@ -44,12 +52,36 @@ angular.module('freemig', [
     }
 
     // Checking logged in condition
-    if($localStorage.user === undefined || typeof $localStorage.user === "undefined"){
+    if($localStorage.user === undefined || typeof $localStorage.user === "undefined"){ // undefined checking for the first time boot up
       $rootScope.isLoggedin = false;
-    }else if($localStorage.user){
+    }
+    else if($localStorage.user){ // if token exists
+      // Here check if token expires
+      console.log($localStorage.user);
       $rootScope.isLoggedin = true;
       $state.go("app.tabs.home");
-    } // Checking logged in condition
+    }
+    else if($localStorage.user == ""){
+      $rootScope.isLoggedin = false;
+    }
+     // Checking logged in condition
+    
+
+    //---------------------------------------- gettting device inormation---------------------------------
+    try{
+      var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+      console.log(deviceInfo);
+      deviceInfo.get(function(result) {
+          console.log("result = " + result);
+      }, function(e) {
+          console.log(e);
+      });
+    }catch(e){
+      console.log("Device e gele cordova paibo, ohonka paisena!");
+    }
+
+    //---------------------------------------- gettting device inormation---------------------------------
+    
 
 
 
@@ -57,6 +89,7 @@ angular.module('freemig', [
 })
 
 .constant("Constants", {
-    "apiurl": "http://198.38.89.216"
+    "apiurl": "https://mssiolefmig.freemig.com"
+    // "apiurl":"http://198.38.89.216"
 });
 
