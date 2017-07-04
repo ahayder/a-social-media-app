@@ -13,13 +13,12 @@
 
                   <!--Email Address -->
                       <label class="item item-input"  style="border-radius:10px; border-width: 1.5px; border-style: solid; border-color:#ffffff; background-color: #ffffff;" >
-                              <i class="icon ion-ios-person placeholder-icon" style="color:#37c673; font-size:20px"></i>
-                              <input type="text" placeholder="Email Address" style="color:#0b883f; padding-bottom:2px; font-size:14px;">
+                        <input type="tel" ng-model="vm.phone" placeholder="Type your account phone number">
                       </label>
               </form>
 
               <!--submit button -->
-              <button  class="button button-light  button-block" style="border-radius: 10px;color:#0b883f">Submit</button>
+              <button ng-click="vm.forgotPass()" class="button button-light  button-block" style="border-radius: 10px;color:#0b883f">Submit</button>
 
               <div class="button-bar"  style="margin-left:-15%">
                    <button ui-sref="signup" class="button button-light button-small button-block button-clear"><b>Create Account<b></button>

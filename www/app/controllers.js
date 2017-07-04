@@ -5,15 +5,10 @@ angular.module('freemig.controllers', [])
     var vm = this;
 
     vm.apiurl = Constants.apiurl;
-
-    if ($rootScope.isLoggedin) {
-      vm.user = $localStorage.user;
-    }
+    vm.user = $localStorage.user.token;
 
     vm.logout = function () {
-      console.log(vm.user.token)
-      // return;
-      $http.get(vm.apiurl + "/en/api/v0.1/app/auth/logout?token=" + vm.user.token.key).then(
+      $http.get(vm.apiurl + "/en/api/v0.1/app/auth/logout?token=" + vm.user.key).then(
         function (success) {
           $localStorage.user = "";
           $rootScope.isLoggedin = false;

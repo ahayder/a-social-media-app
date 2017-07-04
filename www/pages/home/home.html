@@ -1,4 +1,4 @@
-<ion-view title="Home" ng-cloak >
+<ion-view title="Home" ng-cloak>
 
   <ion-nav-bar class="bar-positive">
 
@@ -16,66 +16,46 @@
   </ion-nav-bar>
 
 
-<!-- regular and professional -->
+  <!-- regular and professional -->
   <div class="bar bar-subheader bar-positive">
-      <ion-segment ng-model="feedType" full="false" balanced>
-        <ion-segment-button value="'1''" ng-click="vm.changeFeedType(1)" style="color:white">
-          Regular
-        </ion-segment-button>
-        <ion-segment-button value="'2''" ng-click="vm.changeFeedType(2)" style="color:white">
-          Professional
-        </ion-segment-button>
+    <ion-segment ng-model="feedType" full="false" balanced>
+      <ion-segment-button value="'1''" ng-click="vm.changeFeedType(1)" style="color:white">
+        Regular
+      </ion-segment-button>
+      <ion-segment-button value="'2''" ng-click="vm.changeFeedType(2)" style="color:white">
+        Professional
+      </ion-segment-button>
     </ion-segment>
   </div>
 
   <ion-content padding="true" class="has-subheader" style="background-color: #ccc;">
 
-    <ion-refresher
-      pulling-text="Pull to refresh..."
-      on-refresh="vm.doRefresh()">
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.doRefresh()">
     </ion-refresher>
 
 
 
 
-<!-- avater and status -->
+    <!-- avater and status -->
     <div class="list card">
 
       <div class="item row">
-           <div class="col col-20">
-                 <div class="profile_image" style="background-image: url({{vm.apiurl + vm.user.profileAvatar}})">
-                    <div class="pp-top"></div>
-                    <div class="pp-Bottom"></div>
-                 </div>
-
+        <div class="col col-20">
+          <div class="profile_image" style="background-image: url({{vm.apiurl + vm.user.profileAvatar}})">
+            <div class="pp-top"></div>
+            <div class="pp-Bottom"></div>
           </div>
-<!--
-          <div class="col col-80">
-               <form>
-                   <label class="item item-input">
-                       <textarea ng-click="vm.showCreatePostModal()" ng-model="vm.status.text" placeholder="Update your activity"></textarea>
-                   </label>
-              </form>
-          </div>-->
 
+        </div>
 
-          <div class="col col-80" ng-click="vm.showCreatePostModal()">
-               <p>Update your activity pulse</p>
-          </div>
+        <div class="col col-80" ng-click="vm.showCreatePostModal()">
+          <p>Update your activity pulse</p>
+        </div>
 
       </div>
 
-
-      <!--<div  class="button-bar" style="padding-bottom:-5px">
-        <button class="button button-positive button-clear icon ion-camera"> Photos</button>
-        <button style="border-left: 1px solid #33cd5f;" class="button button-balanced button-clear icon ion-location"> Check in</button>
-      </div>-->
-
-
-  </div>
-
-
-
+    </div>
+    <!--end of avater and status -->
 
     <ion-list>
       <div ng-repeat="p in vm.feeds" ng-switch on="p.post.post_type">
@@ -89,10 +69,8 @@
       </div>
     </ion-list>
 
-   <ion-infinite-scroll 
-   distance="10%" 
-   on-infinite="vm.loadMorePosts()">
-  </ion-infinite-scroll>
+    <ion-infinite-scroll distance="10%" on-infinite="vm.loadMorePosts()">
+    </ion-infinite-scroll>
 
   </ion-content>
 </ion-view>

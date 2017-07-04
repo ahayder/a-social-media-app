@@ -1,0 +1,55 @@
+<ion-view title="Settings" cache-view="false">
+    <ion-content padding="false">
+
+        <div class="list">
+            <!--fullname-->
+            <div class="item item-divider">Change full name: {{vm.user.full_name}}</div>
+            <label class="item item-input">
+                <input type="text" ng-model="vm.firstName" placeholder="First Name">
+            </label>
+            <label class="item item-input">
+                <input type="text" ng-model="vm.lastName" placeholder="Last Name">
+            </label>
+            <button ng-click="vm.changeFullName()" class="button button-block button-small button-clear button-positive">Save</button>
+            <!--username-->
+            <div class="item item-divider">Change username</div>
+            <label class="item item-input">
+                <input type="text" ng-model="vm.username" placeholder="{{vm.user.username}}">
+            </label>
+            <button ng-click="vm.changeUsername()" class="button button-block button-small button-clear button-positive">Save</button>
+            <!--password-->
+            <div class="item item-divider">Change password</div>
+            <label class="item item-input">
+                <input type="password" ng-model="vm.currentPassword" placeholder="Current Password">
+            </label>
+            <label class="item item-input">
+                <input type="password" ng-model="vm.password" placeholder="New Password">
+            </label>
+            <label class="item item-input">
+                <input type="password" ng-model="vm.cpassword" placeholder="Confirm Password">
+            </label>
+            <button ng-disable="vm.password !== vm.cpassword" ng-click="vm.changePassword()" class="button button-block button-small button-clear button-positive">Save</button>
+            <!--email-->
+            <div class="item item-divider">Change email</div>
+            <label class="item item-input">
+                <input type="email" ng-model="vm.email" placeholder="Type email here">
+            </label>
+            <label class="item item-input">
+                <input type="password" ng-model="vm.emailChangePassword" placeholder="Current Password">
+            </label>
+            <label class="item item-input">
+                <input type="password" ng-model="vm.emailChangeConfirmPassword" placeholder="Confirm Current Password">
+            </label>
+            <button ng-click="vm.changeEmail()" class="button button-block button-small button-clear button-positive">Save</button>
+            <div class="item item-divider">Privacy Settings</div>
+            <div ng-click="vm.openPrivacyModal('frndReq')" class="item">Who can send me friend request?</div>
+            <div ng-click="vm.openPrivacyModal('follow')" class="item">Who can follow me?</div>
+            <div ng-click="vm.openPrivacyModal('messages')" class="item">Who can send me messages?</div>
+            <div ng-click="vm.openPrivacyModal('genInfo')" class="item">Who can see my general information?</div>
+            <div ng-click="vm.openPrivacyModal('connections')" class="item">Who can see my connections?</div>
+            <div ng-click="vm.openPrivacyModal('gallery')" class="item">Who can see my gallery?</div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

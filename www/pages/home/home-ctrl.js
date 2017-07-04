@@ -47,13 +47,13 @@ function homeCtrl($scope,
     }
 
     var posts = [];
-    var pageNum = 2;// initiallly 2 as init function always will be load from page 1
+    var pageNum = 2;// initiallly 2 as init uses page 1 for the first time
 
 
-    function initNewsFeed(pageNo, ft) {
+    function initNewsFeed(pageNo, fc) {
 
         var newsFeedHomePostData = {};
-        newsFeedHomePostData.feedChoose = ft;
+        newsFeedHomePostData.feedChoose = fc;
         newsFeedHomePostData.feedLoad = "home";
         newsFeedHomePostData.owner_type = "1";
         newsFeedHomePostData.tz = vm.user.userTZ;
@@ -125,7 +125,7 @@ function homeCtrl($scope,
     //-------------------------------------------- create post modal-----------------------------------//
     vm.showCreatePostModal = function () {
 
-        $ionicModal.fromTemplateUrl('pages/create-post/create-post-modal.html', {
+        $ionicModal.fromTemplateUrl('pages/home/create-post/create-post-modal.html', {
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
@@ -137,11 +137,8 @@ function homeCtrl($scope,
 
     vm.closeCreatePostModal = function () {
         $scope.createModal.hide();
-    };
-    // Cleanup the modal when we're done with it!
-    $scope.$on('$destroy', function () {
         $scope.createModal.remove();
-    });
+    };
     //-------------------------------------------- create post modal-----------------------------------//
 
 
@@ -149,7 +146,7 @@ function homeCtrl($scope,
     //-------------------------------------------- checkin modal-----------------------------------//
     vm.showCheckinModal = function () {
 
-        $ionicModal.fromTemplateUrl('pages/create-post/checkin-modal.html', {
+        $ionicModal.fromTemplateUrl('pages/home/create-post/checkin-modal.html', {
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
@@ -172,11 +169,8 @@ function homeCtrl($scope,
 
     vm.closeCheckinModal = function () {
         $scope.checkin.hide();
-    };
-    // Cleanup the modal when we're done with it!
-    $scope.$on('$destroy', function () {
         $scope.checkin.remove();
-    });
+    };
     //-------------------------------------------- checkin modal-----------------------------------//
 
 
@@ -184,7 +178,7 @@ function homeCtrl($scope,
     //-------------------------------------------- photo/video modal-----------------------------------//
     vm.showPhotoVideoModal = function () {
 
-        $ionicModal.fromTemplateUrl('pages/create-post/photo-video-modal.html', {
+        $ionicModal.fromTemplateUrl('pages/home/create-post/photo-video-modal.html', {
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
@@ -196,11 +190,8 @@ function homeCtrl($scope,
 
     vm.closePhotoVideoModal = function () {
         $scope.photoVideo.hide();
-    };
-    // Cleanup the modal when we're done with it!
-    $scope.$on('$destroy', function () {
         $scope.photoVideo.remove();
-    });
+    };
     //-------------------------------------------- photo/video modal-----------------------------------//
 
 
@@ -208,7 +199,7 @@ function homeCtrl($scope,
     //-------------------------------------------- feeling/activity modal-----------------------------------//
     vm.showFeelingActivityModal = function () {
 
-        $ionicModal.fromTemplateUrl('pages/create-post/feeling-activity-modal.html', {
+        $ionicModal.fromTemplateUrl('pages/home/create-post/feeling-activity-modal.html', {
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
@@ -220,18 +211,15 @@ function homeCtrl($scope,
 
     vm.closefeelingActivityModal = function () {
         $scope.feelingActivity.hide();
-    };
-    // Cleanup the modal when we're done with it!
-    $scope.$on('$destroy', function () {
         $scope.feelingActivity.remove();
-    });
+    };
     //-------------------------------------------- feeling/activity modal-----------------------------------//
 
 
     //-------------------------------------------- tag-friends modal-----------------------------------//
     vm.showTagFriendsModal = function () {
 
-        $ionicModal.fromTemplateUrl('pages/create-post/tag-friends-modal.html', {
+        $ionicModal.fromTemplateUrl('pages/home/create-post/tag-friends-modal.html', {
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
@@ -243,11 +231,8 @@ function homeCtrl($scope,
 
     vm.closeTagFriendsModal = function () {
         $scope.tagFriends.hide();
-    };
-    // Cleanup the modal when we're done with it!
-    $scope.$on('$destroy', function () {
         $scope.tagFriends.remove();
-    });
+    };
     //-------------------------------------------- tag-friends modal-----------------------------------//
 
 

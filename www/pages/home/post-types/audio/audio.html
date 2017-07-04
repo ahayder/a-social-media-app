@@ -37,7 +37,7 @@
     </ion-item>
 
 
-    <div class="card" style="margin:10px">
+    <div class="card" style="margin:10px" ng-if="!vm.post.post.isShared">
         <div class="item item-text-wrap" ng-if="vm.post.post.text_body !== ''">
             {{vm.post.post.text_body}}
         </div>
@@ -80,20 +80,12 @@
             <div style="padding-left:10px">
                 <div>
                     <span style="font-size: 14px; color:#22c064">{{vm.post.shared_post.originator_info.full_name}}</span>
-                    <!-- <span style="font-size: 12px">{{vm.post.shared_post.edit_text_body}}</span> -->
                 </div>
 
                 <!--date-->
                 <p style="white-space:normal; font-size:10px">{{vm.post.post.created_at.diffForHumans}}</p>
             </div>
         </div>
-        <!-- <div class="col col-90">
-                    <div class="item item-avatar item-text-wrap">
-                        <img ng-src="{{vm.apiurl}}{{vm.post.shared_post.originator_info.avatar}}"/>
-                        <h2>{{vm.post.shared_post.originator_info.full_name}}</h2>
-                        <p>{{vm.post.shared_post.edit_text_body}}</p>
-                    </div>
-                </div> -->
     </div>
 
     <!--if shared post-->

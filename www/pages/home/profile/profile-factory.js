@@ -22,7 +22,10 @@ function ProfileFactory($http, Constants) {
         },
         getWidgetInfo: function(key, data){
             return $http.post(Constants.apiurl+'/en/api/v0.1/app/social/get-widget-general-info?token='+key, data);
-        }
+        },
+        getNewsFeedProfile: function(key, data, pageNo){
+            return $http.post(Constants.apiurl + '/en/api/v0.1/app/social/newsFeed/'+pageNo+'?token='+key, data);
+        },
     });
     
 };

@@ -38,8 +38,21 @@ angular.module('freemig.routes', [])
   .state('forgot-pass', {
     url: '/forgot-pass',
     templateUrl: 'pages/forgot-pass/forgot-pass.html',
-    controller: "forgotCtrl"
+    controller: "forgotCtrl as vm"
   })
+
+
+  .state('app.settings', {
+    url: '/settings',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/settings/settings.html',
+        controller: "settingsCtrl as vm"
+      }
+    }
+  })
+
+
 
   .state('app.tabs', {
     url: '/tabs',

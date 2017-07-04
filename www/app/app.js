@@ -30,66 +30,68 @@ angular.module('freemig', [
   'freemig.albumDirective',
   'freemig.profileDirective',
   'freemig.confirmCodeController',
+  'freemig.settingsController',
+  'freemig.settingsFactory',
   'ngCordova',
   'ionic-toast',
   'ngStorage',
   'ngSanitize',
-  'plug.ionic-segment',
-  ])
+  'plug.ionic-segment'
+])
 
-.run(function($ionicPlatform, $localStorage, $state, $rootScope) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
+  .run(function ($ionicPlatform, $localStorage, $state, $rootScope) {
+    $ionicPlatform.ready(function () {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      if (window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        cordova.plugins.Keyboard.disableScroll(true);
 
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
+      }
+      if (window.StatusBar) {
+        // org.apache.cordova.statusbar required
+        StatusBar.styleDefault();
+      }
 
-    // Checking logged in condition
-    if($localStorage.user === undefined || typeof $localStorage.user === "undefined"){ // undefined checking for the first time boot up
-      $rootScope.isLoggedin = false;
-    }
-    else if($localStorage.user){ // if token exists
-      // Here check if token expires
-      console.log($localStorage.user);
-      $rootScope.isLoggedin = true;
-      $state.go("app.tabs.home");
-    }
-    else if($localStorage.user == ""){
-      $rootScope.isLoggedin = false;
-    }
-     // Checking logged in condition
-    
+      // Checking logged in condition
+      if ($localStorage.user === undefined || typeof $localStorage.user === "undefined") { // undefined checking for the first time boot up
+        $rootScope.isLoggedin = false;
+      }
+      else if ($localStorage.user) { // if token exists
+        // Here check if token expires
+        console.log($localStorage.user);
+        $rootScope.isLoggedin = true;
+        $state.go("app.tabs.home");
+      }
+      else if ($localStorage.user == "") {
+        $rootScope.isLoggedin = false;
+      }
+      // Checking logged in condition
 
-    //---------------------------------------- gettting device inormation---------------------------------
-    try{
-      var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-      console.log(deviceInfo);
-      deviceInfo.get(function(result) {
+
+      //---------------------------------------- gettting device inormation---------------------------------
+      try {
+        var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+        console.log(deviceInfo);
+        deviceInfo.get(function (result) {
           console.log("result = " + result);
-      }, function(e) {
+        }, function (e) {
           console.log(e);
-      });
-    }catch(e){
-      console.log("Device e gele cordova paibo, ohonka paisena!");
-    }
+        });
+      } catch (e) {
+        console.log(e);
+      }
 
-    //---------------------------------------- gettting device inormation---------------------------------
-    
-
+      //---------------------------------------- gettting device inormation---------------------------------
 
 
-  });
-})
 
-.constant("Constants", {
+
+    });
+  })
+
+  .constant("Constants", {
     "apiurl": "https://mssiolefmig.freemig.com"
     // "apiurl":"http://198.38.89.216"
-});
+  });
 

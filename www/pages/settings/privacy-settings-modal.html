@@ -1,0 +1,103 @@
+<ion-modal-view>
+    <ion-header-bar align-title="left" class="bar-positive">
+        <h1 class="title">Privacy Settings</h1>
+        <div class="buttons">
+            <button ng-click="vm.closePrivacySettingsModal()" class="button button-icon button-clear ion-close"></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content>
+        <div ng-if="vm.privacyName == 'frndReq'" class="list">
+            <div class="item item-divider">
+                Who can send me friend request?
+            </div>
+            <ion-radio ng-model="vm.frndReqChoice" ng-value="1">Everyone</ion-radio>
+            <ion-radio ng-model="vm.frndReqChoice" ng-value="4">None</ion-radio>
+            <div class="button-bar">
+                <div ng-click="vm.closePrivacySettingsModal()" class="button button-stable">Cancel</div>
+                <div ng-click="vm.savePrivacySettings(1, vm.frndReqChoice)" class="button button-positive">Save Changes</div>
+            </div>
+        </div>
+
+        <div ng-if="vm.privacyName == 'follow'" class="list">
+            <div class="item item-divider">
+                Who can follow me?
+            </div>
+            <ion-radio ng-model="vm.followChoice" ng-value="1">Everyone</ion-radio>
+            <ion-radio ng-model="vm.followChoice" ng-value="4">None</ion-radio>
+            <ion-radio ng-model="vm.followChoice" ng-value="5">Connections</ion-radio>
+            <ion-radio ng-model="vm.followChoice" ng-value="6">Friends</ion-radio>
+            <ion-radio ng-model="vm.followChoice" ng-value="7">Family</ion-radio>
+            <ion-radio ng-model="vm.followChoice" ng-value="8">Known</ion-radio>
+            <div class="button-bar">
+                <div ng-click="vm.closePrivacySettingsModal()" class="button button-stable">Cancel</div>
+                <div ng-click="vm.savePrivacySettings(2, vm.followChoice)" class="button button-positive">Save Changes</div>
+            </div>
+        </div>
+
+        <div ng-if="vm.privacyName == 'messages'" class="list">
+            <div class="item item-divider">
+                Who can send messages?
+            </div>
+            <ion-radio ng-model="vm.messagesChoice" ng-value="1">Everyone</ion-radio>
+            <ion-radio ng-model="vm.messagesChoice" ng-value="4">None</ion-radio>
+            <ion-radio ng-model="vm.messagesChoice" ng-value="5">Connections</ion-radio>
+            <ion-radio ng-model="vm.messagesChoice" ng-value="6">Friends</ion-radio>
+            <ion-radio ng-model="vm.messagesChoice" ng-value="7">Family</ion-radio>
+            <ion-radio ng-model="vm.messagesChoice" ng-value="8">Known</ion-radio>
+            <div class="button-bar">
+                <div ng-click="vm.closePrivacySettingsModal()" class="button button-stable">Cancel</div>
+                <div ng-click="vm.savePrivacySettings(3, vm.messagesChoice)" class="button button-positive">Save Changes</div>
+            </div>
+        </div>
+
+        <div ng-if="vm.privacyName == 'genInfo'" class="list">
+            <div class="item item-divider">
+                Who can see my general information?
+            </div>
+            <ion-radio ng-model="vm.genInfoChoice" ng-value="1">Everyone</ion-radio>
+            <ion-radio ng-model="vm.genInfoChoice" ng-value="4">None</ion-radio>
+            <ion-radio ng-model="vm.genInfoChoice" ng-value="5">Connections</ion-radio>
+            <ion-radio ng-model="vm.genInfoChoice" ng-value="6">Friends</ion-radio>
+            <ion-radio ng-model="vm.genInfoChoice" ng-value="7">Family</ion-radio>
+            <ion-radio ng-model="vm.genInfoChoice" ng-value="8">Known</ion-radio>
+            <div class="button-bar">
+                <div ng-click="vm.closePrivacySettingsModal()" class="button button-stable">Cancel</div>
+                <div ng-click="vm.savePrivacySettings(4, vm.genInfoChoice)" class="button button-positive">Save Changes</div>
+            </div>
+        </div>
+
+        <div ng-if="vm.privacyName == 'connections'" class="list">
+            <div class="item item-divider">
+                Who can see my connections?
+            </div>
+            <ion-radio ng-model="vm.connectionsChoice" ng-value="1">Everyone</ion-radio>
+            <ion-radio ng-model="vm.connectionsChoice" ng-value="4">None</ion-radio>
+            <ion-radio ng-model="vm.connectionsChoice" ng-value="5">Connections</ion-radio>
+            <ion-radio ng-model="vm.connectionsChoice" ng-value="6">Friends</ion-radio>
+            <ion-radio ng-model="vm.connectionsChoice" ng-value="7">Family</ion-radio>
+            <ion-radio ng-model="vm.connectionsChoice" ng-value="8">Known</ion-radio>
+            <div class="button-bar">
+                <div class="button button-stable">Cancel</div>
+                <div ng-click="vm.savePrivacySettings(5, vm.connectionsChoice)" class="button button-positive">Save Changes</div>
+            </div>
+        </div>
+
+        <div ng-if="vm.privacyName == 'gallery'" class="list">
+            <div class="item item-divider">
+                Who can see my gallery?
+            </div>
+            <ion-radio ng-model="vm.galleryChoice" ng-value="1">Everyone</ion-radio>
+            <ion-radio ng-model="vm.galleryChoice" ng-value="4">None</ion-radio>
+            <ion-radio ng-model="vm.galleryChoice" ng-value="5">Connections</ion-radio>
+            <ion-radio ng-model="vm.galleryChoice" ng-value="6">Friends</ion-radio>
+            <ion-radio ng-model="vm.galleryChoice" ng-value="7">Family</ion-radio>
+            <ion-radio ng-model="vm.galleryChoice" ng-value="8">Known</ion-radio>
+            <div class="button-bar">
+                <div ng-click="vm.closePrivacySettingsModal()" class="button button-stable">Cancel</div>
+                <div ng-click="vm.savePrivacySettings(6, vm.galleryChoice)" class="button button-positive">Save Changes</div>
+            </div>
+        </div>
+    </ion-content>
+
+</ion-modal-view>

@@ -6,6 +6,8 @@
   },
   "dependencies": {
     "ionic-toast": "^0.4.1",
-    "plug.ionic-segment": "^0.0.3"
+    "plug.ionic-segment": "^0.0.3",
+    "ng-intl-tel-input": "^2.0.0",
+    "international-phone-number": "^0.0.16"
   }
 }

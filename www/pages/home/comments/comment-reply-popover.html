@@ -1,0 +1,9 @@
+<ion-popover-view style="height:165px !important;">
+    <ion-content>
+        <!--reply form-->
+        <div class="card">
+            <textarea ng-model="vm.thisReplyComment" class="item" placeholder="Reply here" rows="2" cols="20"></textarea>
+            <button class="button button-full button-small button-positive button-clear" ng-click="vm.replyComment(vm.replyCommentId)">Save</button>
+        </div>
+    </ion-content>
+</ion-popover-view>

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
 
-    <link rel="manifest" href="manifest.json">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
 
-    <!-- un-comment this code to enable service worker
+  <link rel="manifest" href="manifest.json">
+
+  <!-- un-comment this code to enable service worker
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js')
@@ -16,59 +17,72 @@
       }
     </script>-->
 
-    <link rel="stylesheet" href="css/style.css">
-    <link href="lib/plug.ionic-segment/dist/segment.css" media="all" rel="stylesheet" type="text/css">
-    <link href="lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="lib/plug.ionic-segment/dist/segment.css" media="all" rel="stylesheet" type="text/css">
+  <link href="lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- compiled css output -->
+  <!-- compiled css output -->
 
-    <link href="css/ionic.app.css" rel="stylesheet">
+  <link href="css/ionic.app.css" rel="stylesheet">
 
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
-    <script src="cordova.js"></script>
+  <!--international-phone-number-->
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="lib/intl-tel-input/build/css/intlTelInput.css">
+  <script src="lib/intl-tel-input/build/js/intlTelInput.js"></script>
+  <script src="lib/international-phone-number/releases/international-phone-number.js"></script>-->
+  <!--international-phone-number-->
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+  <script src="cordova.js"></script>
 
 
-    <!-- your app's js -->
-    <script src="app/app.js"></script>
-    <script src="app/controllers.js"></script>
-    <script src="app/services.js"></script>
-    <script src="app/routes.js"></script>
-    <script src="pages/signin/signin-ctrl.js"></script>
-    <script src="pages/signin/signin-factory.js"></script>
-    <script src="pages/friends/friends-ctrl.js"></script>
-    <script src="pages/notifications/notifications-ctrl.js"></script>
-    <script src="pages/messages/messages-ctrl.js"></script>
-    <script src="pages/signup/registration-ctrl.js"></script>
-    <script src="pages/signup/registration-factory.js"></script>
-    <script src="pages/forgot-pass/forgot-pass-ctrl.js"></script>
-    <script src="pages/home/profile/profile-ctrl.js"></script>
-    <script src="pages/home/profile/profile-factory.js"></script>
-    <script src="pages/home/comments/comments-ctrl.js"></script>
-    <script src="pages/code-confirmation/code-confirm-ctrl.js"></script>
-    <script src="pages/home/home-ctrl.js"></script>
-    <script src="pages/home/home-factory.js"></script>
-    <script src="pages/home/post-types/text/text-directive.js"></script>
-    <script src="pages/home/post-types/image/image-directive.js"></script>
-    <script src="pages/home/post-types/audio/audio-directive.js"></script>
-    <script src="pages/home/post-types/attachment/attachment-directive.js"></script>
-    <script src="pages/home/post-types/video/video-directive.js"></script>
-    <script src="pages/home/post-types/album/album-directive.js"></script>
-    <script src="pages/home/post-types/profile-post-type/profile-directive.js"></script>
+  <!-- your app's js -->
+  <script src="app/app.js"></script>
+  <script src="app/controllers.js"></script>
+  <script src="app/services.js"></script>
+  <script src="app/routes.js"></script>
+  <script src="pages/signin/signin-ctrl.js"></script>
+  <script src="pages/signin/signin-factory.js"></script>
+  <script src="pages/friends/friends-ctrl.js"></script>
+  <script src="pages/notifications/notifications-ctrl.js"></script>
+  <script src="pages/messages/messages-ctrl.js"></script>
+  <script src="pages/signup/registration-ctrl.js"></script>
+  <script src="pages/signup/registration-factory.js"></script>
+  <script src="pages/forgot-pass/forgot-pass-ctrl.js"></script>
+  <script src="pages/settings/settings-ctrl.js"></script>
+  <script src="pages/settings/settings-factory.js"></script>
+  <script src="pages/home/profile/profile-ctrl.js"></script>
+  <script src="pages/home/profile/profile-factory.js"></script>
+  <script src="pages/home/comments/comments-ctrl.js"></script>
+  <script src="pages/code-confirmation/code-confirm-ctrl.js"></script>
+  <script src="pages/home/home-ctrl.js"></script>
+  <script src="pages/home/home-factory.js"></script>
+  <script src="pages/home/post-types/text/text-directive.js"></script>
+  <script src="pages/home/post-types/image/image-directive.js"></script>
+  <script src="pages/home/post-types/audio/audio-directive.js"></script>
+  <script src="pages/home/post-types/attachment/attachment-directive.js"></script>
+  <script src="pages/home/post-types/video/video-directive.js"></script>
+  <script src="pages/home/post-types/album/album-directive.js"></script>
+  <script src="pages/home/post-types/profile-post-type/profile-directive.js"></script>
 
-    <!--libraries-->
-    <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
-    <script src="lib/ngstorage/ngStorage.min.js"></script>
-    <script src="lib/hls/hls.min.js"></script>
-    <script src="lib/plug.ionic-segment/dist/plug.ionic-segment.js"></script>
+  <!--libraries-->
+  <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
+  <script src="lib/ngstorage/ngStorage.min.js"></script>
+  <script src="lib/hls/hls.min.js"></script>
+  <script src="lib/plug.ionic-segment/dist/plug.ionic-segment.js"></script>
+  
+  
+ 
 
-    <!--<script src="lib/angular-messages/angular-messages.min.js"></script>-->
+  <!--<script src="lib/angular-messages/angular-messages.min.js"></script>-->
 
-  </head>
+</head>
 
-  <body ng-app="freemig">
-    <ion-nav-view></ion-nav-view>
-  </body>
+<body ng-app="freemig">
+  <ion-nav-view></ion-nav-view>
+</body>
+
 </html>
